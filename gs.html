@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    .container {
+        margin: 0 auto;
+        width: 1024px;
+    }
+
+    .row::after {
+        content: '';
+        clear: both;
+        display: table;
+    }
+
+    [class^=col] {
+        float: left;
+        margin-right: 20px;
+    }
+
+    [class^=col]:last-child {
+        margin-right: 0;
+    }
+
+    .col-1 {
+        width: 67px;
+    }
+    .col-2 {
+        width: 154px;
+    }
+    .col-3 {
+        width: 241px;
+    }
+    .col-4 {
+        width: 328px;
+    }
+    .col-5 {
+        width: 415px;
+    }
+    .col-6 {
+        width: 502px;
+    }
+    .col-7 {
+        width: 589px;
+    }
+    .col-8 {
+        width: 676px;
+    }
+    .col-9 {
+        width: 763px;
+    }
+    .col-10 {
+        width: 850px;
+    }
+    .col-11 {
+        width: 937px;
+    }
+    .col-12 {
+        width: 1024px;
+    }
+
+    [class^=col] > div {
+        background-color: yellow;
+    }
+
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+        </div>
+    </div>
+    
+</body>
+</html>
