@@ -1,30 +1,3 @@
-// let agent = navigator.userAgent.toLocaleLowerCase();
-// console.dir(navigator);
-// console.log(agent.indexOf("firefox"));
-
-// switch (agent) {
-//     case navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1 || (agent.indexOf("msie") != -1):
-//         alert('IE입니다.');
-//     case agent.indexOf("chrome") != -1:
-//         alert('chrome입니다.');
-//     case agent.indexOf("safari") != -1:
-//         alert('safari입니다.');
-//     case agent.indexOf("firefox") != -1:
-//         alert('firefox입니다.');
-// }
-
-
-let n = parseInt(prompt('숫자를 입력하세요.' , ''));
-let sum = 0;
-
-for (let i = 1; i <= n; i++) {
-    sum += i;
-}
-
-console.log(sum);
-
-
-
 let login;
 
 while (login != 'Admin') { 
