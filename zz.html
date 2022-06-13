@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+    <button>stop</button>
+    <div id="display"></div>
+    <script>
+        let plus = ['-', '+'];
+        let min = 0, max = 50, value = 100;
+        let btn = document.querySelector("button");
+        let display = document.querySelector("#display");
+
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
+        }
+
+        let timer = setInterval(function() {
+            let symbol = getRndInteger(0, 1);
+            let gab = getRndInteger(min, max);
+            let div = document.createElement('div');
+            let text = document.createTextNode(value + (Number(symbol + gab)));
+            div.appendChild(text);
+            display.appendChild(div);
+        }, 1000);
+
+        btn.onclick = () => {
+            clearInterval(timer);
+        }
+    </script>
+</body>
+</html>

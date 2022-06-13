@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>고정 그리드 시스템</title>
+	<style>
+		/*1열: 67
+		14 2열: 154
+		14 3열: 241
+		14 4열: 328
+		14 5열: 415
+		14 6열: 502
+		14 7열: 589
+		14 8열: 676
+		14 9열: 763
+		14 10열: 850
+		14 11열: 937
+		14 12열: 1024*/
+
+		.row {
+
+		}
+		.container {
+			width: 1024px;
+			margin: 0 auto;
+		}
+		.row::after {
+			content: '';
+			clear: both;
+			display: table;
+		}
+		[class^=col] {
+			float: left;
+			margin-right: 20px;
+		}
+		[class^=col]:last-child {
+			margin-right: 0;
+		}
+		.col-1 {
+			width: 67px;
+		}
+		.col-2 {
+			width: 154px;
+		}
+		.col-3 {
+			width: 241px;
+		}
+		.col-4 {
+			width: 328px;
+		}
+		.col-5 {
+			width: 415px;
+		}
+		.col-6 {
+			width: 502px;
+		}
+		.col-7 {
+			width: 589px;
+		}
+		.col-8 {
+			width: 676px;
+		}
+		.col-9 {
+			width: 763px;
+		}
+		.col-10 {
+			width: 850px;
+		}
+		.col-11 {
+			width: 937px;
+		}
+		.col-12 {
+			width: 1024px;
+		}
+
+		[class^=col] > div {
+			height: 500px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+			<div class="col-1">
+				<div></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4">
+				<div></div>
+			</div>
+			<div class="col-8">
+				<div></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-6">
+				<div></div>
+			</div>
+			<div class="col-6">
+				<div></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -14,31 +14,36 @@
 // }
 
 
-let n = parseInt(prompt('숫자를 입력하세요.' , ''));
-let sum = 0;
+// let n = parseInt(prompt('숫자를 입력하세요.' , ''));
+// let sum = 0;
 
-for (let i = 1; i <= n; i++) {
-    sum += i;
-}
+// for (let i = 1; i <= n; i++) {
+//     sum += i;
+// }
 
-console.log(sum);
+// console.log(sum);
 
+let login;
 
+while (login != 'Admin') { 
 
+    let login = prompt('아이디를 입력하세요' , '');
 
-let login = prompt('아이디를 입력하세요' , '');
-
-if (login == 'Admin') {
-    let pwCheck = prompt('비밀번호를 입력하세요.' , '');
-    if (pwCheck == 'TheMaster') {
-        alert('Welcome!')
-    } else if (pwCheck == '' || pwCheck == null) {
+    if (login == 'Admin') {
+        while (login == 'Admin') break; {
+            let pwCheck = prompt('비밀번호를 입력하세요.' , '');
+            if (pwCheck == 'TheMaster') {
+                alert('Welcome!');
+                break;
+            } else if (login == '' || login == null) {
+                alert('취소했거나 공백입니다.');
+            } else {
+                alert('잘못된 비밀번호입니다.');
+            }
+        }
+    } else if (login == '' || login == null) {
         alert('취소했거나 공백입니다.');
     } else {
-        alert('잘못된 비밀번호입니다.');
+        alert('잘못된 아이디입니다.');
     }
-} else if (login == '' || login == null) {
-    alert('취소했거나 공백입니다.');
-} else {
-    alert('잘못된 아이디입니다.');
 }
