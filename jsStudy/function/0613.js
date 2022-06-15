@@ -157,7 +157,7 @@ say();
 
 
 
-let me = new object();
+// let me = new object();
 let you = {};
 
 console.log(typeof me);
@@ -172,3 +172,31 @@ user.name = "Pete";
 delete user.name;
 
 
+function isEmpty(obj) {
+  for (let key in obj) {
+    // if the loop has started, there is a property
+    return false;
+  }
+  return true;
+}
+
+const userName = {
+  name : "John"
+};
+//works
+userName.name = "Pete";
+//error
+// userName = 123;
+
+
+let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130
+};
+
+let salariesSum = 0;
+for (let key in salaries) {
+  sum += salaries[key];
+}
+alert(salariesSum);
