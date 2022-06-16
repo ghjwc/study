@@ -82,7 +82,48 @@ function readNumber() {
 }
 
 
-function ucFirst() {
-    
-}
+let arr1 = [5, 2, 3, 4];
+console.log(arr1.length); //4
 
+const carr = [10, 20, 30];
+carr[0] = 20;
+
+
+
+let styles = ['Jazz', 'Blues'];
+console.log(styles);
+styles.push('Rock-n-Roll');
+console.log(styles);
+styles[Math.floor((styles.length - 1) / 2)] = 'Classics';
+console.log(styles);
+console.log(styles[0]);
+styles.unshift('Rap', 'Reggae');
+console.log(styles);
+
+
+
+// function sumInput() {
+//     let n1 = +prompt('number?' , 0);
+//     let n2 = +prompt('number?' , 0);
+
+//     let numbers = [n1, n1];
+
+//     if (isFinite(n1) == false || isFinite(n2) == false) {
+//         console.log(+n1 + n2);
+//     } else if (n1 == '' || n1 == null) {
+//         return null;
+//     }
+// }
+
+
+function sumInput() {
+
+    let numbers = [];
+
+    while (true) {
+        let value = prompt('숫자를 입력해주세요.');
+        if (value === '' || value === null || !isFinite(value)) break;
+        numbers.push(+value);
+    }
+
+}
