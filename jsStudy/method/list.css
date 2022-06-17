@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.5rem;
+}
+
+li {
+    list-style: none;
+}
+
+#wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    margin: 0 auto;
+    width: 50rem;
+    border-radius: 1.5rem;
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.1rem lightgray;
+}
+
+section {
+    text-align: center;
+}
+
+section input {
+    margin-top: 1.5rem;
+    padding-left: 1rem;
+    width: calc(100% - 7rem);
+    height: 3rem;
+    border-style: none;
+    border-radius: 1rem;
+    background-color: #f5f5f5;
+}
+
+section button {
+    margin-left: 1%;
+    width: 3rem;
+    height: 3rem;
+    background-color: gray;
+    color: white;
+    border-style: none;
+    border-radius: 100%;
+}
+
+section button:hover {
+    background-color: lightblue;
+}
+
+article {
+    margin: 1.5rem;
+    height: 50rem;
+    overflow: hidden;
+    /* background-color: aqua; */
+}
+
+article li {
+    padding: 1.5rem 0 1.5rem 0;
+    border-bottom: 0.1rem solid #f5f5f5;
+    /* background-color: lightyellow; */
+}
+
+article button {
+    margin-left: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+    font-size: 1rem;
+    color: white;
+    border-style: none;
+    border-radius: 50%;
+    background-color: lightpink;
+}
+
+article button:hover {
+    background-color: red;
+}
+
+@media (max-width: 500px) {
+    main {
+        width: 90%;
+    }
+}

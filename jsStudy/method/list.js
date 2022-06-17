@@ -26,7 +26,7 @@ function addFruits() {
     }
 
     const del = document.createElement('button');
-    del.innerText = 'DEL';
+    del.innerHTML = '&times';
     fruits.appendChild(del);
     
     del.onclick = function(e) {
