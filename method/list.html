@@ -6,15 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+<style>
+    ul, li {
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+</style>
+
 <body>
 
     <div>
         <div>
-            <input type="text" id="newFruit">
-            <button onclick="addFruits()">INPUT</button>
+            <input type="text" id="newFruit" onkeyup="enterPressed(event)" autofocus>
+            <button id="inputBtn">INPUT</button>
         </div>
 
-        <div id="fruitList">
+        <div>
             <ul id="fruitUl"></ul>
         </div>
     </div>
