@@ -8,28 +8,88 @@
 </head>
 
 <style>
-    ul, li {
+    * {
+        margin: 0;
         padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        font-size: 10px;
+    }
+
+    body {
+        font-size: 1.5rem;
     }
 
     li {
         list-style: none;
     }
+
+    #wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main {
+        margin: 0 auto;
+        width: 50rem;
+        border-radius: 1.5rem;
+        box-shadow: 0.1rem 0.2rem 0.3rem 0.1rem lightgray;
+    }
+
+    section {
+        text-align: center;
+    }
+
+    section input {
+        margin-top: 1.5rem;
+        padding-left: 1rem;
+        width: calc(100% - 7rem);
+        height: 3rem;
+        border-style: none;
+        border-radius: 1rem;
+        background-color: #f5f5f5;
+    }
+
+    section button {
+        margin-left: 1%;
+        width: 3rem;
+        height: 3rem;
+        background-color: gray;
+        color: white;
+        border-style: none;
+        border-radius: 100%;
+    }
+
+    article {
+        margin: 1.5rem;
+        height: 50rem;
+        overflow: hidden;
+        background-color: aqua;
+    }
+    
 </style>
 
 <body>
 
-    <div>
-        <div>
-            <input type="text" id="newFruit" onkeyup="enterPressed(event)" autofocus>
-            <button id="inputBtn">INPUT</button>
-        </div>
+    <div id="wrapper">
+        <main>
+            <section>
+                <input type="text" id="newFruit" onkeyup="enterPressed(event)" autofocus>
+                <button id="inputBtn">+</button>
+            </section>
 
-        <div>
-            <ul id="fruitUl"></ul>
-        </div>
+            <article>
+                <ul id="fruitUl">
+                    <li>테스트</li>
+                </ul>
+            </article>
+        </main>
     </div>
-
 
     <script src="list.js"></script>
 </body>
