@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .tab-btn-area {
+        border: 1px solid black;
+    }
+
+    .tab-btn-area::after {
+        content: '';
+        clear: both;
+        display: table;
+    }
+
+    .tab-btn-area div {
+        float: left;
+        width: 150px;
+        height: 75px;
+        line-height: 75px;
+        text-align: center;
+        transition: .7s;
+        border-right: 1px solid black;
+        cursor: pointer;
+    }
+
+    .tab-btn-area div:hover {
+        background-color: #dddddd;
+    }
+
+    .tab-btn-area div.active {
+        color: white;
+        background-color: black;
+    }
+
+    .tab-contents {
+        position: relative;
+        height: 125px;
+        border: 1px solid black;
+        border-top: none;
+    }
+
+    .tab-contents > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: .7s;
+        opacity: 0;
+        visibility: hidden;
+        background-color: white;
+    }
+
+    .tab-contents > div.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    
+
+</style>
+
+<body>
+
+    <div class="tab">
+        <div class="tab-btn-area">
+            <div>London</div>
+            <div>Paris</div>
+            <div>Tokyo</div>
+        </div>
+        <div class="tab-contents">
+            <div class="active">
+                <h1>London</h1>
+                <div>London is the capital city of England.</div>
+            </div>
+            <span onclick="this.parentElement.style.display='none'">x</span>
+            <div>
+                <h1>Paris</h1>
+                <div>Paris is the capital of France.</div>
+                <span onclick="this.parentElement.style.display='none'">x</span>
+            </div>
+            <div>
+                <h1>Tokyo</h1>
+                <div>Tokyo is the capital of Japan.</div>
+                <span onclick="this.parentElement.style.display='none'">x</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="tab.js"></script>
+    
+</body>
+</html>
