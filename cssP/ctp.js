@@ -31,7 +31,3 @@ setInterval(function() {
     }
     console.log(i);
 }, 1000);
-
-// https://i.ibb.co/XCZwzFt/5.jpg
-// https://i.ibb.co/kGyqRRN/6-1.jpg
-// https://i.ibb.co/wKGVKR2/27.jpg
