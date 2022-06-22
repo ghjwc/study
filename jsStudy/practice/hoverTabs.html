@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    #mo, #me {
+        float: left;
+        margin-right: 10px;
+        padding: 50px;
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+    }
+
+    #mo > span {}
+
+    #mo > div, #me > div {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+    }
+
+    #mo > div > span {}
+
+    #me {}
+    #me > span {}
+    #me > div {}
+    #me > div > span {}
+
+</style>
+
+<body>
+
+    <div id="mo">
+        <span></span>
+        <div>
+            <span></span>
+        </div>
+    </div>
+
+    <div id="me">
+        <span></span>
+        <div>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- <script src="hoverTabs.js"></script> -->
+    <script src="hoverTabs2.js"></script>
+    
+</body>
+</html>
