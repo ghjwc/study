@@ -1,0 +1,51 @@
+.tab-btn-area {
+    border: 1px solid black;
+}
+
+.tab-btn-area::after {
+    content: '';
+    clear: both;
+    display: table;
+}
+
+.tab-btn-area div {
+    float: left;
+    width: 150px;
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    transition: .7s;
+    border-right: 1px solid black;
+    cursor: pointer;
+}
+
+.tab-btn-area div:hover {
+    background-color: #dddddd;
+}
+
+.tab-btn-area div.active {
+    color: white;
+    background-color: black;
+}
+
+.tab-contents {
+    position: relative;
+    height: 125px;
+    border: 1px solid black;
+    border-top: none;
+}
+
+.tab-contents > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: .7s;
+    opacity: 0;
+    visibility: hidden;
+    background-color: white;
+}
+
+.tab-contents > div.active {
+    opacity: 1;
+    visibility: visible;
+}

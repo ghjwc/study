@@ -7,44 +7,7 @@
     <title>Document</title>
 </head>
 
-<style>
-    button {
-        position: relative;
-        border: none;
-        padding: 25px;
-        width: 100%;
-        transition: .7s;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: lightgray;
-    }
-
-    button::after {
-        content: '+';
-        position: absolute;
-        right: 20px;
-    }
-
-    button.active::after {
-        content: '-';
-        position: absolute;
-        right: 20px;
-    }
-
-    button + .panel {
-        /* display: none; */
-        max-height: 0;
-        /* height: 0; */
-        overflow: hidden;
-        transition: .5s;
-    }
-
-    button.active + .panel { 
-        /* height: fit-content; */
-    }
-</style>
+<link rel="stylesheet" href="menu2.css">
 
 <body>
 
