@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* html, body {
+        overflow: hidden;
+    } */
+
+    body {
+        position: relative;
+        height: 10000px;
+    }
+
+    #top {
+        position: absolute;
+        bottom: 0;
+    }
+
+    div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+
+</style>
+
+<body>
+
+    <button>아래로</button>
+    <button>target</button>
+    <div></div>
+    <button id="top">위로</button>
+    
+    <script src="first.js"></script>
+</body>
+</html>

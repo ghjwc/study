@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    overflow: hidden;
+    font-size: 1.5rem;
+}
+
+
+
+/* ul, li */
+ul {
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    margin: 1rem;
+    width: fit-content;
+    border: 0.1rem solid black;
+    background-color: white;
+}
+
+li {
+    margin: 1rem 0rem 1rem 1rem;
+    padding: 1rem;
+    list-style: none;
+    font-weight: bold;
+    color: white;
+    border: 0.1rem solid black;
+    cursor: pointer;
+}
+
+
+li:first-child {
+    background-color: bisque;
+}
+
+li:nth-child(2) {
+    background-color: lightgreen;
+}
+
+li:nth-child(3) {
+    background-color: lightskyblue;
+}
+
+li:nth-child(4) {
+    background-color: lavender;
+}
+
+li:nth-child(5) {
+    background-color: lightpink;
+}
+
+li:last-child {
+    margin-right: 1rem;
+    background-color: lightsalmon;
+}
+
+li:hover {
+    opacity: .5;
+}
+
+
+/* div */
+#row, #col {
+    display: flex;
+    width: 610vh;
+    height: 100vh;
+}
+
+.page {
+    width: 100%;
+    line-height: 100vh;
+    text-align: center;
+}
+
+#row .page:first-child {
+    background-color: bisque;
+}
+
+#row .page:nth-child(2) {
+    background-color: lightgreen;
+}
+
+#row .page:last-child {
+    background-color: lightskyblue;
+}
+
+#col .page:first-child {
+    background-color: lightsalmon;
+}
+
+#col .page:nth-child(2) {
+    background-color: lightpink;
+}
+
+#col .page:last-child {
+    background-color: lavender;
+}
