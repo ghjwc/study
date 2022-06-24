@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.5rem;
+}
+
+header {
+    position: relative;
+    height: 10rem;
+    background-color: aqua;
+}
+
+.bugger {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    z-index: 1;
+    transform: translate(50%, -50%);
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+
+.bugger > li {
+    margin-bottom: 0.7rem;
+    width: 100%;
+    height: 0.5rem;
+    list-style: none;
+    background-color: black;
+}
+
+.bugger > li:first-child, li:last-child {
+    transition: 0.4s;
+}
+
+.bugger.active li:first-child {
+    transform: rotate(45deg) translate(0.8rem, 0.7rem);
+}
+
+.bugger.active li:nth-child(2) {
+    display: none;
+}
+
+.bugger.active li:last-child {
+    transform: rotate(-45deg) translate(0.2rem, -0.1rem);
+}
+
+.nav {
+    position: fixed;
+    width: 30rem;
+    height: 100vh;
+    opacity: 0.5;
+    visibility: hidden;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: white;
+    background-color: gray;
+}
+
+.nav > li {
+    margin: 1rem;
+    padding: 1.5rem;
+}
+
+.nav > li:first-child {
+    margin-top: 10rem;
+}
+
+.top {
+    height: 9.5rem;
+    line-height: 9.5rem;
+    text-align: center;
+    background-color: lightyellow;
+}
+
+.bottom {
+    height: 0.5rem;
+    background-color: lightgray;
+}
+
+.color {
+    width: 50%;
+    height: 100%;
+    background-color: red;
+}

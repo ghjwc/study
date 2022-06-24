@@ -1,13 +1,19 @@
 const gauge = document.querySelector('header > div:last-child'),
-    gaugeTop = gauge.offsetTop,
-    gaugeBottom = gauge.offsetHeight;
+    gaugeTop = gauge.offsetTop;
 
 console.log(gauge);
 console.log(gaugeTop);
-console.log(gaugeBottom);
 
 window.addEventListener('scroll', function() {
+    chkReader(gauge, gaugeTop);
+    secs.forEach(function(sec, i) {
+        if (sec.offsetTop <= window.scrollY && (sec.offsetTop + sec.clientHeight) >= window.scrollY) {
 
+        }
+    });
+});
+
+function chkReader() {
     if (window.pageYOffset >= gaugeTop) {
         gauge.style.position = 'fixed';
         gauge.style.top = 0;
@@ -15,29 +21,31 @@ window.addEventListener('scroll', function() {
         gauge.style.position = '';
     }
 
-    let color = document.querySelector('.color');
-
-    console.log(document.documentElement.clientHeight);
-
-    let doc = document.documentElement;
-    let winScroll = document.body.scrollTop || doc.scrollTop,
+    let color = document.querySelector('.color'),
+        doc = document.documentElement,
+        winScroll = document.body.scrollTop || doc.scrollTop,
         winHeight = doc.scrollHeight - doc.clientHeight,
         scrolled = (winScroll / winHeight) * 100;
+
     color.style.width = scrolled + '%';
-});
+}
 
 
+// const bottomBtn = document.getElementById('bottom');
+const topBtn = document.getElementById('top');
 
-const topBtn = document.querySelector('#top');
-const bottomBtn = document.querySelector('#bottom');
+// bottomBtn.onclick = function() {
+//     window.scrollTo({left: 0, top: document.documentElement.scrollHeight, behavior: 'smooth'});
+// };
 
 topBtn.onclick = function() {
     window.scrollTo({left: 0, top: 0, behavior: 'smooth'});
 };
 
-bottomBtn.onclick = function() {
-    window.scrollTo({left: 0, top: document.documentElement.scrollHeight, behavior: 'smooth'});
-};
+
+
+let secs = document.querySelectorAll('.section'),
+    lis = document.querySelectorAll('.fixMenu > ul > li');
 
 
 // window.addEventListener('load', function() {

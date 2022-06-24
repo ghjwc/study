@@ -10,7 +10,6 @@ html {
 
 body {
     font-size: 1.5rem;
-    height: 1000rem;
 }
 
 header {
@@ -35,6 +34,36 @@ header > div > div {
     background-color: red;
 }
 
+.fixMenu {
+    position: fixed;
+    top: 50%;
+}
+
+div.section:nth-child(3) {
+    height: 50rem;
+    background-color: lavender;
+}
+
+div.section:nth-child(4) {
+    height: 30rem;
+    background-color: lightpink;
+}
+
+div.section:nth-child(5) {
+    height: 70rem;
+    background-color: bisque;
+}
+
+div.section:nth-child(6) {
+    height: 20rem;
+    background-color: lightgreen;
+}
+
+div.section:nth-child(7) {
+    height: 30rem;
+    background-color: lightskyblue;
+}
+
 main {
     position: relative;
     height: inherit;
@@ -48,12 +77,12 @@ button {
     text-align: center;
     border: 0.1rem solid red;
     background-color: white;
+    cursor: pointer;
 }
 
 #bottom {
-    position: absolute;
-    top: 0;
-    
+    position: fixed;
+    top: 10rem;
 }
 
 #top {
