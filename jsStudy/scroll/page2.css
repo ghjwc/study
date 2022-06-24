@@ -92,6 +92,7 @@ body, .wrap {
   font-weight: bold;
   color: gray;
   background-color: white;
+  cursor: pointer;
 }
 
 .control > div > button:hover {

@@ -1,8 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.5rem;
+    background-color: lavender;
+}
+
 .bugger {
     position: relative;
     z-index: 1;
-    width: 30px;
-    height: 25px;
+    margin: 3rem;
+    width: 3rem;
+    height: 2.5rem;
     /* border: 1px solid black; */
     cursor: pointer;
 }
@@ -10,8 +26,8 @@
 .bugger div {
     position: absolute;
     width: 100%;
-    height: 5px;
-    background-color: black;
+    height: 0.5rem;
+    background-color: white;
 }
 
 .bugger div:first-child {
@@ -20,16 +36,16 @@
 }
 
 .bugger div:nth-child(2) {
-    top: 10px;
+    top: 1rem;
 }
 
 .bugger div:last-child {
-    top: 20px;
+    top: 2rem;
     transition: .4s;
 }
 
 .bugger.active div:first-child {
-    transform: rotate(45deg) translate(12px, 12px);
+    transform: rotate(45deg) translate(1.2rem, 1.2rem);
 }
 
 .bugger.active div:nth-child(2) {
@@ -37,23 +53,48 @@
 }
 
 .bugger.active div:last-child {
-    transform: rotate(-45deg) translate(2px, -2px);
+    transform: rotate(-45deg) translate(0.2rem, -0.2rem);
 }
 
 body.active {
-    background-color: lightyellow;
+    background-color: lightcyan;
 }
 
 .menu {
     position: absolute;
     top: 0;
-    display: none;
-    width: 150px;
-    height: 500px;
-    transition: .4s;
-    background-color: yellow;
+    margin: 2rem;
+    width: 20rem;
+    height: fit-content;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    border-radius: 0.7rem;
+    color: gray;
+    background-color: lightgray;
 }
 
 body.active .menu {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu li {
+    margin: 0 1rem 1rem 1rem;
+    padding: 1rem;
+    list-style: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 0.7rem;
+    background-color: white;
+    cursor: pointer;
+}
+
+.menu li:first-child {
+    margin-top: 6rem;
+}
+
+.menu li:hover {
+    color: white;
+    transition: 0.5s;
 }
