@@ -4,12 +4,23 @@ const gauge = document.querySelector('header > div:last-child'),
 console.log(gauge);
 console.log(gaugeTop);
 
+let secs = document.querySelectorAll('.section'),
+    lis = document.querySelectorAll('.fixMenu > ul > li');
+
+
 window.addEventListener('scroll', function() {
     chkReader(gauge, gaugeTop);
+    let index = 0;
+
+    lis.forEach(function(val, i) {
+        val.style.background = 'transparent';
+    });
+
     secs.forEach(function(sec, i) {
         if (sec.offsetTop <= window.scrollY && (sec.offsetTop + sec.clientHeight) >= window.scrollY) {
-
+            lis[index].style.background = 'red';
         }
+        index++;
     });
 });
 
@@ -44,8 +55,7 @@ topBtn.onclick = function() {
 
 
 
-let secs = document.querySelectorAll('.section'),
-    lis = document.querySelectorAll('.fixMenu > ul > li');
+
 
 
 // window.addEventListener('load', function() {
