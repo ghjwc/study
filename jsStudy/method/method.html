@@ -32,6 +32,31 @@
         background-color: white;
     }
 
+    .menu {
+        margin-top: 100px;
+    }
+
+    .menu ul {
+        display: none;
+        margin: 0;
+        padding-left: 20px;
+        list-style: none;
+    }
+
+    .menu .title::before {
+        content: '▶ ';
+        font-size: 80%;
+        color: green;
+    }
+
+    .menu.open .title::before {
+        content: '▼ ';
+    }
+
+    .menu.open ul {
+        display: block;
+    }
+
 </style>
 
 <body>
@@ -44,6 +69,15 @@
     <div class="field">
         <div class="ball">ball</div>
         . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+
+    <div class="menu">
+        <span class="title"> Sweeties (click me!)</span>
+        <ul>
+            <li>Cake</li>
+            <li>Donut</li>
+            <li>Honey</li>
+        </ul>    
     </div>
 
     <!-- <script src="method.js"></script> -->

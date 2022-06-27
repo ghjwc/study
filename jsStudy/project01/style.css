@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.5rem;
+}
+
+li {
+    list-style: none;
+}
+
+#fix {
+    position: fixed;
+    float: left;
+    width: 40%;
+    height: 100vh;
+    background-image: url(https://mblogthumb-phinf.pstatic.net/20150918_298/gloomy_blog_1442557842640yBK0V_JPEG/%C6%FB%C6%FB%C7%AA%B8%B0_%B9%E8%B0%E6%C8%AD%B8%E9_%B9%D9%C5%C1%C8%AD%B8%E9_%C6%F9%B9%E8%B0%E6%C8%AD%B8%E9.jpg?type=w2);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#container {
+    position: relative;
+    float: right;
+    width: 60%;
+    background-color: blanchedalmond;
+}
+
+#menu {
+    position: fixed;
+    right: 0;
+    width: 7rem;
+    height: 7rem;
+    background-color: white;
+    cursor: pointer;
+}
+
+#menu:hover {
+    background-color: lightgray;
+}
+
+#menu > div {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translate(50%, -50%);
+    height: fit-content;
+    /* background-color: aqua; */
+}
+
+#menu > div > div {
+    margin-bottom: 0.6rem;
+    width: 3.5rem;
+    height: 0.5rem;
+    border-radius: 0.2rem;
+    background-color: gray;
+}
+
+#menu > div > div:last-child {
+    margin-bottom: 0;
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 50rem;
+    text-align: center;
+    /* background-color: yellow; */
+}
+
+#about div {
+    margin: 0 auto;
+}
+
+#about > div:first-child {
+    width: fit-content;
+    font-size: 7rem;
+    font-weight: bold;
+    /* background-color: aqua; */
+}
+
+#about > div:nth-child(2) {
+    margin: 3rem auto;
+    width: fit-content;
+    font-size: 2rem;
+    /* background-color: blueviolet; */
+}
+
+#about > div:last-child {
+    padding: 2rem 3rem 2rem 3rem;
+    width: fit-content;
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+
+#about > div:last-child::before {
+    content: "\f019";
+}
+
+#about > div:last-child:hover {
+    background-color: lightgray;
+}
+
+#portfolio > div {
+    display: flex;
+    width: 100%;
+    background-color: aqua;
+}
+
+#portfolio > div > ul {
+    width: 50%;
+}
+
+#portfolio > div > ul > li > img {
+    width: 100%;
+}

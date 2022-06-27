@@ -36,3 +36,11 @@ field.onclick = function(event) {
     ball.style.left = ballCoords.left + 'px';
     ball.style.top = ballCoords.top + 'px';
 }
+
+
+let menuElem = document.querySelector('.menu');
+let titleElem = menuElem.querySelector('.title');
+
+titleElem.onclick = function() {
+    menuElem.classList.toggle('open');
+};

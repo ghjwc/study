@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.all {
+    display: flex;
+    height: 1000px;
+}
+.side-menu {
+    height: 100%;
+    background: lightgray;
+    padding: 15px;
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: .4s;
+    order: 1;
+    position: relative;
+    z-index: 10;
+}
+.side-menu > ul {
+    list-style: none;
+}
+.side-menu > ul > li {
+
+}
+.wrap {
+    width: 100%;
+    height: 1000px;
+    background: lightcoral;
+    order: 2;
+}
+.cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s;
+}
