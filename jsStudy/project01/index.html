@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="media.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <body>
 
-    <section id="fix"></section>  <!-- left -->
+    <section id="fix"></section>
     
-    <section id="container"> <!-- right -->
-        <div id="menu"> <!-- menu -->
+    <section id="container">
+        <div id="menu">
             <div>
                 <div></div>
                 <div></div>
@@ -21,7 +24,10 @@
             </div>
         </div>
 
-        <div>
+        <div id="aside">
+            <div>
+                <i class="fa fa-remove"></i>
+            </div>
             <ul>
                 <li>Home</li>
                 <li>Portfolio</li>
@@ -32,14 +38,14 @@
 
         <div id="wrap">
 
-            <div id="name">
+            <header>
                 <div>Jane Doe</div>
                 <div>Photographer and Web Designer.</div>
                 <button class="btn">
                     <i class="fa fa-download"></i>
                     Download Resume
                 </button>
-            </div>
+            </header>
 
             <div id="portfolio">
                 <p class="subject">Portfolio</p>
@@ -74,7 +80,9 @@
 
             <div id="about">
                 <p class="subject">About</p>
-                <p>Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>
+                    Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
             </div>
 
             <div id="sk-wrap">
@@ -84,17 +92,17 @@
                     
                     <p>Photography</p>
                     <div class="bar">
-                        <div>95%</div>
+                        <div class="bar1">95%</div>
                     </div>
 
                     <p>Web Design</p>
                     <div class="bar">
-                        <div>85%</div>
+                        <div class="bar2">85%</div>
                     </div>
 
                     <p>Photoshop</p>
                     <div class="bar">
-                        <div>80%</div>
+                        <div class="bar3">80%</div>
                     </div>
                 </div>
 
@@ -206,15 +214,15 @@
                 <div class="cn-wrap">
                     <p class="subject">Contact Me</p>
                     <p>
-                        <i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i>
+                        <i class="fa fa-map-marker fa-fw w3-xxlarge"></i>
                         Chicago, US
                     </p>
                     <p>
-                        <i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i>
+                        <i class="fa fa-phone fa-fw w3-xxlarge"></i>
                         Phone: +00 151515
                     </p>
                     <p>
-                        <i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"></i>
+                        <i class="fa fa-envelope fa-fw w3-xxlarge"></i>
                         Email: mail@mail.com
                     </p>
                 </div>
@@ -235,14 +243,19 @@
 
         <footer>
             <div>
-                <i class="fa fa-facebook-official w3-hover-opacity"></i>
-                <i class="fa fa-instagram w3-hover-opacity"></i>
-                <i class="fa fa-snapchat w3-hover-opacity"></i>
-                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-                <i class="fa fa-twitter w3-hover-opacity"></i>
-                <i class="fa fa-linkedin w3-hover-opacity"></i>
+                <i class="fa fa-facebook-official"></i>
+                <i class="fa fa-instagram"></i>
+                <i class="fa fa-snapchat"></i>
+                <i class="fa fa-pinterest-p"></i>
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-linkedin"></i>
             </div>
-            <p>Powered by <a href="javascript:void(0);">w3.css</a></p>
+            <p>
+                Powered by 
+                <a href="javascript:void(0);">
+                    w3.css
+                </a>
+            </p>
         </footer>
     </section>
     
