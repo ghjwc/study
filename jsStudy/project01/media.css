@@ -6,7 +6,7 @@
 
     #fix {
         position: absolute;
-        top: 75%;
+        top: 55rem;
         left: 50%;
         transform: translate(-50%, -50%);
         float: none;
@@ -39,15 +39,20 @@
 
 @media (max-width: 40rem) {
 
-    #fix {
+    /* #fix {
         position: absolute;
-        top: 83%;
+        top: 73%;
     }
 
     header > div {
         position: relative;
         bottom: 30%;
     }
+
+    header > button {
+        position: relative;
+        top: 35%;
+    } */
 
     header > div:first-child {
         font-size: 5rem;
@@ -57,10 +62,6 @@
         font-size: 1.7rem;
     }
 
-    header > button {
-        position: relative;
-        top: 35%;
-    }
 
     #portfolio > div {
         display: flex;

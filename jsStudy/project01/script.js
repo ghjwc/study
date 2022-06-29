@@ -3,13 +3,17 @@ let openMenu = document.querySelector('#menu'),
     closeMenu = document.querySelector('#aside > div');
 
 openMenu.addEventListener('click', function() {
+    console.log(document.body.offsetWidth < 650);
     if (!slide.clientWidth) {
-        document.documentElement.style.overflow = 'hidden';
-        document.body.style.overflow = 'hidden';
-        slide.style.width = '60%';
-        slide.style.opacity = '1';
-        slide.style.visibility = 'visible';
-    } else {
+        seeMenu();
+
+        if (document.body.offsetWidth < 650) {
+            slide.style.width = '100%';
+        } else {
+            slide.style.width = '60%';
+            slide.style.top = '';
+        }        
+    }  else {
         hideMenu();
     }
 });
@@ -17,6 +21,13 @@ openMenu.addEventListener('click', function() {
 closeMenu.addEventListener('click', function() {
     hideMenu();
 });
+
+function seeMenu() {
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    slide.style.opacity = '1';
+    slide.style.visibility = 'visible';
+}
 
 function hideMenu() {
     document.documentElement.style.overflow = '';
