@@ -45,6 +45,7 @@ li {
 /* hambugger */
 #menu {
     position: fixed;
+    top: 0;
     right: 0;
     z-index: 1;
     width: 7rem;
@@ -80,7 +81,7 @@ li {
 /* aside */
 
 #aside {
-    position: absolute;
+    position: fixed;
     right: 0;
     z-index: 10;
     width: 0;

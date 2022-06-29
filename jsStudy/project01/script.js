@@ -6,7 +6,7 @@ openMenu.addEventListener('click', function() {
     if (!slide.clientWidth) {
         document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
-        slide.style.width = '100%';
+        slide.style.width = '60%';
         slide.style.opacity = '1';
         slide.style.visibility = 'visible';
     } else {

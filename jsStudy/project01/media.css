@@ -1,5 +1,76 @@
 @media (max-width: 65rem) {
     body {
+        /* background-color: yellow; */
+    }
+
+    #cover {
+        position: relative;
         background-color: red;
+    }
+
+    #fix {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        float: none;
+        width: 80%;
+        height: 60rem;
+    }
+
+    #container {
+        float: none;
+        width: 100%;
+    }
+
+    header {
+        position: relative;
+        z-index: 1;
+        height: 95rem;
+        text-align: center;
+    }
+
+    header > div {
+        position: relative;
+        top: 0;
+    }
+
+    header > div:first-child {
+        /* top: 10rem; */
+    }
+    
+    header > div:nth-child(2) {
+        /* top: 15rem; */
+    }
+
+    header > button {
+        position: relative;
+        /* top: 39rem; */
+    }
+}
+
+@media (max-width: 40rem) {
+    #portfolio > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #portfolio > div > ul {
+        width: 100%;
+    }
+
+    #box {
+        height: 45rem;
+    }
+
+    #box ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .pr-wrap {
+        display: flex;
+        flex-direction: column;
     }
 }
