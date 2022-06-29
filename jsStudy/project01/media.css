@@ -1,8 +1,4 @@
 @media (max-width: 65rem) {
-    body {
-        /* background-color: yellow; */
-    }
-
     #cover {
         position: relative;
         background-color: red;
@@ -10,7 +6,7 @@
 
     #fix {
         position: absolute;
-        top: 50%;
+        top: 75%;
         left: 50%;
         transform: translate(-50%, -50%);
         float: none;
@@ -32,24 +28,40 @@
 
     header > div {
         position: relative;
-        top: 0;
-    }
-
-    header > div:first-child {
-        /* top: 10rem; */
-    }
-    
-    header > div:nth-child(2) {
-        /* top: 15rem; */
+        bottom: 35%;
     }
 
     header > button {
         position: relative;
-        /* top: 39rem; */
+        top: 35%;
     }
 }
 
 @media (max-width: 40rem) {
+
+    #fix {
+        position: absolute;
+        top: 83%;
+    }
+
+    header > div {
+        position: relative;
+        bottom: 30%;
+    }
+
+    header > div:first-child {
+        font-size: 5rem;
+    }
+
+    header > div:nth-child(2) {
+        font-size: 1.7rem;
+    }
+
+    header > button {
+        position: relative;
+        top: 35%;
+    }
+
     #portfolio > div {
         display: flex;
         flex-direction: column;
