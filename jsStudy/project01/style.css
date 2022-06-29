@@ -6,6 +6,7 @@
 
 html {
     font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -166,6 +167,7 @@ header > div:nth-child(2) {
     border-style: none;
     font-size: 1.6rem;
     background-color: #eeeeee;
+    color: black;
     cursor: pointer;
 }
 
@@ -433,6 +435,7 @@ header > div:nth-child(2) {
 .pr-wrap > ul > li > button {
     padding: 1.5rem 3rem 1.5rem 3rem;
     border-style: none;
+    color: black;
     background-color: white;
     cursor: pointer;
 }

@@ -3,15 +3,17 @@ let openMenu = document.querySelector('#menu'),
     closeMenu = document.querySelector('#aside > div');
 
 openMenu.addEventListener('click', function() {
+    console.log(window.innerWidth);
     console.log(document.body.offsetWidth < 650);
+
     if (!slide.clientWidth) {
         seeMenu();
 
-        if (document.body.offsetWidth < 650) {
+        if (document.body.offsetWidth <= 1040) {
             slide.style.width = '100%';
+            slide.style.top = 0;
         } else {
             slide.style.width = '60%';
-            slide.style.top = '';
         }        
     }  else {
         hideMenu();
