@@ -1,5 +1,5 @@
-const words = ['자동차', '두꺼비', '전지현', '옷걸이', '칼국수'],
-    index = Math.floor(Math.random() * 5),
+const words = ['라따뚜이', '정한', '조슈아', '문준휘', '우지', '호랑해', '전원우', '민규', '이석민', '서명호', '부승관', '버논', '디노', '홍준표', '윤석열'],
+    index = Math.floor(Math.random() * 15),
     prevWord = document.querySelector('.prev-word'),
     time = document.querySelector('.time-container'),
     input = document.querySelector('#input-word'),
@@ -38,7 +38,7 @@ const updateWord = value => {
 };
 
 const warningInput = () => {
-    input.style.outline = '1px solid red';    
+    input.style.outline = '5px solid red';
 }
 
 const primaryInput = () => {
