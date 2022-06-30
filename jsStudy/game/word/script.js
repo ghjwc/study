@@ -3,7 +3,7 @@ const words = ['라따뚜이', '정한', '조슈아', '문준휘', '우지', '�
     prevWord = document.querySelector('.prev-word'),
     time = document.querySelector('.time-container'),
     input = document.querySelector('#input-word'),
-    defaultOutline = input.style.outline; //
+    defaultBack = input.style.backgroundColor;
 
 let word = words[index],
     timeCount = 5;
@@ -38,12 +38,10 @@ const updateWord = value => {
 };
 
 const warningInput = () => {
-    input.style.outline = '5px solid red';
+    input.style.backgroundColor = 'red';
     input.style.borderRadius = '50px';
-    input.placeholder ='잘가';
-    input.readOnly = true;
 }
 
 const primaryInput = () => {
-    input.style.outline = defaultOutline;
+    input.style.backgroundColor = defaultBack;
 }
