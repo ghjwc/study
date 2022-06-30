@@ -15,7 +15,7 @@ const tick = () => {
     time.innerHTML = timeCount;
     if (timeCount === 0) {
         clearInterval(start);
-        alert('GAME OVER');
+        alert('잘가');
     } else {
         timeCount -= 1;
     }
@@ -39,6 +39,9 @@ const updateWord = value => {
 
 const warningInput = () => {
     input.style.outline = '5px solid red';
+    input.style.borderRadius = '50px';
+    input.placeholder ='잘가';
+    input.readOnly = true;
 }
 
 const primaryInput = () => {

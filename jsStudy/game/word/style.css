@@ -55,9 +55,8 @@ body {
     height: 5rem;
     text-align: center;
     font-size: 1.7rem;
-    border-style: none;
+    border: 0.3rem solid #F8CACC;
     border-radius: 5rem;
-    box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem lightgray;
     background-color: white;
 }
 
