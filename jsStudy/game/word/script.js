@@ -1,4 +1,4 @@
-const words = ['라따뚜이', '정한', '조슈아', '문준휘', '우지', '호랑해', '전원우', '민규', '이석민', '서명호', '부승관', '버논', '디노'],
+const words = ['최순실', '윤석열', '홍준표', '문재인', '이명박', '권성동', '전원책', '김무성', '이준석', '서훈', '부승관', '최재형', '이재명'],
     index = Math.floor(Math.random() * 13),
     prevWord = document.querySelector('.prev-word'),
     time = document.querySelector('.time-container'),
