@@ -1,5 +1,5 @@
-const words = ['라따뚜이', '정한', '조슈아', '문준휘', '우지', '호랑해', '전원우', '민규', '이석민', '서명호', '부승관', '버논', '디노', '홍준표', '윤석열'],
-    index = Math.floor(Math.random() * 15),
+const words = ['라따뚜이', '정한', '조슈아', '문준휘', '우지', '호랑해', '전원우', '민규', '이석민', '서명호', '부승관', '버논', '디노'],
+    index = Math.floor(Math.random() * 13),
     prevWord = document.querySelector('.prev-word'),
     time = document.querySelector('.time-container'),
     input = document.querySelector('#input-word'),
