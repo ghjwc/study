@@ -39,21 +39,6 @@
 
 @media (max-width: 40rem) {
 
-    /* #fix {
-        position: absolute;
-        top: 73%;
-    }
-
-    header > div {
-        position: relative;
-        bottom: 30%;
-    }
-
-    header > button {
-        position: relative;
-        top: 35%;
-    } */
-
     header > div:first-child {
         font-size: 5rem;
     }
@@ -76,7 +61,7 @@
         height: 45rem;
     }
 
-    #box ul {
+    #box > ul {
         display: flex;
         flex-direction: column;
         justify-content: space-around;

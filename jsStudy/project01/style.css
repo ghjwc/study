@@ -143,7 +143,7 @@ header {
     /* background-color: yellow; */
 }
 
-header div, button {
+header > div, header > button {
     margin: 0 auto;
 }
 
@@ -221,8 +221,10 @@ header > div:nth-child(2) {
     margin: 5rem 0 5rem 0;
 }
 
-#about p:last-child {
+#about > p:last-child {
+    line-height: 1.5;
     color: gray;
+    font-size: 2rem;
     text-align: justify;
 }
 
@@ -281,14 +283,14 @@ header > div:nth-child(2) {
     background-color: gray;
 }
 
-#box ul {
+#box > ul {
     display: flex;
     justify-content: space-between;
     height: 100%;
     text-align: center;
 }
 
-#box ul li {
+#box > ul > li {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -452,14 +454,14 @@ header > div:nth-child(2) {
     /* background-color: yellow; */
 }
 
-.cn-wrap p:not(.subject) {
+.cn-wrap > p:not(.subject) {
     margin-bottom: 1.5rem;
     color: gray;
     font-size: 1.7rem;
     /* background-color: salmon; */
 }
 
-.cn-wrap p:not(.subject):last-child {
+.cn-wrap > p:not(.subject):last-child {
     margin-bottom: 0;
 }
 
@@ -468,7 +470,7 @@ header > div:nth-child(2) {
     font-size: 3.5rem;
 }
 
-#contact img {
+#contact > img {
     margin-bottom: 1.5rem;
     width: 100%;
 }
@@ -478,7 +480,7 @@ header > div:nth-child(2) {
     color: gray;
 }
 
-#contact input {
+#contact > input {
     margin-bottom: 1.5rem;
     padding-left: 1rem;
     width: 100%;
@@ -500,7 +502,7 @@ footer {
     background-color: lightgray;
 }
 
-footer div {
+footer > div {
     font-size: 2.5rem;
 }
 
@@ -508,7 +510,7 @@ footer > div > i:hover {
     opacity: 0.5;
 }
 
-footer p {
+footer > p {
     margin-top: 1rem;
     font-size: 1.7rem;
 }

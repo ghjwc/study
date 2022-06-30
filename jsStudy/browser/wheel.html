@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+      overflow-y: hidden;
+    }
+    .wrap {
+      width: 2000px;
+      height: 100%;
+    }
+    .wrap::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    .section {
+      width: 500px;
+      float: left;
+      height: 100%;
+    }
+    .section:nth-child(1) {
+      background: red;
+    }
+    .section:nth-child(2) {
+      background: green;
+    }
+    .section:nth-child(3) {
+      background: blue;
+    }
+    .section:nth-child(4) {
+      background: orange;
+    }
+  </style>
+<body>
+
+    <div class="wrap">
+        <div class="section"></div>
+        <div class="section"></div>
+        <div class="section"></div>
+        <div class="section"></div>
+
+    </div>
+
+    <script src="wheel.js"></script>
+    
+</body>
+</html>
