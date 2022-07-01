@@ -23,7 +23,7 @@ body {
 #calculator > div > input {
     margin: 1rem 1rem 0 1rem;
     padding-left: 1.5rem;
-    width: 90%;
+    width: 85%;
     height: 5rem;
     border-style: none;
     border-radius: 3rem;
@@ -46,8 +46,18 @@ button {
     margin-right: 1rem;
     width: 5rem;
     height: 5rem;
+    transition: transform 0.3s ease;
     border-style: none;
     border-radius: 50%;
     box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem lightgray;
     background-color: white;
+}
+
+button:hover {
+    transform: translate(0.3rem, 0.3rem);
+}
+
+.oper {
+    font-size: 3rem;
+    color: gray;
 }
