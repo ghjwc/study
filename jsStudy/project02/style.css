@@ -1,0 +1,53 @@
+html {
+    font-size: 10px
+}
+
+body {
+    font-size: 2rem
+}
+
+#calculator {
+    margin: 3rem;
+    padding: 1rem;
+    width: 30rem;
+    height: fit-content;
+    border-radius: 3rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem lightgray;
+    background-color: white;
+}
+
+#calculator > div {
+    margin: 0 auto;
+}
+
+#calculator > div > input {
+    margin: 1rem 1rem 0 1rem;
+    padding-left: 1.5rem;
+    width: 90%;
+    height: 5rem;
+    border-style: none;
+    border-radius: 3rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem lightgray;
+    background-color: white;
+}
+
+.num-btn > div {
+    display: flex;
+    margin: 2rem;
+}
+
+.num-btn > div:first-child > button, .num-btn > div:last-child > button:first-child {
+    width: 11.5rem;
+    border-radius: 10rem;
+}
+
+button {
+    margin: 0 auto;
+    margin-right: 1rem;
+    width: 5rem;
+    height: 5rem;
+    border-style: none;
+    border-radius: 50%;
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem lightgray;
+    background-color: white;
+}

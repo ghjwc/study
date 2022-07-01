@@ -1,5 +1,5 @@
-const words = ['최순실', '윤석열', '홍준표', '문재인', '이명박', '권성동', '전원책', '김무성', '이준석', '서훈', '부승관', '최재형', '이재명'],
-    index = Math.floor(Math.random() * 13),
+const words = ['옷걸이', '주차장', '컴퓨터', '강아지', '고양이'],
+    index = Math.floor(Math.random() * 5),
     prevWord = document.querySelector('.prev-word'),
     time = document.querySelector('.time-container'),
     input = document.querySelector('#input-word'),
@@ -15,7 +15,7 @@ const tick = () => {
     time.innerHTML = timeCount;
     if (timeCount === 0) {
         clearInterval(start);
-        alert('잘가');
+        alert('GAME OVER');
     } else {
         timeCount -= 1;
     }
