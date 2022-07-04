@@ -36,40 +36,110 @@ run();
 // 콜백 지옥
 function myFunc(num, callback) {
     setTimeout(() => {
-       let r = num + 10;
-       if (callback) {
-        callback(r);
-       }
-    }, 3000);
+        let r = num + 10;
+        if (callback) {
+            callback(r);
+        }
+    }, 1000);
 }
 
 myFunc(0, function (r) {console.log(r)});
 
-console.log('start');
+console.log("start"); //콜백 지옥
 myFunc(0, function (r) {
-    console.log(r)
+    console.log(r);
     myFunc(r, function (r) {
         console.log(r);
+        myFunc(r, function (r) {
+            console.log(r);
+            myFunc(r, function (r) {
+                console.log(r);
+                myFunc(r, function (r) {
+                    console.log(r);
+                    myFunc(r, function (r) {
+                        console.log(r);
+                        console.log("end");
+                    });
+                });
+            });
+        });
     });
 });
 
-function myPro(num) {
-    let promise = new Promise((resolve, reject) => {
-        setTimeout(() => {
-           let r = num + 10;
-           if (r > 50) {
-            let e = new Error('too much');
-            reject(e);
-           }
-           resolve(r); 
-        }, 1000);
-    });
-    return promise;
+//어떤 작업
+for (let i = 0; i < 10; i++) {
+    console.log(i);
 }
+
+//프라미스 객체
+
+function myPro(num) {
+    //결과가 성공, 실패 따져서 실행시켜 줌
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            let r = num + 10;
+            if (r > 50) { //error
+                let e = new Error("너무 많음!");
+                reject(e);
+            }
+            resolve(r);
+        }, 1000)
+    });
+
+    return promise; //약속 : 작업을 보증
+}
+
+myPro(0).then(r => {
+    console.log('pro:' + r);
+    return myPro(r);
+})
+.then(r => {
+    console.log('pro:' + r);
+    return myPro(r);
+})
+.then(r => {
+    console.log('pro:' + r);
+    return myPro(r);
+})
+.then(r => {
+    console.log('pro:' + r);
+    return myPro(r);
+})
+.then(r => {
+    console.log('pro:' + r);
+    return myPro(r);
+})
+.then(r => {
+    console.log('pro:' + r);
+    return myPro(r);
+}).catch (e => {
+    console.log(e);
+});
+
+//await, async
+
+async function start() {
+    try {
+        let r = await myPro(0);
+        console.log('async: ' + r);
+        r = await myPro(r);
+        console.log('async: ' + r);
+        r = await myPro(r);
+        console.log('async: ' + r);
+        r = await myPro(r);
+        console.log('async: ' + r);
+        r = await myPro(r);
+        console.log('async: ' + r);
+        r = await myPro(r);
+        console.log('async: ' + r);
+        r = await myPro(r);
+        console.log('async: ' + r);
+    } catch (e) {
+        console.log(e);				
+    }
+}
+
+start();
 
 //resolve > then
 //reject > catch
-
-myPro(0).then(num => {
-    console.log(`pro ${r}`);
-});
