@@ -1,14 +1,38 @@
-let inputNum = document.querySelector('#inputNum');
-//     resultNum = parseInt(inputNum.value);
+let inputNum = document.getElementById('inputNum'),
+    numBtn = document.querySelectorAll('.num'),
+    oper = document.querySelectorAll('.oper'),
+    clear = document.querySelector('.clear');
 
-// console.log(resultNum);
+// console.log(oper);
+// for (let q = 0; q < oper.length; q++) {
+//     oper[q].onclick = function() {
+//         console.log('oper');
+//     }}
 
-const numBtn = document.querySelectorAll('.num');
-let index = 0;
+for (let i = 0; i < numBtn.length; i++) {
+    numBtn[i].onclick = function() {
+        inputNum.value += this.innerText;
+    }
+}
 
-numBtn[index].addEventListener('click', function (e) {
-    // for (let )
+clear.onclick = function() {
+    inputNum.value = '';
+}
 
-    console.log(this.innerText);
-    inputNum.value = this.value;
-});
+function result() {
+    inputNum.value = resultNum;
+}
+
+for(let j = 0; j < oper.length; j++) {
+    oper[j].onclick = function() {
+        if (j == 3) {
+            console.log('additionClick');
+        } else if (j == 2) {
+            console.log('subtractionClick');
+        } else if (j == 1) {
+            console.log('multipleClick');
+        } else if (j == 0) {
+            console.log('divideClick');
+        }
+    }
+}

@@ -2,13 +2,13 @@
 	error_reporting(E_ALL);
 	echo "<meta charset='euc-kr'>";
 
-	// echo $_SERVER['REMOTE_ADDR'];
+	//echo $_SERVER['REMOTE_ADDR'];
 	if($_SERVER['REMOTE_ADDR'] != "121.144.88.108") exit;
 	
 	$servername = "localhost";
-	$username = "return";
-	$password = "www1234";
-	$db = "return";
+	$username = "return"; //아이디
+	$password = "www1234"; //비번
+	$db = "return"; //db 이름
 	
 	$link = mysqli_connect($servername, $username, $password, $db);
 
@@ -30,10 +30,14 @@
 		$rap = $rap_sec + $rap_micsec;
 		echo "<b>실행 속도 ".$rap."s</b>";
 	}
-
+	$chkMul = null;
 	if(isset($_POST["mysql"])) {
 		$strSql = $_POST["mysql"];
 		$strSql = str_replace("\\", "", $strSql);
+		if(isset($_POST["mul"])) {
+			$chkMul = $_POST["mul"];
+			$arrSql = explode(';', $strSql);
+		}
 	} else {
 		$strSql = "";
 	}
@@ -54,22 +58,45 @@
 		td {padding: 10px 12px;}
 		.sender {float:right;padding:13px 55px; margin:15px 0; cursor:pointer;}
 		</style>";
-
+	echo "<script>
+		function querytest(e) {
+			if (e.ctrlKey && e.keyCode == 13) {
+				document.sendsql.submit();
+			}
+		}
+	</script>";
 
 	echo "<title>QueryTest</title>";
 	
 	echo "<form name='sendsql' action='_handler.php' method='post'>
-			<textarea name='mysql' style='width:100%; height:250px'>".$strSql."</textarea><br>
-			<input type='submit' value='실행' class='sender'>
+			<lable>멀티
+				<input type='checkbox' name='mul'>
+			</label>
+			<textarea name='mysql' autofocus style='width:100%;height:300px;' onkeydown='querytest(event);'>".$strSql."</textarea><br>
+			<!-- input type='submit' value='실행' class='sender' -->
 			</form>";
 
 	if($strSql != "") {
-		$resSql = mysqli_query($link, $strSql);
-		if(!$resSql) {
-			$errMessage = "<font color='red'><b>Invalide query[".mysqli_errno($link)."]: ".mysqli_error($link)."</b></font>";
-			$errMessage .= "<br><p><br><p>Whole query: ".$strSql;
+		if (isset($chkMul)) {
 
-			die($errMessage);
+			for ($i = 0; $i < count($arrSql); $i++) {
+				$resSql = mysqli_query($link, $arrSql[$i]);
+				if(!$resSql) {
+					$errMessage = "<font color='red'><b>Invalide query[".mysqli_errno($link)."]: ".mysqli_error($link)."</b></font>";
+					$errMessage .= "<br><p><br><p>Whole query: ".$arrSql[0];
+
+					die($errMessage);
+				}	
+			}
+			die((count($arrSql) - 1)."개의 레코드 삽입");
+		} else {
+			$resSql = mysqli_query($link, $strSql);
+			if(!$resSql) {
+				$errMessage = "<font color='red'><b>Invalide query[".mysqli_errno($link)."]: ".mysqli_error($link)."</b></font>";
+				$errMessage .= "<br><p><br><p>Whole query: ".$strSql;
+
+				die($errMessage);
+			}
 		}
 
 		if(is_object($resSql)) {
