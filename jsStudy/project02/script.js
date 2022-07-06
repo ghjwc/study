@@ -1,9 +1,9 @@
-let inputNum = document.getElementById('inputNum'),
-    inputValue = inputNum.value,
+const inputNum = document.getElementById('inputNum'),
     numBtn = document.querySelectorAll('.num'),
     oper = document.querySelectorAll('.oper'),
-    clear = document.querySelector('.clear'),
-    resultNum = 0;
+    clear = document.querySelector('.clear');
+
+
 
 // console.log(oper);
 // for (let q = 0; q < oper.length; q++) {
@@ -29,15 +29,13 @@ function result() {
 for(let j = 0; j < oper.length; j++) {
     oper[j].onclick = function() {
         if (j == 3) {
-            console.log('additionClick');
-            resultNum = inputNum.value + inputNum.value;
-            console.log(resultNum);
+            console.log('clickAddition');
         } else if (j == 2) {
-            console.log('subtractionClick');
+            console.log('clickSubtraction');
         } else if (j == 1) {
-            console.log('multipleClick');
+            console.log('clickMultiple');
         } else if (j == 0) {
-            console.log('divideClick');
+            console.log('clickDivide');
         }
     }
 }

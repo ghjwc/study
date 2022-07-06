@@ -30,14 +30,15 @@
 		$rap = $rap_sec + $rap_micsec;
 		echo "<b>실행 속도 ".$rap."s</b>";
 	}
-	$chkMul = null;
+	//$chkMul = null;
 	if(isset($_POST["mysql"])) {
 		$strSql = $_POST["mysql"];
 		$strSql = str_replace("\\", "", $strSql);
-		if(isset($_POST["mul"])) {
-			$chkMul = $_POST["mul"];
-			$arrSql = explode(';', $strSql);
-		}
+		$arrSql = explode(';', $strSql);
+		// if(isset($_POST["mul"])) {
+		// 	$chkMul = $_POST["mul"];
+		// 	$arrSql = explode(';', $strSql);
+		// }
 	} else {
 		$strSql = "";
 	}
@@ -69,37 +70,39 @@
 	echo "<title>QueryTest</title>";
 	
 	echo "<form name='sendsql' action='_handler.php' method='post'>
-			<lable>멀티
+			<!-- lable>멀티
 				<input type='checkbox' name='mul'>
-			</label>
-			<textarea name='mysql' autofocus style='width:100%;height:300px;' onkeydown='querytest(event);'>".$strSql."</textarea><br>
+			</label -->
+			<textarea name='mysql' style='width:100%;height:250px;' onkeydown='querytest(event);'>".$strSql."</textarea><br>
 			<!-- input type='submit' value='실행' class='sender' -->
 			</form>";
 
 	if($strSql != "") {
-		if (isset($chkMul)) {
-
+		//if (isset($chkMul)) {
 			for ($i = 0; $i < count($arrSql); $i++) {
-				$resSql = mysqli_query($link, $arrSql[$i]);
-				if(!$resSql) {
-					$errMessage = "<font color='red'><b>Invalide query[".mysqli_errno($link)."]: ".mysqli_error($link)."</b></font>";
-					$errMessage .= "<br><p><br><p>Whole query: ".$arrSql[0];
+				if ($arrSql[$i] == '') break;
+				$arrSql[$i] = mysqli_query($link, $arrSql[$i]);
+				if (is_object($arrSql[$i])) {
+					$resSql = $arrSql[$i];
+					if(!$resSql) {
+						$errMessage = "<font color='red'><b>Invalide query[".mysqli_errno($link)."]: ".mysqli_error($link)."</b></font>";
+						$errMessage .= "<br><p><br><p>Whole query: ".$arrSql[0];
 
-					die($errMessage);
+						die($errMessage);
+					}
 				}	
 			}
-			die((count($arrSql) - 1)."개의 레코드 삽입");
-		} else {
-			$resSql = mysqli_query($link, $strSql);
-			if(!$resSql) {
-				$errMessage = "<font color='red'><b>Invalide query[".mysqli_errno($link)."]: ".mysqli_error($link)."</b></font>";
-				$errMessage .= "<br><p><br><p>Whole query: ".$strSql;
+			//die((count($arrSql) - 1)."개의 레코드 삽입");
+		// } else {
+		// 	$resSql = mysqli_query($link, $strSql);
+		// 	if(!$resSql) {
+		// 		$errMessage = "<font color='red'><b>Invalide query[".mysqli_errno($link)."]: ".mysqli_error($link)."</b></font>";
+		// 		$errMessage .= "<br><p><br><p>Whole query: ".$strSql;
 
-				die($errMessage);
-			}
-		}
-
-		if(is_object($resSql)) {
+		// 		die($errMessage);
+		// 	}
+		// }
+		if(isset($resSql) && is_object($resSql)) {
 			$intNumRows = mysqli_num_rows($resSql);
 			$intNumFields = mysqli_num_fields($resSql);
 			
@@ -135,4 +138,5 @@
 	Print_Exe_Time($start_time);
 	
 	mysqli_close($link);
+	echo "<script>let txtarea = document.sendsql.mysql;let len = txtarea.value.length;txtarea.focus();txtarea.setSelectionRange(len, len);</script>";
 ?>
