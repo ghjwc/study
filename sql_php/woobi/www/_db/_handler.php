@@ -30,15 +30,12 @@
 		$rap = $rap_sec + $rap_micsec;
 		echo "<b>실행 속도 ".$rap."s</b>";
 	}
-	//$chkMul = null;
+	
 	if(isset($_POST["mysql"])) {
 		$strSql = $_POST["mysql"];
+		$strSql = trim($strSql);
 		$strSql = str_replace("\\", "", $strSql);
 		$arrSql = explode(';', $strSql);
-		// if(isset($_POST["mul"])) {
-		// 	$chkMul = $_POST["mul"];
-		// 	$arrSql = explode(';', $strSql);
-		// }
 	} else {
 		$strSql = "";
 	}
@@ -73,35 +70,24 @@
 			<!-- lable>멀티
 				<input type='checkbox' name='mul'>
 			</label -->
-			<textarea name='mysql' style='width:100%;height:250px;' onkeydown='querytest(event);'>".$strSql."</textarea><br>
+			<textarea name='mysql' style='width:100%;height:100px;' onkeydown='querytest(event);'>".$strSql."</textarea><br>
 			<!-- input type='submit' value='실행' class='sender' -->
 			</form>";
 
 	if($strSql != "") {
-		//if (isset($chkMul)) {
-			for ($i = 0; $i < count($arrSql); $i++) {
-				if ($arrSql[$i] == '') break;
-				$arrSql[$i] = mysqli_query($link, $arrSql[$i]);
-				if (is_object($arrSql[$i])) {
-					$resSql = $arrSql[$i];
-					if(!$resSql) {
-						$errMessage = "<font color='red'><b>Invalide query[".mysqli_errno($link)."]: ".mysqli_error($link)."</b></font>";
-						$errMessage .= "<br><p><br><p>Whole query: ".$arrSql[0];
+		for ($i = 0; $i < count($arrSql); $i++) {
+			if ($arrSql[$i] == '') break;
+			$arrSql[$i] = mysqli_query($link, $arrSql[$i]);
+			if (is_object($arrSql[$i])) {
+				$resSql = $arrSql[$i];
+			}	
+			if(!$arrSql[$i]) {
+				$errMessage = "<font color='red'><b>Invalide query[".mysqli_errno($link)."]: ".mysqli_error($link)."</b></font>";
 
-						die($errMessage);
-					}
-				}	
+				die($errMessage);
 			}
-			//die((count($arrSql) - 1)."개의 레코드 삽입");
-		// } else {
-		// 	$resSql = mysqli_query($link, $strSql);
-		// 	if(!$resSql) {
-		// 		$errMessage = "<font color='red'><b>Invalide query[".mysqli_errno($link)."]: ".mysqli_error($link)."</b></font>";
-		// 		$errMessage .= "<br><p><br><p>Whole query: ".$strSql;
+		}
 
-		// 		die($errMessage);
-		// 	}
-		// }
 		if(isset($resSql) && is_object($resSql)) {
 			$intNumRows = mysqli_num_rows($resSql);
 			$intNumFields = mysqli_num_fields($resSql);
@@ -138,5 +124,4 @@
 	Print_Exe_Time($start_time);
 	
 	mysqli_close($link);
-	echo "<script>let txtarea = document.sendsql.mysql;let len = txtarea.value.length;txtarea.focus();txtarea.setSelectionRange(len, len);</script>";
-?>
+	echo "<script>String.prototype.trim = function() {return this.replace(/^\s+|\s+$/g,'');}\nlet txtarea = document.sendsql.mysql;txtarea.value = txtarea.value.trim();let len = txtarea.value.length;txtarea.focus();txtarea.setSelectionRange(len, len);txtarea.scrollTop = txtarea.scrollHeight;</script>";
