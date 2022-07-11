@@ -6,12 +6,19 @@ body {
     font-size: 2rem
 }
 
-#calculator {
+#wrapper {
+    display: flex;
+}
+
+#calculator, #history {
     margin: 3rem;
     padding: 1rem;
     width: 30rem;
-    height: fit-content;
     border-radius: 3rem;
+}
+
+#calculator {
+    height: fit-content;
 }
 
 #calculator > div {
@@ -49,6 +56,7 @@ button {
     transition: transform 0.3s ease;
     border-style: none;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 button:hover {
@@ -63,4 +71,10 @@ button:hover {
 #calculator, input, button {
     box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem lightgray;
     background-color: white;
+}
+
+#history {
+    margin-left: 0;
+    height: 43rem;
+    background-color: #eeeeee;
 }

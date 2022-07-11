@@ -1,4 +1,5 @@
 const inputNum = document.getElementById('inputNum'),
+    history = document.getElementById('history'),
     btn = document.querySelectorAll('button'),
     numBtn = document.querySelectorAll('.num'),
     oper = document.querySelectorAll('.oper'),
@@ -11,14 +12,6 @@ class Calculator {
         this.inputNum = inputNum;
         this.inputNumContent = '';
     }
-}
-
-function appendNum(Number) {
-    this.inputNumContent += Number;
-}
-
-function updateDisplay() {
-    this.inputNum.value = this.inputNumContent;
 }
 
 const calculator = new Calculator(inputNum);
@@ -39,6 +32,13 @@ btn.forEach(button => {
                 console.log('숫자');
                 break;
         }
+
+        if (button.className == 'clear') {
+            history.innerText = '';
+        } else {
+            history.innerText += button.innerText;
+        }
+        
     });
 });
 
@@ -84,3 +84,6 @@ console.log(secNum);
 //         }
 //     }
 // }
+
+console.log(window.offsetWidth);
+
