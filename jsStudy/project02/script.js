@@ -7,14 +7,14 @@ const inputNum = document.getElementById('inputNum'),
     clear = document.querySelector('.clear');
 
 
-class Calculator {
-    constructor(inputNum) {
-        this.inputNum = inputNum;
-        this.inputNumContent = '';
-    }
-}
+// class Calculator {
+//     constructor(inputNum) {
+//         this.inputNum = inputNum;
+//         this.inputNumContent = '';
+//     }
+// }
 
-const calculator = new Calculator(inputNum);
+// const calculator = new Calculator(inputNum);
 
 btn.forEach(button => {
     button.addEventListener('click', () => {
@@ -32,21 +32,10 @@ btn.forEach(button => {
                 console.log('숫자');
                 break;
         }
-
-        if (button.className == 'clear') {
-            history.innerText = '';
-        } else {
-            history.innerText += button.innerText;
-        }
-        
     });
 });
 
-// console.log(oper);
-// for (let q = 0; q < oper.length; q++) {
-//     oper[q].onclick = function() {
-//         console.log('oper');
-//     }}
+
 
 for (let i = 0; i < numBtn.length; i++) {
     numBtn[i].onclick = function() {
@@ -54,14 +43,35 @@ for (let i = 0; i < numBtn.length; i++) {
     }
 }
 
+inputNum.addEventListener('keyup', function(e) {
+    // if(e.key.match(/[^0-9]/g)) {
+    //   e.target.value =  e.target.value.replace(/[^0-9]/g, '');
+    // }
+    //this.value = e.key;
+    if(e.key.match(/[0-9]/g)) {
+      this.value += e.key;
+    }
+  });
+
+// inputNum.addEventListener('keydown', function(e) {
+    
+//     if (e.key >= 0 && e.key <= 9) {
+//         console.log('키보드-숫자');
+//         inputNum.value += this.innerText;
+//     } else {
+//         console.log('키보드-숫자 아님');
+//         // e.preventDefault();
+//         // return;
+//         let inputArr = inputNum.value;
+//         inputArr = [];
+//         inputNum.value = inputArr.splice(-1, this);
+//     }
+// });
+
 clear.onclick = function() {
     inputNum.value = '';
 }
 
-// result.onclick = function operResult() {
-//     let resultNum = inputNum.value;
-//     console.log(resultNum);
-// }
 
 let firstNum = parseInt(inputNum.value),
     secNum = inputNum.value;
@@ -69,21 +79,4 @@ let firstNum = parseInt(inputNum.value),
 console.log(firstNum);
 console.log(secNum);
 
-// for(let j = 0; j < oper.length; j++) {
-//     oper[j].onclick = function() {
-//         if (j == 3) {
-//             console.log('clickAddition');
-//             firstNum + secNum;
-//             operResult();
-//         } else if (j == 2) {
-//             console.log('clickSubtraction');
-//         } else if (j == 1) {
-//             console.log('clickMultiple');
-//         } else if (j == 0) {
-//             console.log('clickDivide');
-//         }
-//     }
-// }
-
-console.log(window.offsetWidth);
 
