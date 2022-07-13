@@ -132,4 +132,46 @@
     echo PHP_INT_MAX.'<br>';
     echo PHP_INT_MIN.'<br>';
     echo PHP_INT_SIZE.'<br>';
+
+    $q = 5895;
+    var_dump(is_int($q));
+
+    echo '<br>';
+
+    $q = 58.95;
+    var_dump(is_int($q));
+
+    echo '<br>';
+
+    $r = 15;
+    if (is_int($r)) {
+        echo '수';
+    } else {
+        echo '수가 아님';
+    }
+
+    echo '<br>';
+
+    $r = '59.84' + 100;
+    echo $r.'<br>';
+    var_dump(is_numeric($r));
+
+    echo '<br>';
+
+    /*
+    상수를 만드는 방법
+    const 이름 = 값; //불려진 곳에서 밑에서 사용, $ 불필요
+    define(이름, 값, 대소문자 구분); // 전역 - 프로그램 실행 시에 불려진다.
+    */
+
+    echo ABS.'<br>';
+    echo GREETING.'<br>';
+
+    const ABS = 'const값1';
+    echo ABS;
+
+    echo '<br>';
+
+    define('GREETING', 'Welcome!', false);
+    echo GREETING;
 ?>
