@@ -1,97 +1,69 @@
-const inputNum = document.getElementById('inputNum'),
-    history = document.getElementById('history'),
-    btn = document.querySelectorAll('button'),
+let firstNum = '',
+    secondNum = '',
+    operator = '';
+const result = document.getElementById('inputNum'),
     numBtn = document.querySelectorAll('.num'),
-    oper = document.querySelectorAll('.oper'),
-    result = document.querySelector('.result'),
-    clear = document.querySelector('.clear');
+    operBtn = document.querySelectorAll('.oper');
 
+const onClickNum = (event) => {
+    if (!operator) {
+        firstNum += event.target.textContent;
+        result.value += event.target.textContent;
+        return;
+    }
+    if (!secondNum) {
+        result.value = '';
+    }
+    secondNum += event.target.textContent;
+    result.value += event.target.textContent;
+}
 
-// class Calculator {
-//     constructor(inputNum) {
-//         this.inputNum = inputNum;
-//         this.inputNumContent = '';
-//     }
-// }
-
-// const calculator = new Calculator(inputNum);
-
-btn.forEach(button => {
-    button.addEventListener('click', () => {
-        switch (button.className) {
-            case 'oper':
-                console.log('사칙연산');
-                break;
-            case 'clear':
-                console.log('초기화');
-                break;
-            case 'result':
-                console.log('결과');
-                break;
-            default:
-                console.log('숫자');
-                break;
-        }
-    });
-});
-
-
+const onClickOperator = (op) => () => {
+    if (firstNum) {
+        operator = op;
+    } else {
+        alert('숫자를 입력해주세요.');
+    }
+}
 
 for (let i = 0; i < numBtn.length; i++) {
-    numBtn[i].onclick = function() {
-        inputNum.value += this.innerText;
-    }
+    numBtn[i].addEventListener('click', onClickNum);
 }
 
-// inputNum.addEventListener('keyup', function(e) {
-//     // if(e.key.match(/[^0-9]/g)) {
-//     //   e.target.value =  e.target.value.replace(/[^0-9]/g, '');
-//     // }
-//     //this.value = e.key;
-//     if(e.key.match(/[0-9]/g)) {
-//       this.value += e.key;
-//     }
-//   });
+for (let i = 0; i < operBtn.length; i++) {
+    let oper_i = ['/', '*', '-', '+'];
+    operBtn[i].addEventListener('click', onClickOperator(oper_i[i]));
+}
 
-inputNum.addEventListener('keydown', function(e) {
-    
-    if (e.key >= 0 && e.key <= 9) {
-        console.log('키보드-숫자');
-        inputNum.value += this.innerText;
+document.querySelector('.result').addEventListener('click', () => {
+    if (secondNum) {
+        switch(operator) {
+            case '+' :
+                result.value = parseInt(firstNum) + parseInt(secondNum);
+                break;
+            case '-' :
+                result.value = parseInt(firstNum) - parseInt(secondNum);
+                break;
+            case '/' :
+                result.value = parseInt(firstNum) / parseInt(secondNum);
+                break;
+            case '*' :
+                result.value = parseInt(firstNum) * parseInt(secondNum);
+                break;
+            default :
+                break;
+        }
     } else {
-        console.log('키보드-숫자 아님');
-        // e.preventDefault();
-        // return;
-        let inputArr = inputNum.value;
-        inputArr = [];
-        inputNum.value = inputArr.splice(-1, this);
+        alert('숫자를 입력해주세요.');
     }
+    firstNum = result.value;
+    secondNum = '';
+    operator = '';
 });
 
-clear.onclick = function() {
-    inputNum.value = '';
-}
-
-
-let firstNum = parseInt(inputNum.value),
-    secNum = inputNum.value;
-
-console.log(firstNum);
-console.log(secNum);
-
-//-----
-
-function calculate(n1, oper, n2) {
-    let resultNum = 0;
-    if (oper === '+') {
-        resultNum = Number(n1) + Number(n2);
-    } else if (oper === '-') {
-        resultNum = Number(n1) - Number(n2);
-    } else if (oper === '&times;') {
-        resultNum = Number(n1) * Number(n2);
-    } else if (oper === '&divide;') {
-        resultNum = Number(n1) / Number(n2);
-    }
-    return String(resultNum);
-}
-
+document.querySelector('.clear').addEventListener('click', () => {
+    firstNum = '';
+    secondNum = '';
+    operator = '';
+    result.value = '';
+});
