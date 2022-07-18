@@ -1,4 +1,4 @@
-const words = ['옷걸이', '주차장', '컴퓨터', '강아지', '고양이'],
+const words = ['옷걸이', '주차장', '컴퓨터', '강아지', '라디오'],
     index = Math.floor(Math.random() * 5),
     prevWord = document.querySelector('.prev-word'),
     time = document.querySelector('.time-container'),
