@@ -1,18 +1,18 @@
 
 
 <?php
-    echo "<html><head><meta charset='EUC-KR'><title>HOME</title><script>alert('test');</script></head><body>PHP ¹öÀü: ".phpversion()."<br>My first PHP script!</body></html>";
+    echo "<html><head><meta charset='EUC-KR'><title>HOME</title><script>alert('test');</script></head><body>PHP ï¿½ï¿½ï¿½ï¿½: ".phpversion()."<br>My first PHP script!</body></html>";
 
-    echo print('¾È³çÇÏ¼¼¿ä');
+    echo print('ï¿½È³ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½');
 
-    $color = "red"; //phpÀÇ º¯¼ö´Â $
+    $color = "red"; //phpï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ $
     echo "My car is " . $color . "<br>";
     echo "My house is " . $COLOR . "<br>";
     echo "My boat is " . $coLOR . "<br>";
 
     $txt = 'w3schools.com';
     echo 'I love '.$txt.'!';
-    echo `I love $txt!`; //jsÀÇ ¹éÆ½°ú °°À½
+    echo `I love $txt!`; //jsï¿½ï¿½ ï¿½ï¿½Æ½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     function myTest() {
         $x = 5; // local scope
@@ -42,15 +42,15 @@
     echo $GLOBALS['abc'];
 
     function staticTest() {
-        static $staticx = 0; //ÇÑ ¹ø ½ÇÇà
+        static $staticx = 0; //ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         echo $staticx.'<br>';
-        $staticx++; //Áö¿ªº¯¼ö
+        $staticx++; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
       }
       
       staticTest();
       staticTest();
       staticTest();
-      echo 'Àü¿ª'.$staticx; //¾øÀ½
+      echo 'ï¿½ï¿½ï¿½ï¿½'.$staticx; //ï¿½ï¿½ï¿½ï¿½
 
 
     echo '<br>';
@@ -60,7 +60,7 @@
     echo '<br>';
     var_dump($a);
     echo '<br>';
-    echo gettype($a); //jsÀÇ typeof
+    echo gettype($a); //jsï¿½ï¿½ typeof
     echo '<br>';
 
     /*
@@ -73,7 +73,7 @@
     number, string, null, boolean, symbol, object, resource, float, array
     */
 
-    $ss = '¿ì¸®³ª¶ó';
+    $ss = 'ï¿½ì¸®ï¿½ï¿½ï¿½ï¿½';
     var_dump($ss);
 
     echo '<br>';
@@ -123,7 +123,7 @@
     $t = null;
     showType($t);
 
-    //È£ÀÌ½ºÆÃ °¡´É
+    //È£ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     function showType($t) {
         var_dump($t);
         echo '<br>';
@@ -145,9 +145,9 @@
 
     $r = 15;
     if (is_int($r)) {
-        echo '¼ö';
+        echo 'ï¿½ï¿½';
     } else {
-        echo '¼ö°¡ ¾Æ´Ô';
+        echo 'ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½';
     }
 
     echo '<br>';
@@ -159,15 +159,15 @@
     echo '<br>';
 
     /*
-    »ó¼ö¸¦ ¸¸µå´Â ¹æ¹ý
-    const ÀÌ¸§ = °ª; //ºÒ·ÁÁø °÷¿¡¼­ ¹Ø¿¡¼­ »ç¿ë, $ ºÒÇÊ¿ä
-    define(ÀÌ¸§, °ª, ´ë¼Ò¹®ÀÚ ±¸ºÐ); // Àü¿ª - ÇÁ·Î±×·¥ ½ÇÇà ½Ã¿¡ ºÒ·ÁÁø´Ù.
+    ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+    const ï¿½Ì¸ï¿½ = ï¿½ï¿½; //ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, $ ï¿½ï¿½ï¿½Ê¿ï¿½
+    define(ï¿½Ì¸ï¿½, ï¿½ï¿½, ï¿½ï¿½Ò¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½); // ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¿ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½.
     */
 
     echo ABS.'<br>';
     echo GREETING.'<br>';
 
-    const ABS = 'const°ª1';
+    const ABS = 'constï¿½ï¿½1';
     echo ABS;
 
     echo '<br>';
@@ -175,3 +175,24 @@
     define('GREETING', 'Welcome!', false);
     echo GREETING;
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Welcome to my home page!</h1>
+    <p>Some text.</p>
+    <p>Some more text.</p>
+    <?php
+      echo $_SERVER['DOCUMENT_ROOT']; 
+      include $_SERVER['DOCUMENT_ROOT'].'/_db/study/footer.php';
+    ?>
+    
+</body>
+</html>
