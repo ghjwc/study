@@ -3,9 +3,10 @@ let firstNum = '',
     operator = '';
 const result = document.getElementById('inputNum'),
     numBtn = document.querySelectorAll('.num'),
-    operBtn = document.querySelectorAll('.oper');
+    operBtn = document.querySelectorAll('.oper'),
+    history = document.getElementById('history');
 
-const onClickNum = (event) => {
+const clickNum = (event) => {
     if (!operator) {
         firstNum += event.target.textContent;
         result.value += event.target.textContent;
@@ -18,7 +19,7 @@ const onClickNum = (event) => {
     result.value += event.target.textContent;
 }
 
-const onClickOperator = (op) => () => {
+const clickOper = (op) => () => {
     if (firstNum) {
         operator = op;
     } else {
@@ -27,12 +28,12 @@ const onClickOperator = (op) => () => {
 }
 
 for (let i = 0; i < numBtn.length; i++) {
-    numBtn[i].addEventListener('click', onClickNum);
+    numBtn[i].addEventListener('click', clickNum);
 }
 
 for (let i = 0; i < operBtn.length; i++) {
     let oper_i = ['/', '*', '-', '+'];
-    operBtn[i].addEventListener('click', onClickOperator(oper_i[i]));
+    operBtn[i].addEventListener('click', clickOper(oper_i[i]));
 }
 
 document.querySelector('.result').addEventListener('click', () => {
@@ -67,3 +68,22 @@ document.querySelector('.clear').addEventListener('click', () => {
     operator = '';
     result.value = '';
 });
+
+//history
+
+// let btnAll = document.querySelectorAll('button');
+
+// for (let i = 0; i < btnAll.length; i++) {
+//     btnAll.onclick = function() {
+//         console.log('btnAll-onclick');
+//         const history = document.getElementById('history');
+//         let historyUl = document.querySelector('.historyUl'),
+//             historyLi = [];
+    
+//         if (result.value != '') {
+//             historyLi = document.createElement('li');
+//             historyLi.innerText += result.value;
+//             historyUl.appendChild(historyLi);
+//         }
+//     }
+// }
