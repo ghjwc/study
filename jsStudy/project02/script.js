@@ -3,8 +3,7 @@ let firstNum = '',
     operator = '';
 const result = document.getElementById('inputNum'),
     numBtn = document.querySelectorAll('.num'),
-    operBtn = document.querySelectorAll('.oper'),
-    history = document.getElementById('history');
+    operBtn = document.querySelectorAll('.oper');
 
 const clickNum = (event) => {
     if (!operator) {
@@ -68,22 +67,3 @@ document.querySelector('.clear').addEventListener('click', () => {
     operator = '';
     result.value = '';
 });
-
-//history
-
-// let btnAll = document.querySelectorAll('button');
-
-// for (let i = 0; i < btnAll.length; i++) {
-//     btnAll.onclick = function() {
-//         console.log('btnAll-onclick');
-//         const history = document.getElementById('history');
-//         let historyUl = document.querySelector('.historyUl'),
-//             historyLi = [];
-    
-//         if (result.value != '') {
-//             historyLi = document.createElement('li');
-//             historyLi.innerText += result.value;
-//             historyUl.appendChild(historyLi);
-//         }
-//     }
-// }
