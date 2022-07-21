@@ -14,6 +14,11 @@
                 작가 등록
             </a>
         </li>
+        <li>
+            <a href="genre/index.php">
+                장르 등록
+            </a>
+        </li>
     </ul>
     
 </body>
