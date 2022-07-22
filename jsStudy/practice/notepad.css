@@ -18,6 +18,7 @@ li {
 
 #container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -79,21 +80,80 @@ li {
 }
 
 .note-nav > ul > li {
-    margin-right: 1.5rem;
+    padding: 0 1rem 0 1rem;
+    cursor: pointer;
     /* background-color: lawngreen; */
+}
+
+.note-nav > ul > li:hover {
+    background-color: gray;
+}
+
+.dropdown {
+    position: absolute;
+    transform: translate(0%, 24%);
+    display: none;
+    padding: 0.1rem;
+    width: 15rem;
+    text-align: center;
+    background-color: lightgray;
+}
+
+.dropdown > li {
+    padding: 0.5rem 0 0.5rem 0;
+    border-bottom: 0.1rem gray solid;
+    cursor: pointer;
+}
+.dropdown > li:last-child {
+    border: none;
+}
+
+.dropdown > li:hover {
+    color: white;
+    background-color: blue;
+}
+
+.note-nav > ul > .dropdown:first-child {
+    background-color: red;
 }
 
 .contents {
     width: 100%;
     height: 90%;
     overflow: scroll;
+    resize: none;
     font-size: 3rem;
     font-family: '맑은 고딕', 'Helvetica';
     background-color: white;
 }
 
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+    background-color: gray;
+}
+
+.footer-note {
+    margin: 0.5rem;
+    padding-left: 1rem;
+    width: 20rem;
+    border: 0.1rem solid black;
+    cursor: pointer;
+}
+
+.footer-note:hover {
+    background-color: lightgray;
+}
+
 @media (max-width: 50rem) {
     #notepad {
         width: 85%;
+        height: 50rem;
+    }
+    
+    .contents {
+        height: 88%;
     }
 }
