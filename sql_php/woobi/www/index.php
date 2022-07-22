@@ -32,7 +32,14 @@
 </head>
 <body>
 
-    <a href="/admin/index.php">관리자</a>
+<ul>
+    <li>
+        <a href="admin/">관리자</a>
+    </li>
+    <li>
+        <a href="user/join.php">회원가입</a>
+    </li>
+</ul>
     
 </body>
 </html>
