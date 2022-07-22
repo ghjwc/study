@@ -28,7 +28,7 @@ function chkId(val) {
                 }
             // } else {
             //     hit.innerHTML = 'error';
-            // }
+            }
         };
         xmlhttp.open('GET', 'chkId.php?q=' + val, true);
         xmlhttp.send();

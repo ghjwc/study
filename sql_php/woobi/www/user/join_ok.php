@@ -4,32 +4,22 @@
 
     var_dump($_POST["userAuthor"]);
 
-    $sql = "INSERT INTO Users (name, userId) VALUES ('$_POST[userName"]', )";
+    $sql = "INSERT INTO Users (name, userId) VALUES ('".$_POST["userName"]."', '".$_POST["userId"]."');";
 
-    if ($conn1->query($sql === TRUE)) {
+    if ($conn1->query($sql) === TRUE) {
         $last_id = $conn1->insert_id;
-    }
 
+        // echo $_POST["userGenre"]."<br>";
+        foreach($_POST["userGenre"] as $key=>$val) {
+            $sql = "INSERT INTO Like_Genre (User_id, Genre_id) VALUES ($last_id, $val)";
 
+            $conn1->query($sql);
+        }
 
-    foreach($_POST["userGenre"] as $key=>$val) {
-        $sql = "INSERT INTO Like_Genre (User_id, Genre_id) VALUES ($last_id, $val)";
-        
-        echo $sql."<br>";
-    }
+        foreach($_POST["userAuthor"] as $key=>$val) {
+            $sql = "INSERT INTO Like_Author (User_id, Author_id) VALUES ($last_id, $val)";
 
-    foreach($_POST["userAuthor"] as $key=>$val) {
-        $sql = "INSERT INTO Like_Author (User_id, Author_id) VALUES ($last_id, $val)";
-
-        echo $sql."<br>";
-    }
-
-    foreach($_POST as $key=>$val) {
-        echo $key.":".$val."<br>";
-        if ((string)$val === "Array") {
-            foreach($val as $key=>$value) {
-                echo $key.":".$value."<br>";
-            }
+            $conn1->query($sql);
         }
     }
 ?>

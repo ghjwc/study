@@ -7,6 +7,6 @@
 
     $res = $conn1->query($sql);
 
-    echo "<h1>".$res->num_rows."</h1>";
+    echo $res->num_rows;
 
 ?>
