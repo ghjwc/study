@@ -34,3 +34,7 @@ function chkId(val) {
         xmlhttp.send();
     }
 }
+
+function getLikeAuthors($conn1, $uid) {
+       
+}
