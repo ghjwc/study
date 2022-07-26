@@ -4,7 +4,9 @@
 
     var_dump($_POST["userAuthor"]);
 
-    $sql = "INSERT INTO Users (name, userId) VALUES ('".$_POST["userName"]."', '".$_POST["userId"]."');";
+    $pwd = hash("sha256", $_POST["userPwd"]);
+
+    $sql = "INSERT INTO Users (name, userId, pwd) VALUES ('".$_POST["userName"]."', '".$_POST["userId"]."', '$pwd');";
 
     if ($conn1->query($sql) === TRUE) {
         $last_id = $conn1->insert_id;

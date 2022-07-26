@@ -13,13 +13,18 @@
     //     echo $conn -> connect_error;
     // }
 
-    print_r($conn1);
-    echo '<br><br>';
-    print_r($conn2);
-    echo '<br><br>';
-    print_r($conn3);
-    echo '<br><br>';
+    // print_r($conn1);
+    // echo '<br><br>';
+    // print_r($conn2);
+    // echo '<br><br>';
+    // print_r($conn3);
+    // echo '<br><br>';
+    
+    $err = $_GET['err'];
 
+    if ($err) {
+        $exp = $_GET['exp'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -34,12 +39,28 @@
 
 <ul>
     <li>
-        <a href="admin/">ê´€ë¦¬ì</a>
+        <a href="admin/">°ü¸®ÀÚ</a>
     </li>
     <li>
-        <a href="user/join.php">íšŒì›ê°€ì…</a>
+        <a href="user/join.php">È¸¿ø°¡ÀÔ</a>
     </li>
 </ul>
-    
-</body>
+
+<?php if (!$_SESSION['userId']) { ?>
+
+<form action="user/login.php" method="post">
+    <input type="text" name="userId">
+    <input type="password" name="userPwd">
+    <input type="submit" value="·Î±×ÀÎ">
+</form>
+
+<div>
+    <?php echo $exp ?>
+</div>
+<?php } else { ?>
+    <div><?php echo $_SESSION['userId'] ?> ´Ô ¹İ°©½À´Ï´Ù.</div>
+<?php } ?>
+<button onclick="location.href='user/logout.php'">·Î±×¾Æ¿ô</button>
+
+</body> 
 </html>

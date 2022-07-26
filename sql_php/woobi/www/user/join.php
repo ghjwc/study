@@ -2,6 +2,10 @@
     include_once $_SERVER["DOCUMENT_ROOT"]."/_db/_lib/lib.php";
     include_once $_SERVER["DOCUMENT_ROOT"]."/_db/_lib/_con.php";
 
+    if ($_SESSION['userId']) {
+        gotoUrl('../index.php');
+    }
+
     $sqlGenre = "SELECT * FROM Genre ORDER BY name";
     $resGenre = $conn1->query($sqlGenre);
     
@@ -38,7 +42,15 @@
                 </td>
             </tr>
             <tr>
-                <th>장르</th>
+                <th>
+                    <label for="userPwd">비밀번호</label>
+                </th>
+                <td>
+                    <input type="password" name="userPwd" id="userPwd">
+                </td>
+            </tr>
+            <tr>
+                <th>선호 장르</th>
                 <td>
                     <?php
                         if ($resGenre->row_nums() > 0) {
@@ -50,7 +62,7 @@
                 </td>
             </tr>
             <tr>
-                <th>작가</th>
+                <th>선호 작가</th>
                 <td>
                     <?php
                         if ($resAuthor->row_nums() > 0) {
