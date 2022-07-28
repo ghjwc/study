@@ -39,10 +39,10 @@
 
 <ul>
     <li>
-        <a href="admin/">관리자</a>
+        <a href="admin/">??????</a>
     </li>
     <li>
-        <a href="user/join.php">회원가입</a>
+        <a href="user/join.php">???????</a>
     </li>
 </ul>
 
@@ -51,16 +51,16 @@
 <form action="user/login.php" method="post">
     <input type="text" name="userId">
     <input type="password" name="userPwd">
-    <input type="submit" value="로그인">
+    <input type="submit" value="?α???">
 </form>
 
 <div>
     <?php echo $exp ?>
 </div>
 <?php } else { ?>
-    <div><?php echo $_SESSION['userId'] ?> 님 반갑습니다.</div>
+    <div><?php echo $_SESSION['userId'] ?> ?? ????????.</div>
 <?php } ?>
-<button onclick="location.href='user/logout.php'">로그아웃</button>
+<button onclick="location.href='user/logout.php'">?α???</button>
 
 </body> 
 </html>

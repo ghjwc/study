@@ -2,6 +2,7 @@
     $servername = "localhost";
     $username = "return";
     $password = "www1234";
+    $db = "return";
 
     //mysqli 객체
     $conn1 = new mysqli($servername, $username, $password, $db);
