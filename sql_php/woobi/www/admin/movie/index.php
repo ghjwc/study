@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="zz.css">
+    <title>main</title>
+    <link rel="stylesheet" href="view/style.css">
 </head>
 <body>
 
-    <div id="wrapper-main">
-        <div id="container-main">
+    <div class="wrapper widx">
+        <div class="container ci">
             <div>
                 WELCOME, 000 !
+                 <div></div>
             </div>
 
             <form action="logout.php" method="post">

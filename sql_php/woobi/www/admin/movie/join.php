@@ -6,13 +6,13 @@
     <meta charset="EUC-KR">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>join</title>
     <link rel="stylesheet" href="view/style.css">
 </head>
 <body>
     <form action="join_ok.php" method="post">
-        <div id="wrapper">
-            <div id="container">
+        <div class="wrapper wjoin">
+            <div class="container cj">
 
                 <div class="double">
                     <div class="frame">
@@ -33,7 +33,7 @@
                     </div>
                     <div class="frame">
                         <div>MOBILE PHONE</div>
-                        <input type="number" name="userPhone" id="">
+                        <input type="text" name="userPhone" id="">
                     </div>
                 </div>
 
@@ -54,41 +54,44 @@
                     <div class="fr-in cbox">
 
                         <div class="genre-wrap">
+                            
                             <input type="checkbox" name="userGenre" id="drama">
                             <label for="drama">DRAMA</label>
-                            
-                            <input type="checkbox" name="userGenre" id="romance">
-                            <label for="romance">ROMANCE</label>
-                            
-                            <input type="checkbox" name="userGenre" id="crime">
-                            <label for="crime">CRIME</label>
-
-                            
-
-                        </div>
-                    
-                        <div class="genre-wrap">
-                            <input type="checkbox" name="userGenre" id="action">
-                            <label for="action">ACTION</label>
-                            
                             
                             <input type="checkbox" name="userGenre" id="horror">
                             <label for="horror">HORROR</label>
 
                             <input type="checkbox" name="userGenre" id="comedy">
                             <label for="comedy">COMEDY</label>
+                            
+                        </div>
+                    
+                        <div class="genre-wrap">
+
+                            <input type="checkbox" name="userGenre" id="action">
+                            <label for="action">ACTION</label>
+                            
+                            <input type="checkbox" name="userGenre" id="romance">
+                            <label for="romance">ROMANCE</label>
+
+                            
+
+                            <input type="checkbox" name="userGenre" id="crime">
+                            <label for="crime">CRIME</label>
 
                         </div>
                         
                         <div class="genre-wrap">
-                        <input type="checkbox" name="userGenre" id="thriller">
+                            <input type="checkbox" name="userGenre" id="thriller">
                             <label for="thriller">THRILLER</label>
+
+                            <input type="checkbox" name="userGenre" id="scifi">
+                            <label for="scifi">Sci-Fi</label>
                             
                             <input type="checkbox" name="userGenre" id="fantasy">
                             <label for="fantasy">FANTASY</label>
                             
-                            <input type="checkbox" name="userGenre" id="scifi">
-                            <label for="scifi">Sci-Fi</label>
+                            
                         </div>
                     </div>
                     

@@ -14,7 +14,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-    width: 0.5rem;
+    width: 0.3rem;
 }
 body::-webkit-scrollbar-thumb {
     background-color: tomato;
@@ -23,80 +23,74 @@ body::-webkit-scrollbar-track {
     background-color: white;
 }
 
-#wrapper {
+.wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.wjoin {
     background-image: url(https://cdn.mos.cms.futurecdn.net/mrqSXFiyYup7WkhYDyxnPQ-1200-80.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
 }
 
-#wrapper-login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
+.wlogin {
     background-image: url(https://assets.mubicdn.net/images/film/210029/image-w1280.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
 }
 
-#wrapper-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
+.widx {
     background-image: url(https://pbs.twimg.com/media/FVKy3qIaQAEvMo9?format=jpg&name=4096x4096);
+}
+
+
+.container {
+    margin: 3rem;
+    padding: 3rem;
+    width: 50rem;
+    font-size: 1.3rem;
+    border-radius: 3rem;
+    background-color: white;
+}
+
+.cj {
+    border: 0.3rem solid tomato;
+}
+
+.cl {
+    border: 0.3rem solid plum;
+}
+
+.ci {
+    border: 0.3rem solid lightseagreen;
+}
+
+.ci > div > div {
+    margin: 0 auto;
+    margin-top: 3rem;
+    width: 100%;
+    height: 35rem;
+    border-radius: 50%;
+    background-image: url(https://images.chosun.com/resizer/zVtKSBSWkEiQ5sp2jZw2kiulFhE=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/XVGIWESCFVEZNMAYSLODY6R52A.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-attachment: fixed;
+    box-shadow: 0 0.2rem 0 0.3rem lightseagreen;
 }
 
-#container {
-    margin: 3rem;
-    padding: 3rem;
-    width: 50rem;
-    font-size: 1.3rem;
-    border-radius: 3rem;
-    border: 0.3rem solid tomato;
-    background-color: white;
-}
-
-#container-login {
-    margin: 3rem;
-    padding: 3rem;
-    width: 50rem;
-    font-size: 1.3rem;
-    border-radius: 3rem;
-    border: 0.3rem solid plum;
-    background-color: white;
-}
-
-#container-main {
-    margin: 3rem;
-    padding: 3rem;
-    width: 50rem;
-    font-size: 1.3rem;
-    border-radius: 3rem;
-    border: 0.3rem solid lightseagreen;
-    background-color: white;
-}
+/* .ci > div > div:hover {
+    filter: grayscale(100%);
+} */
 
 .double {
     display: flex;
+    gap: 1rem;
 }
 
 .double > .frame {
@@ -113,7 +107,7 @@ body::-webkit-scrollbar-track {
     border: 0.3rem solid plum;
 }
 
-.frame {
+.frame:not(.login) {
     margin: 0 auto;
     margin-bottom: 1.5rem;
 }
@@ -127,12 +121,17 @@ body::-webkit-scrollbar-track {
     background-color: white;
 }
 
+.login > div:not(.fr-in) {
+    color: plum;
+    border: 0.3rem solid plum;
+}
+
 .frame > input, .fr-in {
     margin-top: 1rem;
     background-color: #f5f5f5;
 }
 
-.frame > input {
+.frame > input[type='text'], .frame > input[type='password'] {
     padding-left: 1rem;
     width: 100%;
     height: 4rem;
@@ -170,6 +169,10 @@ input[type='radio'] + label, input[type='checkbox'] + label {
     cursor: pointer;
 }
 
+input[type='radio'] + label:hover, input[type='checkbox'] + label:hover {
+    background-color: gray;
+}
+
 input[type='radio']:checked + label, input[type='checkbox']:checked + label  {
     color: white;
     background-color: tomato;
@@ -197,16 +200,21 @@ input[type='submit'] {
     background-color: plum;
 }
 
-#container-main > input[type='submit'] {
+.ci > input[type='submit'] {
     width: 100%;
     background-color: lightseagreen;
 }
 
-#container-main > div {
-    padding: 3rem;
+.ci > div {
+    padding: 0 3rem 3rem 3rem;
     font-size: 3rem;
     font-weight: bold;
     color: lightseagreen;
+}
+
+.ci > form > input {
+    width: 50%;
+    background-color: lightseagreen;
 }
 
 input[type='submit']:hover {
@@ -215,13 +223,15 @@ input[type='submit']:hover {
 
 @media screen and (max-width: 45rem) {
 
-    #container, #container-login {
+    .container {
         width: 85%;
     }
 
+    .ci > div > div {
+        width: 100%;
+    }
+
     .double {
-        /* display: flex;
-        flex-direction: column; */
         flex-wrap: wrap;
     }
     

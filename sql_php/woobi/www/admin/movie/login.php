@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>login</title>
     <link rel="stylesheet" href="view/style.css">
 </head>
 <body>
 
     
-    <div id="wrapper-login">
-        <div id="container-login">
+    <div class="wrapper wlogin">
+        <div class="container cl">
             <form action="login_ok.php" method="post">
                 <div class="double">
                     <div class="frame login">
