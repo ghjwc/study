@@ -1,3 +1,29 @@
+<?php
+    include('common.php');
+
+    $sql = "SELECT
+                $userID,
+                $userPwd,
+                $userName,
+                $userPhone,
+                $userGender,
+                $userGenre,
+                $userDir
+            FROM Movie";
+
+    if ($_SESSION) {
+
+    } else {
+        echo "
+            <script>
+                location.href='login.php';
+            </script>
+            ";
+    }
+
+    $result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +38,7 @@
     <div class="wrapper widx">
         <div class="container ci">
             <div>
-                WELCOME, 000 !
+                WELCOME, <?php echo $_SESSION['userName'] ?> !
                  <div></div>
             </div>
 

@@ -2,13 +2,13 @@
 	error_reporting(E_ALL);
 	echo "<meta charset='euc-kr'>";
 
-	//echo $_SERVER['REMOTE_ADDR'];
+	echo $_SERVER['REMOTE_ADDR'];
 	if($_SERVER['REMOTE_ADDR'] != "121.144.88.108") exit;
 	
 	$servername = "localhost";
-	$username = "return"; //아이디
-	$password = "www1234"; //비번
-	$db = "return"; //db 이름
+	$username = "return"; //占쏙옙占싱듸옙
+	$password = "www1234"; //占쏙옙占�
+	$db = "return"; //db 占싱몌옙
 	
 	$link = mysqli_connect($servername, $username, $password, $db);
 
@@ -28,7 +28,7 @@
 		$rap_micsec = $end_sec[0] - $start_sec[0];
 		$rap_sec = $end_sec[1] - $start_sec[1];
 		$rap = $rap_sec + $rap_micsec;
-		echo "<b>실행 속도 ".$rap."s</b>";
+		echo "<b>占쏙옙占쏙옙 占쌈듸옙 ".$rap."s</b>";
 	}
 	
 	if(isset($_POST["mysql"])) {
@@ -67,11 +67,11 @@
 	echo "<title>QueryTest</title>";
 	
 	echo "<form name='sendsql' action='_handler.php' method='post'>
-			<!-- lable>멀티
+			<!-- lable>占쏙옙티
 				<input type='checkbox' name='mul'>
 			</label -->
 			<textarea name='mysql' style='width:100%;height:100px;' onkeydown='querytest(event);'>".$strSql."</textarea><br>
-			<!-- input type='submit' value='실행' class='sender' -->
+			<!-- input type='submit' value='占쏙옙占쏙옙' class='sender' -->
 			</form>";
 
 	if($strSql != "") {
@@ -92,7 +92,7 @@
 			$intNumRows = mysqli_num_rows($resSql);
 			$intNumFields = mysqli_num_fields($resSql);
 			
-			echo "레코드 수 : <strong>".$intNumRows."</strong><br><p>";
+			echo "占쏙옙占쌘듸옙 占쏙옙 : <strong>".$intNumRows."</strong><br><p>";
 
 
 			echo "<table border='1' width='100%'>";

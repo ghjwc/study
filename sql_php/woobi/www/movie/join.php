@@ -1,5 +1,3 @@
-<?php ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>join</title>
-    <link rel="stylesheet" href="view/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <form action="join_ok.php" method="post">
@@ -17,23 +15,23 @@
                 <div class="double">
                     <div class="frame">
                         <div>ID</div>
-                        <input type="text" name="userId" id="">
+                        <input type="text" name="userID" id="" required>
                     </div>
 
                     <div class="frame">
                         <div>PASSWORD</div>
-                        <input type="password" name="userPwd" id="">
+                        <input type="password" name="userPwd" id="" required>
                     </div>
                 </div>
 
                 <div class="double">
                     <div class="frame">
                         <div>NAME</div>
-                        <input type="text" name="userName" id="">
+                        <input type="text" name="userName" id="" required>
                     </div>
                     <div class="frame">
                         <div>MOBILE PHONE</div>
-                        <input type="text" name="userPhone" id="">
+                        <input type="text" name="userPhone" id="" required>
                     </div>
                 </div>
 
@@ -99,7 +97,7 @@
 
                 <div class="frame">
                     <div>FAVORITE MOVIE</div>
-                    <input type="text" name="userDir" id="">
+                    <input type="text" name="userMovie" id="" required>
                 </div>
 
                 <input type="submit" value="JOIN">

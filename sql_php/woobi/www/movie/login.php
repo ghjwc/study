@@ -1,3 +1,7 @@
+<?php
+    include('common.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel="stylesheet" href="view/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -16,11 +20,11 @@
                 <div class="double">
                     <div class="frame login">
                         <div>ID</div>
-                        <input type="text" name="" id="">
+                        <input type="text" name="userID" id="">
                     </div>
                     <div class="frame login">
                         <div>PASSWORD</div>
-                        <input type="password" name="" id="">
+                        <input type="password" name="userPwd" id="">
                     </div>
                 </div>
                 <div class="frame login">
