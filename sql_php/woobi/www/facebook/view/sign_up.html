@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="EUC-KR">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook에 가입하기 | Facebook</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../view/style.css">
+<body>
+
+    <form action="sign_up_ok.php" method="post" id="upcontainer">
+        <div class="join">
+            <b style="font-size: 30px;">가입하기</b>
+            <p>빠르고 쉽습니다.</p>
+            <input name="name" type="text" placeholder="이름">
+            <input name="email" type="email" id="email" placeholder="이메일">
+            <input onclick="checkID()" type="button" value="아이디 체크">
+            <p id="emailCheckF" style="display: none; color: red;">아이디가 중복됩니다.</p>
+            <p id="emailCheckT" style="display: none; color: green;">사용 가능합니다.</p>
+
+            <input name="password" type="password" placeholder="비밀번호">
+
+            <button class="upnewacc">가입하기</button>
+        </div>
+    </form>
+    
+</body>
+</html>
+
+<script src="script.js"></script>

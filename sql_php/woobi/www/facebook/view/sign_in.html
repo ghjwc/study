@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="EUC-KR">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook에 로그인</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../view/style.css">
+<body>
+
+    <div id="incontainer">
+
+        <div class="inleft">
+            <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg">
+            <p>Facebook에서 전세계에 있는 친구, 가족, 지인들과 함께 이야기를 나눠보세요.</p>
+        </div>
+
+        <div class="inright">
+            <div class="inrightin">
+                    
+                <form action="../back/sign_in_ok.php" method="post">
+                    
+                    <input name="email" type="text" placeholder="이메일 또는 전화번호" autofocus>
+                    <input name="password" type="password" placeholder="비밀번호">
+
+                    <button class="inlogin">로그인</button>
+
+                    <p style="color: blue;">비밀번호를 잊으셨나요?</p>
+                </form>    
+
+                <a href="../back/sign_up.php">
+                    <button class="innewacc">
+                        새 계정 만들기
+                    </button>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
