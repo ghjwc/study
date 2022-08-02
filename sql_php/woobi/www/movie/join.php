@@ -3,7 +3,7 @@
 <head>
     <meta charset="EUC-KR">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>join</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,25 +15,25 @@
                 <div class="double">
                     <div class="frame">
                         <div>ID</div>
-                        <input type="text" name="userID" id="" required>
-                        <p id="idChkF">already taken</p>
-                        <p id="idChkT">welcome!</p>
+                        <input type="text" name="userID" id="userID" required>
+                        <span id="idChkF">already taken</span>
+                        <span id="idChkT">welcome!</span>
                     </div>
 
                     <div class="frame">
                         <div>PASSWORD</div>
-                        <input type="password" name="userPwd" id="" required>
+                        <input type="password" name="userPwd" required>
                     </div>
                 </div>
 
                 <div class="double">
                     <div class="frame">
                         <div>NAME</div>
-                        <input type="text" name="userName" id="" required>
+                        <input type="text" name="userName" required>
                     </div>
                     <div class="frame">
                         <div>MOBILE PHONE</div>
-                        <input type="text" name="userPhone" id="" required>
+                        <input type="text" name="userPhone" id="userPhone" maxlength="11" required>
                     </div>
                 </div>
 
@@ -96,7 +96,7 @@
 
                 <div class="frame">
                     <div>FAVORITE MOVIE</div>
-                    <input type="text" name="userDir" id="" required>
+                    <input type="text" name="userDir" required>
                 </div>
 
                 <input type="submit" value="JOIN">
