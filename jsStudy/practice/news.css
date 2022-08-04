@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 1.5rem;
+    background-color: #F9F5EB;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    color: #F9F5EB;
+    background-color: #607EAA;
+}
+
+header > ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 65%;
+    height: 5rem;
+    line-height: 5rem;
+    /* background-color: aqua; */
+}
+
+header > ul > li {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    /* background-color: salmon; */
+}
+
+header > ul > li:hover {
+    color: white;
+    transition: 1.5s;
+}
+
+header > div {
+    width: 100%;
+    height: 0.5rem;
+    background-color: lavender;
+}
+
+header > div > div {
+    height: 100%;
+    background-color: lightseagreen;
+}
+
+main {
+    /* background-color: #F9F5EB; */
+}
+
+main > div {
+    margin: 0 auto;
+    width: 65%;
+    height: 100%;
+    /* background-color: lightskyblue; */
+}
+
+main > div > div {
+    text-align: center;
+}
+
+main > div > div > input {
+    margin: 2rem 0 2rem 0;
+    padding: 0 2rem 0 2rem;
+    width: 90%;
+    height: 4rem;
+    border-style: none;
+}
+
+main > div > div > input, article > div {
+    border-radius: 3rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.3rem #EAE3D2;
+}
+
+main > div > div > button {
+    width: 8%;
+    height: 4rem;
+    border-radius: 3rem;
+    border-style: none;
+    font-weight: bold;
+    color: #F9F5EB;
+    background-color: #607EAA;
+}
+
+main > div > article {
+    height: 100%;
+    /* background-color: lightcyan; */
+}
+
+article > div {
+    margin-bottom: 2rem;
+    background-color: white;
+}
+
+article > div > div {
+    margin: 0 3rem 0 3rem;
+    padding: 1.5rem 0 1.5rem 0;
+    border-bottom: 0.1rem dashed lightgray;
+}
+
+article > div > div:last-child {
+    border-style: none;
+}
+
+footer {
+    height: 15rem;
+    background-color: darkgray;
+}
+
+@media screen and (max-width: 50rem) {
+    header > ul, main > div {
+        width: 90%;
+    }
+
+    main > div > div > input {
+        width: 80%;
+    }
+
+    main > div > div > button {
+        width: 17%;
+    }
+}

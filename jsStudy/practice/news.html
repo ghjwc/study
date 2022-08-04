@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 뉴스</title>
+    <link rel="stylesheet" href="news.css">
+
+</head>
+<body>
+    
+    <header>
+        <ul id="menu">
+            <li>홈</li>
+            <li data-category="business">경제</li>
+            <li data-category="entertainment">엔터테인먼트</li>
+            <li data-category="health">건강</li>
+            <li data-category="science">과학</li>
+            <li data-category="sports">스포츠</li>
+            <li data-category="technology">IT</li>
+        </ul>
+        <div>
+            <div></div>
+        </div>
+    </header>
+
+    <main>
+        <div>
+            <div>
+                <input type="search" id="question">
+                <button id="btn">검색</button>
+            </div>
+
+            <article>
+                <div id="news"></div>
+            </article>
+        </div>
+    </main>
+
+    <footer></footer>
+    
+    <script src="news.js"></script>
+</body>
+</html>
