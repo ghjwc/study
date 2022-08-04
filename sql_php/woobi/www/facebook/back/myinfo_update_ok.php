@@ -4,12 +4,12 @@ include("common.php");
 
 print_r($_POST);
 
-$name = $_POST['name'];
-$email = $_POST['email'];
+$userName = $_POST['userName'];
+$userEmail = $_POST['userEmail'];
 $prepassword = $_POST['prepassword'];
 $afterpassword = $_POST['afterpassword'];
 
-if($prepassword != $_SESSION['password']) {
+if($prepassword != $_SESSION['userPwd']) {
     echo "
         <script>
             alert('비밀번호가 일치하지 않습니다.');
@@ -17,9 +17,9 @@ if($prepassword != $_SESSION['password']) {
         </script>
         ";
 } else {
-    $sql = "update fbmember set
-            password = '$afterpassword'
-            where email = '$email'
+    $sql = "UPDATE Facebook SET
+            userPwd = '$afterpassword'
+            WHERE userEmail = '$userEmail'
             ";
     $result = $conn -> query($sql);
 

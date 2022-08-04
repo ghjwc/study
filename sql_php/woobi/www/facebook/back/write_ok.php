@@ -2,17 +2,17 @@
 
 include('common.php');
 $content = addslashes($_POST['content']);
-$writer = $_SESSION['name'];
+$writer = $_SESSION['userName'];
 $insertTime = date("Y-m-d H:i:s");
 
 
-$sql = "insert into fbboard set
+$sql = "INSERT INTO Facebook SET
         content = '$content',
         writer = '$writer',
         insertTime = '$insertTime'
         ";
 
-$result = $conn -> query($sql);
+$result = $conn->query($sql);
 
 if($result) {
     echo "

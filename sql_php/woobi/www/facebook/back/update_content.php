@@ -3,14 +3,14 @@
 
 include('common.php');
 
-$no = $_GET['no'];
+$userNo = $_GET['userNo'];
 
-$sql = "select
+$sql = "SELECT
             content,
             writer,
             insertTime
-        from fbboard
-        where no = '$no'";
+        FROM Facebook
+        WHERE userNo = '$userNo'";
 
 $result = $conn -> query($sql);
 

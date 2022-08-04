@@ -19,8 +19,8 @@ include('common.php');
         <div class="join">
             <b style="font-size: 30px;">정보 수정</b>
             <br><br>
-            <input name="name" style="background-color: #f5f5f5;"  value="<?php echo $_SESSION['name']; ?>" type="text" placeholder="이름" readonly>
-            <input name="email" style="background-color: #f5f5f5;" value="<?php echo $_SESSION['email']; ?>" type="email" placeholder="name@example.com" readonly>
+            <input name="name" style="background-color: #f5f5f5;"  value="<?php echo $_SESSION['userName']; ?>" type="text" placeholder="이름" readonly>
+            <input name="email" style="background-color: #f5f5f5;" value="<?php echo $_SESSION['userEmail']; ?>" type="email" placeholder="name@example.com" readonly>
             <input name="prepassword" type="password" placeholder="기존 비밀번호">
             <input name="afterpassword" type="password" placeholder="바꿀 비밀번호">
 

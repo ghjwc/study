@@ -3,12 +3,12 @@
 include('common.php');
 
 print_r($_POST);
-$no = $_POST['no'];
+$userNo = $_POST['userNo'];
 $content = $_POST['content'];
 
-$sql = "update fbboard set
+$sql = "UPDATE Facebook SET
         content = '$content',
-        where no = $no";
+        WHERE userNo = '$userNo'";
         
 
 $result = $conn -> query($sql);

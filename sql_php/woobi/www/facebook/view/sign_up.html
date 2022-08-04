@@ -12,14 +12,14 @@
     <form action="sign_up_ok.php" method="post" id="upcontainer">
         <div class="join">
             <b style="font-size: 30px;">가입하기</b>
-            <p>빠르고 쉽습니다.</p>
-            <input name="name" type="text" placeholder="이름">
-            <input name="email" type="email" id="email" placeholder="이메일">
+            <p>빠르고 쉽습니다</p>
+            <input name="userName" type="text" placeholder="이름" required>
+            <input name="userEmail" type="email" id="email" placeholder="이메일" required>
             <input onclick="checkID()" type="button" value="아이디 체크">
-            <p id="emailCheckF" style="display: none; color: red;">아이디가 중복됩니다.</p>
-            <p id="emailCheckT" style="display: none; color: green;">사용 가능합니다.</p>
+            <p id="emailCheckF" style="display: none; color: red;">존재하는 아이디입니다.</p>
+            <p id="emailCheckT" style="display: none; color: green;">사용 가능한 아이디입니다.</p>
 
-            <input name="password" type="password" placeholder="비밀번호">
+            <input name="userPwd" type="password" placeholder="비밀번호" required>
 
             <button class="upnewacc">가입하기</button>
         </div>

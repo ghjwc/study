@@ -12,14 +12,14 @@ if ($_SESSION) {
 }
 
 
-$sql = "select
+$sql = "SELECT
             content,
             writer,
             insertTime,
             likeCount,
-            count
-        from fbboard
-        order by insertTime desc
+            views
+        FROM Facebook
+        ORDER BY insertTime DESC
        ";
 
 $result = $conn -> query($sql);
@@ -66,7 +66,7 @@ $result = $conn -> query($sql);
             
             <li class="login">
                 <img src="https://i.ibb.co/Zhqg0Hb/login.png" width="25px">
-                <b><?php echo $_SESSION['name'] ?></b>
+                <b><?php echo $_SESSION['userName'] ?></b>
 
                 <!-- info 및 logout -->
                 <div class="dropdown">
@@ -99,7 +99,7 @@ $result = $conn -> query($sql);
             <ul class="leftmenu">
                 <li>
                     <img src="https://i.ibb.co/Zhqg0Hb/login.png">
-                    <b><?php echo $_SESSION['name'] ?></b>
+                    <b><?php echo $_SESSION['userName'] ?></b>
                 </li>
                 <li>
                     <img src="https://i.ibb.co/fx7zMPC/friend.png">
@@ -149,7 +149,7 @@ $result = $conn -> query($sql);
             <div class="mainwrap">
 
             <h1><center>
-                <?php echo $_SESSION['name'] ?>님, Facebook에 오신 것을 환영합니다!
+                <?php echo $_SESSION['userName'] ?>님, Facebook에 오신 것을 환영합니다!
                 </center></h1>
 
                 <div class="story">
@@ -164,7 +164,7 @@ $result = $conn -> query($sql);
                     <div>
                         <img src="https://i.ibb.co/Zhqg0Hb/login.png">
                         <a onclick="goWrite()">
-                            <input type="text" placeholder="<?php echo $_SESSION['name'] ?>님, 무슨 생각을 하고 계신가요?">
+                            <input type="text" placeholder="<?php echo $_SESSION['userName'] ?>님, 무슨 생각을 하고 계신가요?">
                         </a>
                         </div>
                     <ul>
@@ -199,7 +199,7 @@ $result = $conn -> query($sql);
                             </ul>
                             <li class="wmore">
                                 
-                                <?php if($data['writer'] == $_SESSION['name']) { ?><button onclick="updateContent()">수정</button>
+                                <?php if($data['writer'] == $_SESSION['userName']) { ?><button onclick="updateContent()">수정</button>
                                     <button onclick="deleteContent()">삭제</button><?php } ?>
                             </li>
                         </ul>

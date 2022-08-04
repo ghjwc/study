@@ -2,9 +2,9 @@
 
 include("common.php");
 
-$no = $_GET['no'];
+$userNo = $_GET['userNo'];
 
-$sql = "delete from fbboard where no = $no";
+$sql = "DELETE FROM Facebook WHERE userNo = $userNo";
 
 $result = $conn -> query($sql);
 

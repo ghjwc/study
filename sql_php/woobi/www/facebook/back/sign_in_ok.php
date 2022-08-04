@@ -11,12 +11,14 @@ include('common.php');
 //         ";
 // }
 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+$userNo = $_POST['userNo'];
+$userName = $_POST['userName'];
+$userEmail = $_POST['userEmail'];
+$userPwd = $_POST['userPwd'];
 
-$sql = "select no, name, email, password from fbmember
-        where email = '$email'";
+$sql = "SELECT userNo, userName, userEmail, userPwd
+        FROM Facebook
+        WHERE userEmail = '$userEmail'";
 
 // 사용자가 입력한 이메일에 해당하는 query 실행
 
@@ -27,11 +29,11 @@ $db_pw = mysqli_fetch_assoc($result);
 print_r($db_pw);
 
 if($db_pw) {
-    if($password == $db_pw['password']) {
-        $_SESSION['no'] = $db_pw['no'];
-        $_SESSION['name'] = $db_pw['name'];
-        $_SESSION['email'] = $db_pw['email'];
-        $_SESSION['password'] = $db_pw['password'];
+    if($userPwd == $db_pw['userPwd']) {
+        $_SESSION['userNo'] = $db_pw['userNo'];
+        $_SESSION['userName'] = $db_pw['userName'];
+        $_SESSION['userEmail'] = $db_pw['userEmail'];
+        $_SESSION['userPwd'] = $db_pw['userPwd'];
         // query에 대한 return 값이 있다면 session에 값을 저장한다.
         echo "
         <script>

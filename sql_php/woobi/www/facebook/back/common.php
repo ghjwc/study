@@ -2,12 +2,12 @@
 
 session_start();
 
-$host = "localhost";
-$user = "root";
-$db = "facebook";
+$servername = "localhost";
+$username = "return";
+$password = "www1234";
+$db = "return";
 
-$conn = mysqli_connect($host, $user, null, $db);
+$conn = new mysqli($servername, $username, $password, $db);
 
-// print_r($conn);
 
 ?>

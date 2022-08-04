@@ -2,14 +2,14 @@
 
 include('common.php'); //db 접속 정보
 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+$userName = $_POST['userName'];
+$userEmail = $_POST['userEmail'];
+$userPwd = $_POST['userPwd'];
 
-$sql = "insert into fbmember set
-        name = '$name',
-        email = '$email',
-        password = '$password'
+$sql = "INSERT INTO Facebook SET
+        userName = '$userName',
+        userEmail = '$userEmail',
+        userPwd = '$userPwd'
         ";
 
 $result = $conn -> query($sql);

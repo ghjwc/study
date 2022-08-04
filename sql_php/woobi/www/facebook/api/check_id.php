@@ -2,9 +2,9 @@
 
 include('../back/common.php');
 
-$email = $_GET['email'];
-$sql = "select email from fbmember
-        where email = '$email'";
+$email = $_GET['userEmail'];
+$sql = "SELECT userEmail FROM Facebook
+        WHERE userEmail = '$userEmail'";
 
 $result = $conn -> query($sql);
 

@@ -1,9 +1,10 @@
 <?php
 include("common.php");
 
-$user_no = $_SESSION['no'];
+$userNo = $_SESSION['userNo'];
 
-$sql = "delete from fbmember where no $user_no";
+$sql = "DELETE FROM Facebook
+        WHERE userNo = '$userNo'";
 
 $result = $conn -> query($sql);
 
