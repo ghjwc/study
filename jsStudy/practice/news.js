@@ -8,14 +8,15 @@ window.addEventListener('scroll', () => {
 function chkReader() {
     let color = document.querySelector('header > div > div'),
         doc = document.documentElement,
-        winScroll = document.body.scroollTop || doc.scrollTop,
+        winScroll = document.body.scrollTop || doc.scrollTop,
         winHeight = doc.scrollHeight - doc.clientHeight,
         scrolled = (winScroll / winHeight) * 100;
 
     color.style.width = scrolled + '%';
 }
 
-
+const question = document.getElementById('question'),
+    btn = document.getElementById('btn');
 
 function showNews(category = 'general', question = '') {
     news.innerHTML = '';

@@ -95,6 +95,7 @@ main > div > div > button {
     font-weight: bold;
     color: #F9F5EB;
     background-color: #607EAA;
+    cursor: pointer;
 }
 
 main > div > article {
