@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lotto.css">
+</head>
+<body>
+
+    <header>로또 1등 기원</header>
+
+    <div id="container">
+        <p>제 1회 1등 번호</p>
+        <p>2022년 08월 09일 추첨</p>
+
+        <div class="lotto">
+            <ul>
+                <li class="number">1</li>
+                <li class="number">2</li>
+                <li class="number">3</li>
+                <li class="number">4</li>
+                <li class="number">5</li>
+                <li class="number">6</li>
+            </ul>
+            <div>+</div>
+            <ul>
+                <li class="number">7</li>
+            </ul>
+        </div>
+
+        <div class="txt">
+            <p>당첨 번호</p>
+            <p>보너스</p>
+        </div>
+
+        <div class="btn">
+            <button>번호생성(무료)</button>
+            <button>번호생성(유료)</button>
+        </div>
+
+        
+        <div class="custom">
+            <span>수동 입력</span>
+            <input type="text" class="customNumber" maxlength="2">
+            <input type="text" class="customNumber" maxlength="2">
+            <input type="text" class="customNumber" maxlength="2">
+            <input type="text" class="customNumber" maxlength="2">
+            <input type="text" class="customNumber" maxlength="2">
+            <input type="text" class="customNumber" maxlength="2">
+        </div>
+
+        <div class="btn">
+            <button>5등이 될 때까지 구매</button>
+            <button>결과 확인</button>
+        </div>
+
+        <div id="showResult"></div>
+    </div>
+    
+    <script src="lotto.js"></script>
+</body>
+</html>

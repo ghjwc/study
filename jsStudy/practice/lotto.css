@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.5rem;
+    font-family: '맑은고딕', Helvetica;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    padding: 3rem;
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container > p {
+    margin: 1rem;
+    /* background-color: aqua; */
+}
+
+.lotto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: lavender; */
+}
+
+.lotto > ul:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    width: 35rem;
+    /* background-color: aquamarine; */
+}
+
+.lotto > div {
+    margin: 0 1.5rem 0 1.5rem ;
+    font-size: 5rem;
+    font-weight: bold;
+    color: lightgray;
+}
+
+.lotto > ul:first-child, .lotto > ul:last-child {
+    padding: 1rem;
+    border-radius: 2rem;
+    background-color: linen;
+}
+
+.lotto > ul:first-child {
+    margin-top: 3rem;
+}
+
+.number {
+    margin: 0.5rem;
+    width: 10rem;
+    height: 10rem;
+    line-height: 10rem;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 5rem;
+    font-weight: bold;
+    color: white;
+    background-color: tomato;
+}
+
+.txt {
+    display: flex;
+    margin: 3rem;
+    width: 54rem;
+    text-align: center;
+}
+
+.txt > p:first-child {
+    width: 65%;
+}
+
+.txt > p:last-child {
+    margin-left: 10%;
+    width: 25%;
+}
+
+.customNumber {
+    width: 3rem;
+    height: 3rem;
+}
+
+.custom, .btn {
+    margin: 3rem;
+}
+
+.btn {
+    display: flex;
+    gap: 1rem;
+}
+
+input {
+    margin-right: 1rem;
+    border-style: none;
+    border-bottom: 0.3rem dashed tomato;
+}
+
+button {
+    padding: 2rem;
+    border-style: none;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: gray;
+    background-color: lavender;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: lavenderblush;
+}

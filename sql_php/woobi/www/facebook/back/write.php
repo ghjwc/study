@@ -25,7 +25,7 @@ include('common.php');
                 <li><?php echo $_SESSION['userName'] ?></li>
             </ul>
 
-            <textarea name="content" placeholder="<?php echo $_SESSION['userName'] ?>님, 무슨 생각을 하고 계신가요?"></textarea>
+            <textarea name="content" placeholder="<?php echo $_SESSION['userName'] ?>님, 무슨 생각을 하고 계신가요?" required></textarea>
             
             <ul class="wul2">
                 <li><img src="https://i.ibb.co/42hQR2n/color.png"></li>
