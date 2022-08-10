@@ -1,5 +1,5 @@
 const gauge = document.querySelector('header > div'),
-    gaugeTop = gauge.offsetTop;
+      gaugeTop = gauge.offsetTop;
 
 window.addEventListener('scroll', () => {
     chkReader(gauge, gaugeTop);
@@ -15,8 +15,16 @@ function chkReader() {
     color.style.width = scrolled + '%';
 }
 
+let today = new Date(),
+    year = today.getFullYear(),
+    month = today.getMonth() + 1,
+    day = today.getDay();
+
+document.querySelector('main > div > p').innerHTML = `${year}년 ${month}월 ${day}일 오늘의 뉴스`;
+document.querySelector('footer > p:first-child').innerHTML = year;
+
 const question = document.getElementById('question'),
-    btn = document.getElementById('btn');
+      btn = document.getElementById('btn');
 
 function showNews(category = 'general', question = '') {
     news.innerHTML = '';
@@ -29,7 +37,7 @@ function showNews(category = 'general', question = '') {
     let req = new Request(url);
   
     fetch(req)
-        .then(function(response) {
+        .then((response) => {
             // console.log(response);
             return response.json();
         })
@@ -37,34 +45,80 @@ function showNews(category = 'general', question = '') {
         //   console.log(data.articles[0]);
   
           for (article of data.articles) {
+
+            // console.log(article);
   
             let divTitle = document.createElement('div');
   
-            divTitle.innerHTML = `<h3><a href="${article.url}" target="_blank">${article.title}</a></h3>`;
+            divTitle.innerHTML = `<a href="${article.url}" target="_blank"><span class="categoryColor">${category}</span> ${article.title}</a>`;
+
+
   
-            // console.log(article.author);
-            // console.log(article.title);
-            // console.log(article.url);
-            // console.log(article.urlToImage);
             news.append(divTitle);
           }
+
+          let categoryColor = document.querySelectorAll('.categoryColor'),
+              menuLength = document.querySelectorAll('#menu > li');
+
+          for (let i = 0; i < menuLength.length; i++) {
+            switch (category) {
+              case 'general':
+                categoryColor[i].innerText = '일반';
+                break;
+              case 'business':
+                categoryColor[i].style.backgroundColor = 'lightskyblue';
+                categoryColor[i].innerText = '경제';
+                break;
+              case 'entertainment':
+                categoryColor[i].style.backgroundColor = 'lightpink';
+                categoryColor[i].innerText = '엔터';
+                break;
+              case 'health':
+                categoryColor[i].style.backgroundColor = 'mediumaquamarine';
+                categoryColor[i].innerText = '건강';
+                break;
+              case 'science':
+                categoryColor[i].style.backgroundColor = '#E7CBEE';
+                categoryColor[i].innerText = '과학';
+                break;
+              case 'sports':
+                categoryColor[i].style.backgroundColor = '#219CFA';
+                categoryColor[i].innerText = '스포츠';
+                break;
+              case 'technology':
+                categoryColor[i].style.backgroundColor = 'lightgray';
+                categoryColor[i].innerText = '기술';
+                break;
+              default:
+                break;
+            }
+          }
+
         });
-  }
+}
+showNews();
   
-  showNews();
-  
-  //   menu.chil.foreach(function (val, index) {
-  //     console.log(val);
-  //   });
-  
-  menu.addEventListener('click', (e) => {
+menu.addEventListener('click', (e) => {
     showNews(e.target.dataset.category);
-  });
-  
-  btn.addEventListener('click', () => {
+});
+
+btn.addEventListener('click', () => {
     if (!question.value) {
         console.log('null');
         return;
     }
-    showNews('general', question.value); 
-  })
+    showNews('general', question.value);
+})
+
+question.addEventListener('keyup', (e) => {
+    if (e.keyCode == 13 && question.value != '') {
+      showNews('general', question.value);
+      question.value = '';
+    } else {
+      return;
+    }
+});
+
+document.querySelector('footer > div').onclick = () => {
+    window.scrollTo({left: 0, top: 0, behavior: 'smooth'});
+};

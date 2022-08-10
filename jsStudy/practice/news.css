@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    font-family: Helvetica, sans-serif;
+    font-family: '맑은고딕', Helvetica;
     font-size: 1.5rem;
     background-color: #F9F5EB;
 }
@@ -55,12 +55,9 @@ header > div {
 }
 
 header > div > div {
+    width: 0;
     height: 100%;
     background-color: lightseagreen;
-}
-
-main {
-    /* background-color: #F9F5EB; */
 }
 
 main > div {
@@ -70,12 +67,27 @@ main > div {
     /* background-color: lightskyblue; */
 }
 
-main > div > div {
+main > div > p {
+    margin-top: 2rem;
+    padding: 3rem;
     text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 3rem 0 3rem 0;
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.3rem #EAE3D2;
+    background-color: lightseagreen;
+}
+
+main > div > div {
+    display: flex;
+    gap: 2%;
+    padding: 2rem 0 2rem 0;
+    text-align: center;
+    /* background-color: aqua; */
 }
 
 main > div > div > input {
-    margin: 2rem 0 2rem 0;
     padding: 0 2rem 0 2rem;
     width: 90%;
     height: 4rem;
@@ -95,7 +107,13 @@ main > div > div > button {
     font-weight: bold;
     color: #F9F5EB;
     background-color: #607EAA;
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.3rem #EAE3D2;
     cursor: pointer;
+}
+
+button > img {
+    margin-top: 0.3rem;
+    width: 1.8rem;
 }
 
 main > div > article {
@@ -110,7 +128,6 @@ article > div {
 
 article > div > div {
     margin: 0 3rem 0 3rem;
-    padding: 1.5rem 0 1.5rem 0;
     border-bottom: 0.1rem dashed lightgray;
 }
 
@@ -118,14 +135,75 @@ article > div > div:last-child {
     border-style: none;
 }
 
+#news > div {
+    display: flex;
+}
+
+#news > div > a {
+    padding: 1.5rem 0 1.5rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #607EAA;
+}
+
+#news > div > a:hover {
+    color: lavender;
+    transition: 0.5s;
+}
+
+#news > div > a > span {
+    margin-right: 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 3rem;
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: white;
+    background-color: #607EAA;
+}
+
 footer {
-    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem;
     background-color: darkgray;
 }
+
+footer > p {
+    line-height: 3rem;
+    font-weight: bold;
+    color: white;
+}
+
+#top {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 8rem;
+    height: 8rem;
+    line-height: 8rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 50%;
+    color: white;
+    background-color: lightseagreen;
+    cursor: pointer;
+}
+
 
 @media screen and (max-width: 50rem) {
     header > ul, main > div {
         width: 90%;
+    }
+
+    header > ul:first-child {
+        display: none;
     }
 
     main > div > div > input {

@@ -4,12 +4,17 @@ let numberList = [],
 
 const btn = document.querySelectorAll('button'),
         showResult = document.querySelector('.showResult'),
-        num = document.querySelectorAll('.number');
+        num = document.querySelectorAll('.number'),
+        today = document.querySelector('#container > p:first-child');
 
-console.log(btn[0]);
-console.log(btn[1]);
-console.log(btn[2]);
-console.log(btn[3]);
+let todayDate = new Date(),
+    year = todayDate.getFullYear(),
+    month = todayDate.getMonth() + 1,
+    date = todayDate.getDay();
+
+today.innerHTML = `${year}년 ${month}월 ${date}일`;
+
+today.valueAsDate = new Date;
 
 function autoMakeNumner() {
     buycnt = 0;
