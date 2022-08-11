@@ -60,13 +60,18 @@ function showNews(category = 'general', question = '') {
           let categoryColor = document.querySelectorAll('.categoryColor'),
               menuLength = document.querySelectorAll('#menu > li');
 
+          // let categoryLength = categoryColor.map((item) => {
+          //   return item;
+          // });
+          // console.log(categoryLength);
+
           for (let i = 0; i < menuLength.length; i++) {
             switch (category) {
               case 'general':
                 categoryColor[i].innerText = '일반';
                 break;
               case 'business':
-                categoryColor[i].style.backgroundColor = 'lightskyblue';
+                categoryColor[i].style.backgroundColor = 'salmon';
                 categoryColor[i].innerText = '경제';
                 break;
               case 'entertainment':

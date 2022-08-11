@@ -21,6 +21,7 @@ li {
 header {
     position: sticky;
     top: 0;
+    z-index: 10;
     color: #F9F5EB;
     background-color: #607EAA;
 }
@@ -60,6 +61,10 @@ header > div > div {
     background-color: lightseagreen;
 }
 
+main {
+    position: relative;
+}
+
 main > div {
     margin: 0 auto;
     width: 65%;
@@ -79,7 +84,32 @@ main > div > p {
     background-color: lightseagreen;
 }
 
-main > div > div {
+/* #mediaMenu {
+    margin-top: 2rem;
+    background-color: aqua;
+}
+
+#mediaMenu > ul {
+    display: flex;
+    margin: 0 auto;
+    padding: 1rem;
+    width: 25rem;
+    background-color: lavender;
+}
+
+#mediaMenu > ul:first-child {
+    padding-bottom: 0;
+}
+
+#mediaMenu > ul > li {
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: white;
+    background-color: #607EAA;
+} */
+
+#searchDiv {
     display: flex;
     gap: 2%;
     padding: 2rem 0 2rem 0;
@@ -87,19 +117,19 @@ main > div > div {
     /* background-color: aqua; */
 }
 
-main > div > div > input {
+#searchDiv > input {
     padding: 0 2rem 0 2rem;
     width: 90%;
     height: 4rem;
     border-style: none;
 }
 
-main > div > div > input, article > div {
+#searchDiv > input, article > div {
     border-radius: 3rem;
     box-shadow: 0.1rem 0.1rem 0.5rem 0.3rem #EAE3D2;
 }
 
-main > div > div > button {
+#searchDiv > button {
     width: 8%;
     height: 4rem;
     border-radius: 3rem;
@@ -108,6 +138,22 @@ main > div > div > button {
     color: #F9F5EB;
     background-color: #607EAA;
     box-shadow: 0.1rem 0.1rem 0.5rem 0.3rem #EAE3D2;
+    cursor: pointer;
+}
+
+#mobileMenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    opacity: 0.8;
+    text-align: center;
+    font-weight: bold;
+    writing-mode: vertical-rl;
+    border-radius: 0 2rem 2rem 0;
+    color: white;
+    background-color: lightgray;
     cursor: pointer;
 }
 
@@ -184,6 +230,7 @@ footer > p {
     position: fixed;
     right: 1.5rem;
     bottom: 1.5rem;
+    z-index: 10;
     width: 8rem;
     height: 8rem;
     line-height: 8rem;
@@ -203,14 +250,31 @@ footer > p {
     }
 
     header > ul:first-child {
-        display: none;
+        position: static;
+    }
+
+    #mobileMenu {
+        display: block;
     }
 
     main > div > div > input {
-        width: 80%;
+        width: 78%;
     }
 
     main > div > div > button {
-        width: 17%;
+        width: 20%;
+    }
+
+    article > div > div {
+        margin: 0 1.5rem 0 1.5rem;
+    }
+
+    #news > div > a > span {
+        margin-right: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    #news > div > a {
+        font-size: 1.4rem;
     }
 }
