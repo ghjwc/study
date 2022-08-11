@@ -102,9 +102,17 @@ function showNews(category = 'general', question = '') {
         });
 }
 showNews();
+
+
+const mobileMenu = document.querySelector('#mobileMenu'),
+      mobileAside = document.querySelector('header > ul'),
+      mobileMenuClose = document.querySelector('.closeMenu');
   
 menu.addEventListener('click', (e) => {
-    showNews(e.target.dataset.category);
+    if (e.target != mobileMenuClose) {
+      showNews(e.target.dataset.category);
+    }
+    hideMenu();
 });
 
 btn.addEventListener('click', () => {
@@ -127,3 +135,24 @@ question.addEventListener('keyup', (e) => {
 document.querySelector('footer > div').onclick = () => {
     window.scrollTo({left: 0, top: 0, behavior: 'smooth'});
 };
+
+
+mobileMenu.addEventListener('click', () => {
+    if (!mobileAside.clientWidth) {
+      mobileAside.style.width = '70%';
+      mobileAside.style.opacity = '1';
+      mobileAside.style.visibility = 'visible';
+    }
+});
+
+mobileMenuClose.onclick = () => {
+    hideMenu();
+}
+
+function hideMenu() {
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+    mobileAside.style.width = '0';
+    mobileAside.style.opacity = '0';
+    mobileAside.style.visibility = 'hidden';
+}
