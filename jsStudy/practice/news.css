@@ -83,7 +83,7 @@ main > div {
 }
 
 main > div > p {
-    margin-top: 2rem;
+    margin: 2rem 0 2rem 0;
     padding: 3rem;
     text-align: center;
     font-size: 2.5rem;
@@ -93,31 +93,6 @@ main > div > p {
     box-shadow: 0.1rem 0.1rem 0.5rem 0.3rem #EAE3D2;
     background-color: lightseagreen;
 }
-
-/* #mediaMenu {
-    margin-top: 2rem;
-    background-color: aqua;
-}
-
-#mediaMenu > ul {
-    display: flex;
-    margin: 0 auto;
-    padding: 1rem;
-    width: 25rem;
-    background-color: lavender;
-}
-
-#mediaMenu > ul:first-child {
-    padding-bottom: 0;
-}
-
-#mediaMenu > ul > li {
-    margin: 0 auto;
-    padding: 1rem;
-    border-radius: 1rem;
-    color: white;
-    background-color: #607EAA;
-} */
 
 #searchDiv {
     display: flex;
@@ -156,15 +131,27 @@ main > div > p {
     top: 0;
     left: 0;
     display: none;
-    padding: 2rem 1.5rem 2rem 1.5rem;
+    padding: 1.5rem;
     opacity: 0.8;
     text-align: center;
-    font-weight: bold;
-    writing-mode: vertical-rl;
     border-radius: 0 2rem 2rem 0;
-    color: white;
     background-color: lightgray;
     cursor: pointer;
+}
+
+#mobileMenu > ul {
+    width: 3rem;
+}
+
+#mobileMenu > ul > li {
+    margin-bottom: 0.7rem;
+    width: 100%;
+    height: 0.4rem;
+    background-color: white;
+}
+
+#mobileMenu > ul > li:last-child {
+    margin-bottom: 0;
 }
 
 button > img {
@@ -182,13 +169,41 @@ article > div {
     background-color: white;
 }
 
-article > div > div {
+article:not(#weather) > div > div {
     margin: 0 3rem 0 3rem;
     border-bottom: 0.1rem dashed lightgray;
 }
 
-article > div > div:last-child {
+article:not(#weather) > div > div:last-child {
     border-style: none;
+}
+
+#weather > div {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 1.5rem;
+}
+
+.weatherDiv {
+    color: #607EAA;
+}
+
+.weatherDiv:first-child {
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+.weatherDiv:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 4rem 1rem 4rem;
+    line-height: 3rem;
+    border-radius: 1.5rem;
+    color: white;
+    background-color: #607EAA;
 }
 
 #news > div {
@@ -260,6 +275,8 @@ footer > p {
     }
 
     #mobileMenu {
+        position: fixed;
+        top: 1.5rem;
         display: block;
     }
 
@@ -291,6 +308,25 @@ footer > p {
 
     .closeMenu:hover {
         background-color: red;
+    }
+
+
+    #weather > div {
+        flex-wrap: wrap;
+        gap: 0;
+    }
+
+    .weatherDiv:last-child {
+        margin-top: 2rem;
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+        color: white;
+        background-color: #607EAA;
+    }
+
+    main > div > p {
+        font-size: 1.8rem;
     }
 
     main > div > div > input {
