@@ -10,6 +10,7 @@ html {
 
 body {
     font-size: 1.5rem;
+    font-family: '돋움';
 }
 
 li {
@@ -18,32 +19,44 @@ li {
 
 /* header */
 header {
+    z-index: 10;
     display: flex;
     justify-content: space-between;
-    padding: 2rem;
-    background-color: antiquewhite;
+    padding: 1.5rem;
+    /* background: linear-gradient(0deg, rgba(251,255,137,1) 0%, rgba(195,250,70,1) 57%, rgba(251,255,137,1) 100%); */
+    color: white;
+    background: linear-gradient(0deg, rgba(247,255,219,1) 0%, rgba(136,229,250,1) 63%, rgba(183,249,255,1) 100%);
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem lightgray;
 }
 
 header > div {
-    background-color: aqua;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: 1.7rem;
+    font-weight: bold;
+    /* color: white; */
+    /* background-color: aqua; */
 }
 
 header > ul {
     display: flex;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 header > ul > li {
-    margin-right: 1rem;
-    padding-top: 0.25rem;
+    margin-right: 0.5rem;
+    padding-top: 0.2rem;
     width: 2.5rem;
     height: 2.5rem;
     line-height: 2.5rem;
     text-align: center;
     font-size: 1.7rem;
     font-weight: bold;
+    border: 0.1rem solid lightgray;
     border-radius: 50%;
-    background-color: yellow;
+    color: gray;
+    background-color: white;
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem lightgray;
 }
 
 header > ul > li:first-child {
@@ -57,19 +70,42 @@ header > ul > li:last-child {
 /* nav */
 nav {
     padding: 1rem;
-    background-color: coral;
+    border-top: 0.2rem solid #e0e9eb;
+    border-bottom: 0.2rem solid #e0e9eb;
+    background-color: #f5f5f5;
 }
 
 nav > ul {
     display: flex;
     justify-content: center;
-    gap: 1rem;
     margin: 0 auto;
-    padding: 0.5rem 2rem 0.5rem 2rem;
-    width: fit-content;
-    background-color: lavender;
+    padding: 0.5rem;
+    width: 20rem;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 3rem;
+    border: 0.1rem solid lightgray;
+    color: lightskyblue;
+    background-color: lightcyan;
 }
 
 nav > ul > li {
-    background-color: aquamarine;
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 3rem;
+}
+
+nav > ul > li:first-child {
+    border: 0.1rem solid lightgray;
+    color: white;
+    background: linear-gradient(0deg, rgba(183,249,255,1) 0%, rgba(136,229,250,1) 63%, rgba(183,249,255,1) 100%);
+}
+
+/* main */
+
+/* footer */
+footer {
+    width: 100%;
+    height: 3rem;
+    background-color: lightgray;
 }
