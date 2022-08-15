@@ -49,5 +49,25 @@ function CreateCalender(elem) {
 
     let init = () => {
         const style = document.createElement('style');
+
+        style.innerHTML = `
+        `;
+        document.head.appendChild(style);
+        display(year, month);
+    }
+
+    let display = (year, month) => {
+        let table = `
+        `;
+
+        let prevMonthDay = new Date(year, month, 0).getDate(),
+            date = new Date(year, month),
+            startWeek = date.getDay();
+
+        for (let i = startWeek - 1; i >= 0; i--) {
+            table += `<td><div class=""not-month">${prevMonthDay - i}</div></td>`;
+        }
+
+        
     }
 }
