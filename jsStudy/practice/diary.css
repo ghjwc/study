@@ -43,14 +43,12 @@ header > ul {
     /* background-color: blue; */
 }
 
-header > ul > li {
+header > ul > li, .prev, .next {
     margin-right: 0.5rem;
-    padding-top: 0.2rem;
     width: 2.5rem;
     height: 2.5rem;
     line-height: 2.5rem;
     text-align: center;
-    font-size: 1.7rem;
     font-weight: bold;
     border: 0.1rem solid lightgray;
     border-radius: 50%;
@@ -105,6 +103,98 @@ nav > ul > li:first-child {
 }
 
 /* main */
+#container {
+    /* height: 100vh; */
+    background-color: bisque;
+}
+
+/* calendar */
+.cal {
+    background-color: lightcyan;
+}
+
+.calendar-control {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    background-color: lightyellow;
+}
+
+.calendar-control > div:nth-child(2) {
+    margin: 0 1rem 0 1rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-weight: bold;
+    color: lightskyblue;
+}
+
+.prev, .next {
+    transition: transform 0.3s ease;
+    font-size: 1rem;
+    color: lightskyblue;
+    cursor: pointer;
+}
+
+.prev:hover, .next:hover {
+    transform: translate(0.3rem, 0.3rem);
+}
+
+.calendar {
+    margin: 0 auto;
+    width: 50rem;
+    height: 50rem;
+    background-color: lavender;
+}
+
+/* todolist */
+.todo {
+    display: none;
+    margin: 0 auto;
+    width: 50rem;
+    background-color: yellow;
+}
+
+.todo > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: salmon;
+}
+
+.todoInput {
+    padding-left: 1rem;
+    width: 89%;
+    height: 4rem;
+    font-family: '돋움';
+}
+
+.todoInput::placeholder {
+    font-family: '돋움';
+    font-size: 1.1rem;
+    color: lightskyblue;
+}
+
+.todoInputBtn {
+    width: 10%;
+    height: 4rem;
+}
+
+.todolist {
+    margin: 1rem;
+    background-color: lightpink;
+}
+
+.todolist > li {
+    margin-bottom: 0.5rem;
+    padding: 1rem 0 1rem 0;
+    background-color: lightyellow;
+}
+
+.todolist > li > button {
+    margin-left: 1rem;
+}
+
 
 /* footer */
 footer {
@@ -121,6 +211,10 @@ footer {
 
     header > ul {
         display: none;
+    }
+
+    .calendar, .todo {
+        width: 90%;
     }
 }
 
