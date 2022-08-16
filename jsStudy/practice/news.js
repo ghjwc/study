@@ -20,7 +20,7 @@ function chkReader() {
 let today = new Date(),
     year = today.getFullYear(),
     month = today.getMonth() + 1,
-    day = today.getDay();
+    day = today.getDate();
 
 document.querySelector('main > div > p').innerHTML = `${year}년 ${month}월 ${day}일 오늘의 뉴스`;
 document.querySelector('footer > p:first-child').innerHTML = year;
@@ -47,7 +47,7 @@ question.addEventListener('keyup', (e) => {
 
 // 날씨
 
-const weaterDiv = document.querySelector('#weather');
+const weaterDiv = document.getElementById('weather');
 
 const getJSON = (url, callback) => {
     const xhr = new XMLHttpRequest();
@@ -163,7 +163,7 @@ showNews();
 
 
 // 모바일 메뉴
-const mobileMenu = document.querySelector('#mobileMenu'),
+const mobileMenu = document.getElementById('mobileMenu'),
       mobileAside = document.querySelector('header > ul'),
       mobileMenuClose = document.querySelector('.closeMenu');
   
