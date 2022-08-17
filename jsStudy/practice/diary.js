@@ -140,9 +140,9 @@ function CreateCalender(elem) {
     let display = (year, month) => {
         let table = `
             <div class="calendar-control">
-                <div class="prev">◀</div>
+                <div class="prev">&#60;</div>
                 <div>${year}년 ${month + 1}월</div>
-                <div class="next">▶</div>
+                <div class="next">&#62;</div>
             </div>
             <table class="calendar">
                 <tr>
@@ -317,24 +317,31 @@ const todoInput = document.querySelector('.todoInput'),
         todoInputBtn = document.querySelector('.todoInputBtn');
 let list = [];
 
-todoInput.addEventListener('keyup', enterPressed);
-todoInputBtn.addEventListener('click', addTodo);
 
-function enterPressed(e) {
+// 추가 & 삭제
+todoInput.addEventListener('keyup', (e) => {
     if (e.keyCode == 13) {
         addTodo();
+        e.preventDefault();
     }
-}
+    checkList();
+    listCount();
+});
+
+todoInputBtn.addEventListener('click', addTodo);
+
+let whatToDo = document.querySelector('.todoInput').value,
+    todolist = document.querySelector('.todolist');
 
 function addTodo() {
-    let whatToDo = document.querySelector('.todoInput').value,
-        todolist = document.querySelector('.todolist');
+    whatToDo = document.querySelector('.todoInput').value;
+    todolist = document.querySelector('.todolist');
 
     if (whatToDo == '') {
         return;
     } else {
         list = document.createElement('li');
-        list.innerText = whatToDo;
+        list.innerHTML = `<label class="listLb"><input type="checkbox" class="listCheck">${whatToDo}</label>`;
         todolist.appendChild(list);
         todoInput.value = '';
     }
@@ -347,4 +354,138 @@ function addTodo() {
         let pnode = e.target.parentNode;
         todolist.removeChild(pnode);
     }
+    checkList();
+    listCount();
 }
+
+// 체크박스
+let listCheck = document.querySelectorAll('.listCheck'),
+    listLb = document.querySelectorAll('.listLb');
+
+function checkList() {
+    listCheck = document.querySelectorAll('.listCheck');
+    listLb = document.querySelectorAll('.listLb');
+    listCheck.forEach((listEl, index) => listEl.addEventListener('click', () => {
+        if (listEl.checked == true) {
+            listLb[index].style.textDecoration = 'line-through';
+            listLb[index].style.fontStyle = 'italic';
+            listLb[index].style.color = 'gray';
+        } else {
+            listLb[index].style.textDecoration = 'none';
+            listLb[index].style.fontStyle = '';
+            listLb[index].style.color = '';
+        }
+        listCount();
+    }));
+}
+
+// 전체 & 진행 중 & 완료
+const btnAll = document.querySelector('.btnAll'),
+        btnIng = document.querySelector('.btnIng'),
+        btnEd = document.querySelector('.btnEd');
+let listAll = document.querySelectorAll('.todolist > li');
+
+btnAll.addEventListener('click', () => {
+    listAll = document.querySelectorAll('.todolist > li');
+    listAll.forEach((eachList) => {
+        eachList.style.display = '';
+    });
+});
+
+btnIng.addEventListener('click', () => {
+    listCheck = document.querySelectorAll('.listCheck');
+    listAll = document.querySelectorAll('.todolist > li');
+    for (let i = 0; i < listCheck.length; i++) {
+        if (listCheck[i].checked == true) {
+            listAll[i].style.display = 'none';
+        } else {
+            listAll[i].style.display = '';
+        }
+    }
+});
+
+btnEd.addEventListener('click', () => {
+    listCheck = document.querySelectorAll('.listCheck');
+    listAll = document.querySelectorAll('.todolist > li');
+    for (let i = 0; i < listAll.length; i++) {
+        if (listCheck[i].checked == true) {
+            listAll[i].style.display = '';
+        } else {
+            listAll[i].style.display = 'none';
+        }
+    }
+});
+
+const btnDiv = document.querySelectorAll('.btnDiv > input');
+
+for (let i = 0; i < btnDiv.length; i++) {
+    btnDiv[i].addEventListener('click', () => {
+        listAll = document.querySelectorAll('.todolist > li');
+        console.log(listAll.length);
+        if (listAll[i].style.display = '' == 1) {
+            console.log('fsdfsdf');
+            document.querySelector('.todolist > li:first-child').style.borderBottom = '0';
+        }
+        console.log('test');
+    });
+}
+
+// 건수 조회
+function listCount() {
+    listAll = document.querySelectorAll('.todolist > li');
+    let ingArr = [],
+        edArr = [];
+
+    for (let i = 0; i < listAll.length; i++) {
+        if (listCheck[i].checked == false) {
+            ingArr.push(listAll[i]);
+        } else {
+            edArr.push(listAll[i]);
+        }
+    }
+
+    let allCnt = (ingArr.length + edArr.length),
+        ingCnt = ingArr.length,
+        edCnt = edArr.length;
+    
+    btnAll.value = `전체 (${allCnt})`;
+    btnIng.value = `진행 중 (${ingCnt})`;
+    btnEd.value = `완료 (${edCnt})`;
+}
+
+// 전체 선택
+const selectAll = document.querySelector('#selectAll'),
+        delAll = document.querySelector('.delAll');
+
+selectAll.addEventListener('click', () => {
+    listCheck = document.querySelectorAll('.listCheck');
+    listLb = document.querySelectorAll('.listLb');
+
+    if (selectAll.checked == true) {
+        for (let i = 0; i < listCheck.length; i++) {
+            listCheck[i].checked = true;
+            listLb[i].style.textDecoration = 'line-through';
+        }
+    } else {
+        for (let i = 0; i < listCheck.length; i++) {
+            listCheck[i].checked = false;
+            listLb[i].style.textDecoration = '';
+        } 
+    }
+    listCount();
+});
+
+delAll.addEventListener('click', () => {
+    listCheck = document.querySelectorAll('.listCheck');
+    listAll = document.querySelectorAll('.todolist > li');
+    
+    for (let i = 0; i < listCheck.length; i++) {
+        if (listCheck[i].checked = true) {
+            delete listAll[i];
+        } else {
+            return;
+        }
+    }
+    selectAll.checked = false;
+    listCount();
+});

@@ -10,7 +10,7 @@
 <body>
 
     <header>
-        <div>Lr으i ㉰OiΦㅓ㉣i</div>
+        <div>*+*+Lr으i ㉰OiΦㅓ㉣i+*+*</div>
         <ul>
             <li>_</li>
             <li>□</li>
@@ -35,7 +35,24 @@
                 </div>
 
                 <div>
-                    <ul class="todolist"></ul>
+                    <div class="btnDiv">
+                        <input type="button" value="전체 (0)" class="btnAll">
+                        <input type="button" value="진행 중 (0)" class="btnIng">
+                        <input type="button" value="완료 (0)" class="btnEd">
+                    </div>
+
+                    <div class="labelDiv">
+                        <label for="selectAll">
+                            <input type="checkbox" id="selectAll">
+                            <span>전체 선택</span>
+                            <button class="delAll">&times;</button>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <ul class="todolist">
+                    </ul>
                 </div>
             </div>
         </div>
