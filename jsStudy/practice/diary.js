@@ -315,7 +315,20 @@ cc.showCalender();
 
 const todoInput = document.querySelector('.todoInput'),
         todoInputBtn = document.querySelector('.todoInputBtn');
-let list = [];
+
+let list = [],
+    listAll = document.querySelectorAll('.todolist > li'),
+    whatToDo = document.querySelector('.todoInput').value,
+    todolist = document.querySelector('.todolist');
+
+function startTodo() {
+    if (listAll.length == 0) {
+        todolist.innerHTML = `<div class="yet">아직 일정이 없습니다.</div>`
+    } else {
+        document.querySelector('.yet').style.display = 'none';
+    }
+}
+startTodo();
 
 
 // 추가 & 삭제
@@ -324,14 +337,13 @@ todoInput.addEventListener('keyup', (e) => {
         addTodo();
         e.preventDefault();
     }
+    startTodo();
     checkList();
     listCount();
 });
 
 todoInputBtn.addEventListener('click', addTodo);
 
-let whatToDo = document.querySelector('.todoInput').value,
-    todolist = document.querySelector('.todolist');
 
 function addTodo() {
     whatToDo = document.querySelector('.todoInput').value;
@@ -353,6 +365,7 @@ function addTodo() {
     delBtn.onclick = (e) => {
         let pnode = e.target.parentNode;
         todolist.removeChild(pnode);
+        listCount();
     }
     checkList();
     listCount();
@@ -369,7 +382,7 @@ function checkList() {
         if (listEl.checked == true) {
             listLb[index].style.textDecoration = 'line-through';
             listLb[index].style.fontStyle = 'italic';
-            listLb[index].style.color = 'gray';
+            listLb[index].style.color = 'lightskyblue';
         } else {
             listLb[index].style.textDecoration = 'none';
             listLb[index].style.fontStyle = '';
@@ -383,11 +396,10 @@ function checkList() {
 const btnAll = document.querySelector('.btnAll'),
         btnIng = document.querySelector('.btnIng'),
         btnEd = document.querySelector('.btnEd');
-let listAll = document.querySelectorAll('.todolist > li');
 
 btnAll.addEventListener('click', () => {
     listAll = document.querySelectorAll('.todolist > li');
-    listAll.forEach((eachList) => {
+    listAll.forEach(eachList => {
         eachList.style.display = '';
     });
 });
@@ -421,12 +433,22 @@ const btnDiv = document.querySelectorAll('.btnDiv > input');
 for (let i = 0; i < btnDiv.length; i++) {
     btnDiv[i].addEventListener('click', () => {
         listAll = document.querySelectorAll('.todolist > li');
-        console.log(listAll.length);
-        if (listAll[i].style.display = '' == 1) {
-            console.log('fsdfsdf');
-            document.querySelector('.todolist > li:first-child').style.borderBottom = '0';
-        }
-        console.log('test');
+        let j = 0,
+            k = 0,
+            total = listAll.length;
+        
+        listAll.forEach(list => {
+            if (list.style.display == 'none') j++;
+        });
+
+        total -= j;
+
+        listAll.forEach(list => {
+            if (list.style.display != 'none') k++;
+            if ((list.style.display == 'block' || list.style.display == '') && total == k) {
+                list.style.borderBottom = 'none';
+            }
+        });
     });
 }
 
@@ -465,11 +487,15 @@ selectAll.addEventListener('click', () => {
         for (let i = 0; i < listCheck.length; i++) {
             listCheck[i].checked = true;
             listLb[i].style.textDecoration = 'line-through';
+            listLb[i].style.fontStyle = 'italic';
+            listLb[i].style.color = 'lightskyblue';
         }
     } else {
         for (let i = 0; i < listCheck.length; i++) {
             listCheck[i].checked = false;
             listLb[i].style.textDecoration = '';
+            listLb[i].style.fontStyle = '';
+            listLb[i].style.color = 'gray';
         } 
     }
     listCount();
@@ -480,12 +506,12 @@ delAll.addEventListener('click', () => {
     listAll = document.querySelectorAll('.todolist > li');
     
     for (let i = 0; i < listCheck.length; i++) {
-        if (listCheck[i].checked = true) {
-            delete listAll[i];
+        if (listCheck[i].checked == true) {
+            listAll[i].remove();
         } else {
             return;
         }
     }
-    selectAll.checked = false;
     listCount();
+    startTodo();
 });
