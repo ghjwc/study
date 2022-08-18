@@ -80,61 +80,33 @@ function CreateCalender(elem) {
     ];
 
     let init = () => {
-        const style = document.createElement('style');
-        style.innerHTML = `
-            .calender-control {
-                display: flex;
-                justify-content: center;
-                margin-bottom: 15px;            
-            }
-            .calender-control > div:first-child, .calender-control > div:last-child {
-                cursor: pointer;            
-            }
-            .calender-control > div:nth-child(2) {
-                padding: 0 15px;
-            }
-            .calender {
-                width: 100%;
-                position: relative;
-                border-collapse: collapse;
-            }
-            .calender > tbody > tr {
-            }
-            .calender > tbody > tr > th {
-                width: calc(100% / 7);
-                border: 1px solid black;
-                height: 30px;
-                line-height: 30px;
-            }
-            .calender > tbody > tr > td {
-                border : 1px solid black;
-                height: 87px;
-                vertical-align: top;
-            }
-            .calender > tbody > tr > td > div {
-                padding-top: 10px;
-                padding-left: 10px;
-            }
-            .calender > tbody > tr > th:first-child, .calender > tbody > tr > td:first-child {
-                color: red;
-            }
-            .calender > tbody > tr > th:last-child, .calender > tbody > tr > td:last-child {
-                color: blue;
-            }
-            .not-month {
-                color: lightgray;
-            }
-            .someday {
-                color: red;
-            }
-            .name {
-                text-align: right;
-            }
-            .today {
-                background: rgba(255, 182, 193, 0.51);
-            }
-        `;
-        document.head.appendChild(style);
+        // const style = document.createElement('style');
+        // style.innerHTML = `
+        //     .calender > tbody > tr {
+        //     }
+        //     .calender > tbody > tr > th {
+        //         width: calc(100% / 7);
+        //         border: 1px solid black;
+        //         height: 30px;
+        //         line-height: 30px;
+        //     }
+        //     .calender > tbody > tr > td {
+        //         border : 1px solid black;
+        //         height: 87px;
+        //         vertical-align: top;
+        //     }
+        //     .calender > tbody > tr > td > div {
+        //         padding-top: 10px;
+        //         padding-left: 10px;
+        //     }
+        //     .calender > tbody > tr > th:first-child, .calender > tbody > tr > td:first-child {
+        //         color: red;
+        //     }
+        //     .calender > tbody > tr > th:last-child, .calender > tbody > tr > td:last-child {
+        //         color: blue;
+        //     }
+        // `;
+        // document.head.appendChild(style);
         display(year, month);
     }
     let display = (year, month) => {
@@ -146,13 +118,13 @@ function CreateCalender(elem) {
             </div>
             <table class="calendar">
                 <tr>
-                    <th>일</th>
-                    <th>월</th>
-                    <th>화</th>
-                    <th>수</th>
-                    <th>목</th>
-                    <th>금</th>
-                    <th>토</th>
+                    <th class="dayTh">일</th>
+                    <th class="dayTh">월</th>
+                    <th class="dayTh">화</th>
+                    <th class="dayTh">수</th>
+                    <th class="dayTh">목</th>
+                    <th class="dayTh">금</th>
+                    <th class="dayTh">토</th>
                 </tr>
             `;
         let prevMonthDay = new Date(year, month, 0).getDate(),
@@ -160,7 +132,11 @@ function CreateCalender(elem) {
             startWeek = date.getDay();
 
         for (let i = startWeek - 1; i >= 0; i--) {
-            table += `<td><div class="not-month">${prevMonthDay - i}</div></td>`;
+            table += `
+                <td>
+                    <div class="not-month">${prevMonthDay - i}</div>
+                </td>
+            `;
         }
 
         while (date.getMonth() === month) {
@@ -192,7 +168,8 @@ function CreateCalender(elem) {
                 for (let i = date.getDay(), day = 1; i < 7; i++, day++) {
                     table += `
                         <td>
-                            <div class="not-month">${day}</div></td>
+                            <div class="not-month">${day}</div>
+                        </td>
                         `;
                 }
             }
@@ -319,7 +296,9 @@ const todoInput = document.querySelector('.todoInput'),
 let list = [],
     listAll = document.querySelectorAll('.todolist > li'),
     whatToDo = document.querySelector('.todoInput').value,
-    todolist = document.querySelector('.todolist');
+    todolist = document.querySelector('.todolist'),
+    listCheck = document.querySelectorAll('.listCheck'),
+    listLb = document.querySelectorAll('.listLb');
 
 function startTodo() {
     if (listAll.length == 0) {
@@ -372,8 +351,6 @@ function addTodo() {
 }
 
 // 체크박스
-let listCheck = document.querySelectorAll('.listCheck'),
-    listLb = document.querySelectorAll('.listLb');
 
 function checkList() {
     listCheck = document.querySelectorAll('.listCheck');
