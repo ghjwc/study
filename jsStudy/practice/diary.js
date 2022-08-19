@@ -2,6 +2,7 @@
 const calBtn = document.querySelector('nav > ul > li:first-child'),
         todoBtn = document.querySelector('nav > ul > li:last-child');
 let cal = document.querySelector('.cal'),
+    schedule = document.querySelector('.schedule'),
     todo = document.querySelector('.todo');
 
 todoBtn.addEventListener('click', () => {
@@ -14,6 +15,7 @@ todoBtn.addEventListener('click', () => {
 
     todo.style.display = 'block';
     cal.style.display = 'none';
+    schedule.style.display = 'none';
 })
 
 calBtn.addEventListener('click', () => {
@@ -26,11 +28,13 @@ calBtn.addEventListener('click', () => {
 
     todo.style.display = 'none';
     cal.style.display = 'block';
+    schedule.style.display = 'block';
 })
 
 // 달력
 
 function CreateCalender(elem) {
+
     let now = new Date(),
         toYear = year = now.getFullYear(),
         toMonth = month = now.getMonth(),
@@ -80,35 +84,9 @@ function CreateCalender(elem) {
     ];
 
     let init = () => {
-        // const style = document.createElement('style');
-        // style.innerHTML = `
-        //     .calender > tbody > tr {
-        //     }
-        //     .calender > tbody > tr > th {
-        //         width: calc(100% / 7);
-        //         border: 1px solid black;
-        //         height: 30px;
-        //         line-height: 30px;
-        //     }
-        //     .calender > tbody > tr > td {
-        //         border : 1px solid black;
-        //         height: 87px;
-        //         vertical-align: top;
-        //     }
-        //     .calender > tbody > tr > td > div {
-        //         padding-top: 10px;
-        //         padding-left: 10px;
-        //     }
-        //     .calender > tbody > tr > th:first-child, .calender > tbody > tr > td:first-child {
-        //         color: red;
-        //     }
-        //     .calender > tbody > tr > th:last-child, .calender > tbody > tr > td:last-child {
-        //         color: blue;
-        //     }
-        // `;
-        // document.head.appendChild(style);
         display(year, month);
     }
+
     let display = (year, month) => {
         let table = `
             <div class="calendar-control">
@@ -133,7 +111,7 @@ function CreateCalender(elem) {
 
         for (let i = startWeek - 1; i >= 0; i--) {
             table += `
-                <td>
+                <td class="oneday">
                     <div class="not-month">${prevMonthDay - i}</div>
                 </td>
             `;
@@ -148,12 +126,12 @@ function CreateCalender(elem) {
             }
 
             table += someday ? `
-                <td class="${today}">
+                <td class="${today} oneday">
                     <div class="someday">${date.getDate()}</div>
                     <div class="someday name">${someday}</div>
                 </td>`
                 : `
-                <td class="${today}">
+                <td class="${today} oneday">
                     <div>${date.getDate()}</div>
                 </td>
                 `;
@@ -164,21 +142,20 @@ function CreateCalender(elem) {
             date.setDate(date.getDate() + 1);
         }
 
-            if (date.getDay()) {
-                for (let i = date.getDay(), day = 1; i < 7; i++, day++) {
-                    table += `
-                        <td>
-                            <div class="not-month">${day}</div>
-                        </td>
-                        `;
-                }
+        if (date.getDay()) {
+            for (let i = date.getDay(), day = 1; i < 7; i++, day++) {
+                table += `
+                    <td class="oneday">
+                        <div class="not-month">${day}</div>
+                    </td>
+                    `;
             }
+        }
 
-            table += '</tr></table>';
+        table += '</tr></table>';
 
-            elem.innerHTML = table;
-            addEvent();
-            setBackground();
+        elem.innerHTML = table;
+        addEvent();
     };
 
     let addEvent = () => {
@@ -191,6 +168,7 @@ function CreateCalender(elem) {
             }
             display(year, month);
         }
+
         let next = document.querySelector('.next');
         next.onclick = () => {
             month++;
@@ -212,72 +190,6 @@ function CreateCalender(elem) {
         return name;
     };
 
-    let setBackground = () => {
-        let style = document.getElementById('clndr');
-
-        if (!style) {
-            style = document.createElement('style');
-            style.id = 'clndr';
-            document.head.appendChild(style);
-        }
-
-        let url, width, height, posX, posY;
-
-        // switch (month) {
-        //     case 11:
-        //     case 0:
-        //     case 1:
-        //         url = "https://www.mfds.go.kr/webzine/202012/img/main_char_img02.png";
-        //         width = "427px";
-        //         height = "390px";
-        //         posX = "right: 15px";
-        //         posY = "bottom: 15px";
-        //         break;
-        //     case 2:
-        //     case 3:
-        //     case 4:
-        //         url = "https://media.istockphoto.com/vectors/tulip-flower-clip-art-outline-with-yellow-cute-color-vector-animated-vector-id1369708250?k=20&m=1369708250&s=612x612&w=0&h=1qN7b9RI2kBZV9IRRs6lLw0wO9Pa7vnA9KQSP0ajW3Q=";
-        //         width = "600px";
-        //         height = "600px";
-        //         posX = "left: -47px";
-        //         posY = "bottom: -85px";
-        //         break;
-        //     case 5:
-        //     case 6:
-        //     case 7:
-        //         url = "https://www.pngall.com/wp-content/uploads/2017/03/Summer-PNG-Picture.png";
-        //         width = "512px";
-        //         height = "512px";
-        //         posX = "left: 36px";
-        //         posY = "bottom: -89px";
-        //         break;
-        //     case 8:
-        //     case 9:
-        //     case 10:
-        //         url = "https://freepngclipart.com/download/autumn/41506-leaf-color-tree-illustration-autumn-under-orange.png";
-        //         width = "750px";
-        //         height = "438px";
-        //         posX = "right: 0px";
-        //         posY = "bottom: 0px";
-        //         break;
-        // }
-        style.innerHTML = `
-            .calender::before {
-                content: '';
-                position: absolute;
-                width: ${width};
-                height: ${height};
-                ${posX};
-                ${posY};
-                opacity: 0.5;
-                z-index: -1;
-                background-image: url(${url});
-                background-repeat: no-repeat;
-                background-position: 50% 50%;
-                background-size: cover;
-            }
-        `;
-    };
     this.showCalender = () => {
         init();
     };
@@ -286,6 +198,33 @@ function CreateCalender(elem) {
 let cc = new CreateCalender(document.querySelector('.cal'));
 cc.showCalender();
 
+
+// 달력 아래 스케줄
+const todayDate = document.querySelector('.scheduleDiv > input[type="date"]'),
+        scheduleInput = document.querySelector('.scheduleDiv > input[type="text"]'),
+        scheduleBtn = document.querySelector('.scheduleDiv > button');
+let oneday = document.querySelectorAll('.oneday');
+
+todayDate.value = new Date().toISOString().substring(0, 10);
+
+scheduleInput.addEventListener('keyup', (e) => {
+    if (e.keyCode == 13) {
+        console.log(scheduleInput.value);
+        e.preventDefault;
+    }
+});
+
+scheduleBtn.addEventListener('click', () => {
+    if (!scheduleInput.value) {
+        return;
+    } else {
+        console.log(scheduleInput.value);
+    }
+});
+
+function addSchedule() {
+
+}
 
 
 // 투두리스트

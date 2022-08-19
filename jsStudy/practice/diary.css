@@ -13,6 +13,16 @@ body {
     font-family: '맑은고딕', 'Helvetica';
 }
 
+body::-webkit-scrollbar {
+    width: 0.3rem;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: lightcyan;
+}
+body::-webkit-scrollbar-track {
+    background-color: lightskyblue;
+}
+
 li {
     list-style: none;
 }
@@ -116,10 +126,55 @@ body {
 }
 
 /* calendar */
-.cal {
-    /* background-color: lightcyan; */
+/* schedule */
+.schedule, .calendar {
+    width: 70rem;
 }
 
+.schedule {
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    padding: 2rem;
+}
+
+.scheduleDiv > input {
+    width: 100%;
+    height: 5rem;
+    border-style: none;
+    border-radius: 3rem;
+}
+
+.scheduleDiv > input[type='date'] {
+    text-align: center;
+    font-family: '맑은고딕';
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: lightskyblue;
+    border: 0.1rem solid lightgray;
+    background-color: lightcyan;
+}
+
+.scheduleDiv > input[type='text'] {
+    margin: 1rem 0 1rem 0;
+    padding-left: 1.5rem;
+    border: 0.2rem solid lightgray;
+    background-color: #f5f5f5;
+}
+
+.scheduleDiv:last-child {
+    text-align: end;
+}
+
+.scheduleDiv > button {
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    font-weight: bold;
+    border-radius: 3rem;
+    border: 0.1rem solid lightgray;
+    color: white;
+    background: linear-gradient(0deg, rgba(183,249,255,1) 0%, rgba(136,229,250,1) 50%, rgba(183,249,255,1) 100%);
+}
+
+/* calenda-control */
 .calendar-control {
     display: flex;
     justify-content: center;
@@ -148,33 +203,37 @@ body {
     transform: translate(0.3rem, 0.3rem);
 }
 
+/* calenda table */
 .calendar {
     position: relative;
     margin: 0 auto;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    width: 70rem;
     border-collapse: collapse;
 }
 
 .calendar > tbody > tr > td {
     position: relative;
     height: 10rem;
-    border: 0.1rem solid orange;
+    /* border: 0.1rem solid orange; */
+}
+
+.calendar > tbody > tr > td:first-child > div:not(.not-month, .someday, .name), .calendar > tbody > tr > td:last-child > div:not(.not-month, .someday, .name) {
+    color: tomato;
 }
 
 .calendar > tbody > tr > td > div:not(.name) {
     position: absolute;
     top: 0.5rem;
-    left: 0.5rem;
+    left: 50%;
     width: 3rem;
     height: 3rem;
     line-height: 3rem;
+    transform: translateX(-50%);
     text-align: center;
     font-size: 1.8rem;
     font-weight: bold;
     border-radius: 50%;
-    /* border: 0.1rem solid green; */
 }
 
 .calendar > tbody > tr > td > div:not(.not-month, .someday, .name) {
@@ -182,11 +241,16 @@ body {
 }
 
 .dayTh {
-    padding: 1rem;
+    padding: 2rem;
     width: calc(100% / 7);
     font-size: 1.3rem;
-    border: 0.1rem solid blue;
-    background-color: yellow;
+    color: gray;
+    /* border: 0.1rem solid blue;
+    background-color: yellow; */
+}
+
+.dayTh:first-child, .dayTh:last-child {
+    color: tomato;
 }
 
 .not-month {
@@ -199,14 +263,15 @@ body {
 }
 
 .name {
-    margin-left: 0.5rem;
+    margin: 0 auto;
     width: fit-content;
+    font-size: 1.2rem;
     color: tomato;
-    background-color: white;
+    background-color: transparent;
 }
 
 .today {
-    background-color: lightcyan;
+    background-color: lightyellow;
 }
 
 /* todolist */
@@ -219,7 +284,7 @@ body {
     width: 65rem;
 }
 
-.todo, .calendar {
+.todo, .calendar, .schedule {
     border-radius: 3rem;
     background-color: white;
     box-shadow: 0 0 0.5rem 0.1rem lightgray;
@@ -389,6 +454,14 @@ footer {
         display: none;
     }
 
+    .cal-schedule {
+        flex-wrap: wrap;
+    }
+
+    .schedule, .calendar {
+        width: 50rem;
+    }
+
     .todo {
         width: 50rem;
     }
@@ -397,9 +470,24 @@ footer {
         margin: 0;
         width: 10rem;
     }
+
 }
 
-@media all and (max-width: 40rem) {
+@media all and (max-width: 30rem) {
+    .schedule, .calendar {
+        width: 100%;
+    }
+
+    .calendar {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .calendar > tbody > tr > td > div:not(.name) {
+        font-size: 1.5rem;
+    }
+
     .todo {
         width: 90%;
     }
