@@ -28,11 +28,20 @@
         <div id="container">
             <div class="cal-schedule">
                 <div class="cal"></div>
-                <div class="schedule">
-                    <div class="scheduleDiv"><input type="date" min="2010-01-01" max="2030-12-31"></div>
-                    <div class="scheduleDiv"><input type="text"></div>
-                    <div class="scheduleDiv"><button>입력</button></div>
+                <div>
+                    <div class="mobileSch">
+                        <button class="mobileSchBtn">일정 +</button>
+                    </div>
+                    <div class="schedule">
+                        <div class="scheduleDiv"><input type="date" min="2010-01-01" max="2030-12-31" required></div>
+                        <div class="scheduleDiv"><input type="text" maxlength="10"></div>
+                        <div class="scheduleDiv">
+                            <button>입력</button>
+                            <button>닫기</button>
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
             <div class="todo">
@@ -67,6 +76,7 @@
 
     <!-- <footer>footer</footer> -->
     
-    <script src="diary.js"></script>
+    <script src="diary-cal.js"></script>
+    <script src="diary-todo.js"></script>
 </body>
 </html>
