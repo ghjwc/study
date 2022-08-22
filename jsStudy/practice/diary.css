@@ -295,7 +295,7 @@ body {
 }
 
 .calTodo > li {
-    width: 100%;
+    /* width: 100%; */
     font-size: 1.1rem;
     overflow: hidden;
     color: gray;
@@ -538,13 +538,14 @@ footer {
     .mobileSchBtn {
         display: block;
         margin: 0 auto;
-        padding: 1rem 2rem 1rem 2rem;
-        border-style: none;
-        border: 0.1rem solid lightgray;
-        border-radius: 3rem;
+        width: 4rem;
+        height: 4rem;
+        font-size: 2rem;
         font-weight: bold;
+        border-radius: 50%;
+        border: 0.1rem solid lightgray;
         color: white;
-        background: linear-gradient(0deg, rgba(183,249,255,1) 0%, rgba(136,229,250,1) 63%, rgba(183,249,255,1) 100%);
+        background: linear-gradient(0deg, rgba(183,249,255,1) 0%, rgba(136,229,250,1) 50%, rgba(183,249,255,1) 100%);
     }
 
     .cal-schedule {

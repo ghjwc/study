@@ -263,12 +263,17 @@ scheduleInput.addEventListener('keyup', (e) => {
 
 scheduleBtn.addEventListener('click', addSchedule);
 
+
 function addSchedule() {
+    oneday = document.querySelectorAll('.oneday');
+    calTodo = document.querySelectorAll('.calTodo');
     if (!scheduleInput.value) {
         return;
     } else {
         for (let i = 0; i < oneday.length; i++) {
+            // console.log(todayDate.value + ':' + oneday[i].dataset.date);
             if (todayDate.value == oneday[i].dataset.date) {
+                // console.log(todayDate.value);
                 calTodo[i - 1].innerHTML = `
                 <li>
                     ㆍ${scheduleInput.value}
