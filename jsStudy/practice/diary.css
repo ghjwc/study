@@ -146,9 +146,8 @@ body {
 
 .scheduleDiv > input[type='date'] {
     position: relative;
-    padding-left: 5rem;
     text-align: center;
-    font-family: '맑은고딕';
+    font-family: 'Helvetica';
     font-size: 1.7rem;
     font-weight: bold;
     border: 0.1rem solid lightgray;
