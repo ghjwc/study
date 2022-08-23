@@ -187,11 +187,12 @@ function CreateCalender(elem) {
     let addEvent = () => {
         const todayDate = document.querySelector('.scheduleDiv > input[type="date"]');
 
-        let month1 = month;
+        // let month1 = month;
     
         let prev = document.querySelector('.prev');
         prev.onclick = () => {
-            console.log(month1);
+            // month1 = month;
+            console.log('prev: ' + month);
 
             month--;
             if (month <= 0) {
@@ -201,17 +202,18 @@ function CreateCalender(elem) {
             display(year, month);
 
             // month = month + 1;
-            if (month1 < 10) {
-                month1 = '0' + month1;
+            if (month < 10) {
+                month = '0' + month;
             }
             
-            todayDate.value = `${year}-${month1}-01`;
+            todayDate.value = `${year}-${month}-01`;
         }
 
         let next = document.querySelector('.next');
         next.onclick = () => {
-            console.log(month1);
-            
+            // month = month;
+            console.log('next: ' + month);
+
             month++;
             if (month >= 12) {
                 year++;
@@ -220,10 +222,10 @@ function CreateCalender(elem) {
             display(year, month);
 
             // month1 = month + 1;
-            if (month1 < 10) {
-                month1 = '0' + month1;
+            if (month < 10) {
+                month = '0' + month;
             }
-            todayDate.value = `${year}-${month1}-01`;
+            todayDate.value = `${year}-${month}-01`;
         }
     }
 
