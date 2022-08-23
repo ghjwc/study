@@ -183,25 +183,47 @@ function CreateCalender(elem) {
         addEvent();
     };
 
+
     let addEvent = () => {
+        const todayDate = document.querySelector('.scheduleDiv > input[type="date"]');
+
+        let month1 = month;
+    
         let prev = document.querySelector('.prev');
         prev.onclick = () => {
+            console.log(month1);
+
             month--;
             if (month <= 0) {
                 year--;
                 month = 11;
             }
             display(year, month);
+
+            // month = month + 1;
+            if (month1 < 10) {
+                month1 = '0' + month1;
+            }
+            
+            todayDate.value = `${year}-${month1}-01`;
         }
 
         let next = document.querySelector('.next');
         next.onclick = () => {
+            console.log(month1);
+            
             month++;
             if (month >= 12) {
                 year++;
                 month = 0;
             }
             display(year, month);
+
+            // month1 = month + 1;
+            if (month1 < 10) {
+                month1 = '0' + month1;
+            }
+            todayDate.value = `${year}-${month1}-01`;
         }
     }
 
@@ -284,3 +306,10 @@ function addSchedule() {
     }
     scheduleInput.value = '';
 }
+
+// 날짜 연동
+const splitDate = todayDate.value.split('-');
+            
+// console.log('splitDateMonth :' + splitDate[1]);
+// console.log(month + 1);
+

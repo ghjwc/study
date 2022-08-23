@@ -109,6 +109,7 @@ function showNews(category = 'general', question = '') {
         })
         .then(data => {
         //   console.log(data.articles[0]);
+        console.log(data);
   
           for (article of data.articles) {
 
