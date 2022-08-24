@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Helvetica', '맑은고딕';
+}
+
+body {
+    font-size: 1.5rem;
+}
+
+li {
+    list-style: none;
+}
+
+button, input[type='submit'] {
+    cursor: pointer;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+}
+
+.board {
+    width: 60rem;
+    background-color: aquamarine;
+}
+
+.board > form {
+    margin: 2rem;
+    background-color: lightskyblue;
+}
+
+.board > form > div > input, textarea, button {
+    font-size: 1.2rem;
+}
+
+.board > form > div > input:not(input[type='submit']) {
+    padding-left: 1rem;
+    height: 3rem;
+}
+
+.board > form > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* name / pwd */
+.board > form > div:first-child > input {
+    width: 50%;
+}
+
+/* subject */
+.board > form > div:nth-child(2) > input {
+    margin: 1rem 0 1rem 0;
+    width: 100%;
+}
+
+textarea {
+    display: block;
+    padding: 1rem;
+    width: 100%;
+    height: 20rem;
+    font-family: '맑은고딕';
+    resize: none;
+}
+
+/* button */
+.board > form > div:last-child {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.board > form > div:last-child > input, button {
+    width: 8rem;
+    height: 3rem;
+}
+
+@media all and (max-width: 40rem) {
+    .board {
+        width: 90%;
+    }
+}

@@ -192,27 +192,31 @@ function CreateCalender(elem) {
         let prev = document.querySelector('.prev');
         prev.onclick = () => {
             // month1 = month;
-            console.log('prev: ' + month);
+            let strMonth = 0;
 
             month--;
-            if (month <= 0) {
+            if (month < 0) {
                 year--;
                 month = 11;
             }
             display(year, month);
+            
 
             // month = month + 1;
-            if (month < 10) {
-                month = '0' + month;
+            strMonth = month + 1;
+            if (strMonth < 10) {
+                strMonth = '0' + strMonth;
             }
             
-            todayDate.value = `${year}-${month}-01`;
+            todayDate.value = `${year}-${strMonth}-01`;
+            // console.log('prev: ' + strMonth);
         }
 
         let next = document.querySelector('.next');
         next.onclick = () => {
             // month = month;
-            console.log('next: ' + month);
+            let strMonth = 0;
+            
 
             month++;
             if (month >= 12) {
@@ -220,12 +224,17 @@ function CreateCalender(elem) {
                 month = 0;
             }
             display(year, month);
+            // console.log('month: ' + month);
 
             // month1 = month + 1;
-            if (month < 10) {
-                month = '0' + month;
+            strMonth = month + 1;
+            
+            if (strMonth < 10) {
+                strMonth = '0' + strMonth;
+                // console.log(strMonth);
             }
-            todayDate.value = `${year}-${month}-01`;
+            todayDate.value = `${year}-${strMonth}-01`;
+            // console.log('strMonth: ' + strMonth);
         }
     }
 
@@ -290,7 +299,6 @@ scheduleBtn.addEventListener('click', addSchedule);
 
 function addSchedule() {
     oneday = document.querySelectorAll('.oneday');
-    calTodo = document.querySelectorAll('.calTodo');
     if (!scheduleInput.value) {
         return;
     } else {
@@ -298,11 +306,24 @@ function addSchedule() {
             // console.log(todayDate.value + ':' + oneday[i].dataset.date);
             if (todayDate.value == oneday[i].dataset.date) {
                 // console.log(todayDate.value);
-                calTodo[i - 1].innerHTML = `
-                <li>
-                    ㆍ${scheduleInput.value}
-                </li>
-                `;
+
+                if (!oneday[i].querySelector('.name')) {
+                    oneday[i].querySelector('.calTodo').innerHTML += `
+                    <li>
+                        ㆍ${scheduleInput.value}
+                    </li>
+                    `;
+                    break;
+                } else {
+                    oneday[i].querySelector('.calTodo').style.top = '6.5rem';
+                    oneday[i].querySelector('.calTodo').style.height = '3.5rem';
+                    oneday[i].querySelector('.calTodo').innerHTML += `
+                    <li>
+                        ㆍ${scheduleInput.value}
+                    </li>
+                    `;
+                    break;
+                }
             }
         }
     }
@@ -310,8 +331,8 @@ function addSchedule() {
 }
 
 // 날짜 연동
-const splitDate = todayDate.value.split('-');
-            
-// console.log('splitDateMonth :' + splitDate[1]);
-// console.log(month + 1);
 
+todayDate.addEventListener('change', () => {
+    const splitDate = todayDate.value.split('-');
+    console.log('change-splitDateMonth: ' + splitDate[1]);
+})

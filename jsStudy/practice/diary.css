@@ -253,17 +253,17 @@ body {
     border-collapse: collapse;
 }
 
-.calendar > tbody > tr > td {
+.oneday {
     position: relative;
     height: 10rem;
     /* border: 0.1rem solid orange; */
 }
 
-.calendar > tbody > tr > td:first-child > div:not(.not-month, .someday, .name), .calendar > tbody > tr > td:last-child > div:not(.not-month, .someday, .name) {
+.oneday:first-child > div:not(.not-month, .someday, .name), .calendar > tbody > tr > td:last-child > div:not(.not-month, .someday, .name) {
     color: tomato;
 }
 
-.calendar > tbody > tr > td > div:not(.name) {
+.oneday > div:not(.name) {
     position: absolute;
     top: 0.5rem;
     left: 50%;
@@ -277,7 +277,7 @@ body {
     border-radius: 50%;
 }
 
-.calendar > tbody > tr > td > div:not(.not-month, .someday, .name) {
+.oneday > div:not(.not-month, .someday, .name) {
     color: lightskyblue;
 }
 
@@ -294,10 +294,18 @@ body {
     color: tomato;
 }
 
+.calTodo {
+    position: absolute;
+    top: 3.5rem;
+    width: 100%;
+    height: 6.5rem;
+    overflow: hidden;
+    /* border: 0.1rem solid red; */
+}
+
 .calTodo > li {
     /* width: 100%; */
     font-size: 1.1rem;
-    overflow: hidden;
     color: gray;
     background-color: lightcyan;
 }
