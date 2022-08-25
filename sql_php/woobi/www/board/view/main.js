@@ -1,10 +1,14 @@
 const writeBtn = document.querySelector('.writeBtn'),
         backBtn = document.querySelector('.backBtn');
 
-writeBtn.onclick = () => {
-    location.href = './back/write.php';
+if (writeBtn) {
+    writeBtn.onclick = () => {
+        location.href = './back/write.php';
+    }
 }
 
-backBtn.onclick = () => {
-    location.href = './index.php';
+if (backBtn) {
+    backBtn.onclick = () => {
+        location.href = '../index.php';
+    }
 }

@@ -25,7 +25,7 @@
     } else {
         echo "
             <script>
-                alert('fail');
+                alert('fail-write');
                 history.back();
             </script>
         ";

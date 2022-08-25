@@ -3,11 +3,13 @@
 include_once('./back/common.php');
 
 $sql = "SELECT
+            contentsNo,
             userName,
-            inserTime,
+            insertTime,
             title,
             contents
         FROM Board
+        ORDER BY insertTime DESC
         ";
 
 $result = $conn->query($sql);
@@ -28,21 +30,34 @@ $result = $conn->query($sql);
     <div class="container">
         <div class="board">
             <table>
-                <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                <thead>
                     <tr>
-                        <td>
-                            <a href="./back/content.php?no=<?php echo $row['title'] ?>">
-                                <?php echo $row['title'] ?>
-                            </a>
-                        </td>
-                        <td>
-                            <?php echo $row['userName'] ?>
-                        </td>
-                        <td>
-                            <?php echo $row['insertTime'] ?>
-                        </td>
+                        <th>NO</th>
+                        <th>TITLE</th>
+                        <th>WRITER</th>
+                        <th>DATE</th>
                     </tr>
-                <?php } ?>
+                </thead>
+                <tbody>
+                    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                        <tr>
+                            <td>
+                                <?php echo $row['contentsNo'] ?>
+                            </td>
+                            <td>
+                                <a href="./back/content.php?no=<?php echo $row['contentsNo'] ?>">
+                                    <?php echo $row['title'] ?>
+                                </a>
+                            </td>
+                            <td>
+                                <?php echo $row['userName'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['insertTime'] ?>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
             </table>
             <button class="writeBtn">WRITE</button>
         </div>

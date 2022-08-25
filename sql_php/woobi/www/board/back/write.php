@@ -21,20 +21,22 @@ include_once('common.php');
         <div class="board">
             <form action="write_ok.php" method="POST">
                 <div>
-                    <input type="text" name="userName" placeholder="NAME">
-                    <input type="password" placeholder="PASSWORD">
+                    <input type="text" name="userName" placeholder="NAME" required>
+                    <input type="password" placeholder="PASSWORD" required>
                 </div>
                 <div>
-                    <input type="text" name="title" placeholder="TITLE">
+                    <input type="text" name="title" placeholder="TITLE" required>
                 </div>
                 <div>
-                    <textarea name="contents"></textarea>
+                    <textarea name="contents" required></textarea>
                 </div>
                 <div>
                     <input type="submit" value="WRITE">
-                    <button class="backBtn">BACK</button>
                 </div>
             </form>
+            <div class="backBtnDiv">
+                <button class="backBtn">BACK TO THE LIST</button>
+            </div>
         </div>
     </div>
     <script src="../view/main.js"></script>

@@ -31,12 +31,13 @@ button, input[type='submit'] {
 }
 
 .board {
+    padding: 2rem;
     width: 60rem;
     background-color: aquamarine;
 }
 
 .board > form {
-    margin: 2rem;
+    /* margin: 2rem; */
     background-color: lightskyblue;
 }
 
@@ -77,15 +78,19 @@ textarea {
 
 /* button */
 .board > form > div:last-child {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
     margin-top: 1rem;
+    text-align: end;
 }
 
-.board > form > div:last-child > input, button {
+.board > form > div:last-child > input {
     width: 8rem;
     height: 3rem;
+}
+
+.backBtnDiv {
+    margin-top: 1rem;
+    text-align: center;
+    background-color: lightpink;
 }
 
 @media all and (max-width: 40rem) {
