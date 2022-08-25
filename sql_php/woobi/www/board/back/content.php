@@ -47,21 +47,23 @@
 
     <div class="container">
         <div class="board">
-            <div>
-                <?php echo $data['title']; ?>
-            </div>
-            <div>
-                <?php echo $data['userName']; ?>
-            </div>
-            <div>
-                <?php echo $data['insertTime']; ?>
-            </div>
-            <div>
-                <?php echo $data['contents']; ?>
-            </div>
+            <div class="contentsDiv">
+                <div class="contentsTitle">
+                    <?php echo $data['title']; ?>
+                </div>
+                <div class="contentsName">
+                    <?php echo $data['userName']; ?>
+                </div>
+                <div class="contentsDate">
+                    <?php echo $data['insertTime']; ?>
+                </div>
+                <div class="contents">
+                    <?php echo $data['contents']; ?>
+                </div>
 
-            <div class="backBtnDiv">
-                <button class="backBtn">BACK TO THE LIST</button>
+                <div class="backBtnDiv">
+                    <button class="backBtn">BACK TO THE LIST</button>
+                </div>
             </div>
         </div>
         

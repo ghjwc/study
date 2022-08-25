@@ -21,14 +21,17 @@ include_once('common.php');
         <div class="board">
             <form action="write_ok.php" method="POST">
                 <div>
-                    <input type="text" name="userName" placeholder="NAME" required>
-                    <input type="password" placeholder="PASSWORD" required>
+                    <input type="text" name="userName" placeholder="NAME" maxlength="12" required>
+                    <input type="password" placeholder="PASSWORD" maxlength="12" required>
                 </div>
                 <div>
-                    <input type="text" name="title" placeholder="TITLE" required>
+                    <input type="text" name="title" placeholder="TITLE" maxlength="30" required>
                 </div>
                 <div>
                     <textarea name="contents" required></textarea>
+                </div>
+                <div>
+                    <input type="file" name="" id="">
                 </div>
                 <div>
                     <input type="submit" value="WRITE">
