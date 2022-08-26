@@ -1,3 +1,4 @@
+// 버튼 onclick
 const writeBtn = document.querySelector('.writeBtn'),
         backBtn = document.querySelector('.backBtn');
 
@@ -13,6 +14,7 @@ if (backBtn) {
     }
 }
 
+// n시간 전
 function elapsedTime(date) {
     const start = new Date(date),
             end = new Date(), //현재 날짜
@@ -41,4 +43,14 @@ let indexDate = document.querySelectorAll('table > tbody > tr > td:last-child');
 for (let i = 0; i < indexDate.length; i++) {
     date = indexDate[i].innerHTML;
     indexDate[i].innerHTML = elapsedTime(date);
+}
+
+// input[type='file']
+const inputFile = document.getElementById('file'),
+        fileName = document.getElementById('fileName');
+if (inputFile) {
+    inputFile.addEventListener('change', () => {
+        fileName.value = inputFile.value;
+        fileName.style.color = 'gray';
+    });
 }

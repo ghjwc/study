@@ -25,20 +25,22 @@ include_once('common.php');
                     <input type="password" placeholder="PASSWORD" maxlength="12" required>
                 </div>
                 <div>
-                    <input type="text" name="title" placeholder="TITLE" maxlength="30" required>
+                    <input type="text" name="title" placeholder="TITLE" maxlength="25" required>
                 </div>
                 <div>
                     <textarea name="contents" required></textarea>
                 </div>
                 <div>
-                    <input type="file" name="" id="">
+                    <input placeholder="FILE" id="fileName" readonly>
+                    <label for="file">CLICK</label>
+                    <input type="file" name="file" id="file">
                 </div>
                 <div>
                     <input type="submit" value="WRITE">
                 </div>
             </form>
             <div class="backBtnDiv">
-                <button class="backBtn">BACK TO THE LIST</button>
+                <button class="backBtn">LIST</button>
             </div>
         </div>
     </div>

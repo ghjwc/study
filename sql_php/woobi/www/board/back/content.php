@@ -52,7 +52,9 @@
                     <?php echo $data['title']; ?>
                 </div>
                 <div class="contentsName">
-                    <?php echo $data['userName']; ?>
+                    <span>
+                        <?php echo $data['userName']; ?>
+                    </span>
                 </div>
                 <div class="contentsDate">
                     <?php echo $data['insertTime']; ?>
@@ -62,7 +64,7 @@
                 </div>
 
                 <div class="backBtnDiv">
-                    <button class="backBtn">BACK TO THE LIST</button>
+                    <button class="backBtn">LIST</button>
                 </div>
             </div>
         </div>

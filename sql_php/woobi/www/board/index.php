@@ -42,7 +42,9 @@ $result = $conn->query($sql);
                             </a>
                         </td>
                         <td>
-                            <?php echo $row['userName'] ?>
+                            <span>
+                                <?php echo $row['userName'] ?>
+                            </span>
                         </td>
                         <td>
                             <?php echo $row['insertTime'] ?>

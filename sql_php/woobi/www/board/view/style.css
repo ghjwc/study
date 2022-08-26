@@ -11,6 +11,10 @@ html {
 
 body {
     font-size: 1.5rem;
+    background-image: url(https://i.ibb.co/LPMcPsy/pexels-gdtography-950241.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 li {
@@ -27,18 +31,20 @@ button, input[type='file'], input[type='submit'], a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: antiquewhite;
 }
 
 .board {
     padding: 2rem;
     width: 60rem;
-    background-color: aquamarine;
+    border-radius: 1rem;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 0.5rem 0.2rem lightgray;
 }
 
 /* write */
-.board > form {
-    background-color: lightskyblue;
+
+.board > form > div > input::placeholder {
+    font-size: 1.1rem;
 }
 
 .board > form > div > input, textarea, button {
@@ -48,6 +54,11 @@ button, input[type='file'], input[type='submit'], a {
 .board > form > div > input:not(input[type='submit'], input[type='file']) {
     padding-left: 1rem;
     height: 3rem;
+}
+
+.board > form > div > input:not(input[type='submit'], input[type='file']), textarea {
+    border-style: none;
+    box-shadow: 0 0 0.5rem 0.2rem lightgray;
 }
 
 .board > form > div:first-child {
@@ -78,8 +89,39 @@ textarea {
 
 /* file */
 .board > form > div:nth-child(4) {
+    display: flex;
+    justify-content: space-between;
     margin: 1rem 0 1rem 0;
-    background-color: yellow;
+    /* background-color: yellow; */
+}
+
+.board > form > div:nth-child(4) > input:first-child {
+    padding: 1.65rem 0 1.65rem 1rem;
+    width: calc(100% - 8rem);
+    /* height: 100%; */
+}
+
+.board > form > div:nth-child(4) > label {
+    display: inline-block;
+    padding: 1rem 0 1rem 0;
+    width: 7rem;
+    transition: transform 0.3s ease;
+    text-align: center;
+    font-size: 1.2rem;
+    color: white;
+    border-style: none;
+    background-color: tomato;
+    box-shadow: 0 0 0.5rem 0.2rem lightgray;
+    cursor: pointer;
+}
+
+.board > form > div:nth-child(4) > input[type='file'] {
+    position: absolute;
+    padding: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border: 0;
 }
 
 /* button */
@@ -88,61 +130,98 @@ textarea {
 }
 
 .board > form > div:last-child > input {
-    width: 8rem;
-    height: 3rem;
+    padding: 1rem 0 1rem 0;
+    width: 7rem;
+    transition: transform 0.3s ease;
+    font-weight: bold;
+    color: tomato;
+    border-style: none;
+    background-color: white;
+    box-shadow: 0 0 0.5rem 0.2rem lightgray;
+}
+
+.board > form > div:nth-child(4) > label:hover, .board > form > div:last-child > input:hover {
+    transform: translate(0.3rem, 0.3rem);
 }
 
 .backBtnDiv {
-    margin-top: 1rem;
+    margin-top: 2rem;
     text-align: center;
-    background-color: lightpink;
 }
 
 /* index */
 table {
     width: 100%;
+    font-size: 1.2rem;
     border-collapse: collapse;
-    background-color: blue;
 }
 
 table > tbody > tr {
     display: flex;
-    border-bottom: 0.1rem solid orangered;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 0.5rem 0.2rem lightgray;
 }
 
 table > tbody > tr:last-child {
+    margin-bottom: 0;
     border-bottom: 0;
 }
 
 table > tbody > tr > td {
-    padding: 1rem 0 1rem 0;
+    padding: 1.5rem 0 1.5rem 0;
     text-align: center;
-    background-color: yellow;
+    background-color: white;
 }
 
 /* number */
 table > tbody > tr > td:first-child {
     width: 3rem;
-    background-color: salmon;
+    color: white;
+    background-color: tomato;
+}
+
+table > tbody > tr > td:first-child, table > tbody > tr > td:last-child {
+    font-size: 1.1rem;
 }
 
 /* title */
 table > tbody > tr > td:nth-child(2) {
-    padding-left: 1rem;
-    width: 36rem;
+    padding-left: 1.5rem;
+    width: 35rem;
     text-align: left;
-    background-color: lightcyan;
+    font-size: 1.3rem;
+    /* background-color: lightcyan; */
 }
 
 table > tbody > tr > td > a {
+    position: relative;
     text-decoration: none;
-    color: black;
+    color: gray;
+}
+
+table > tbody > tr > td > a::after {
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    content: '';
+    margin: 0.5rem 0 0;
+    width: 0;
+    height: 0.3rem;
+    transition: all 0.3s ease-in-out;
+    transition-duration: 0.3s;
+    opacity: 0;
+    background-color: tomato;
+}
+
+table > tbody > tr > td > a:hover::after {
+    width: 100%;
+    opacity: 1;
 }
 
 /* name */
 table > tbody > tr > td:nth-child(3) {
-    width: 10rem;
-    background-color: lightyellow;
+    width: 11rem;
+    /* background-color: lightyellow; */
 }
 
 table > tbody > tr > td:nth-child(2), table > tbody > tr > td:nth-child(3) {
@@ -151,36 +230,48 @@ table > tbody > tr > td:nth-child(2), table > tbody > tr > td:nth-child(3) {
     text-overflow: ellipsis;
 }
 
-/* date */
-table > tbody > tr > td:last-child {
-    padding-right: 1rem;
-    width: 7rem;
-    text-align: end;
+table > tbody > tr > td:nth-child(3) > span, .contentsName > span {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: white;
     background-color: lightgray;
 }
 
-table > tbody > tr > td:first-child, table > tbody > tr > td:nth-child(3), table > tbody > tr > td:last-child {
-    font-size: 1.2rem;
+/* date */
+table > tbody > tr > td:last-child {
+    padding-right: 1.5rem;
+    width: 7rem;
+    text-align: end;
+    color: gray;
+    /* background-color: yellowgreen; */
 }
 
 .writeBtnDiv {
     display: block;
     margin-top: 1rem;
     text-align: end;
-    background-color: orange;
 }
 
-.writeBtn {
+.writeBtn, .backBtn {
+    padding: 1rem 0 1rem 0;
+    width: 7rem;
+    transition: transform 0.3s ease;
+    color: white;
+    border-style: none;
+    background-color: tomato;
+    box-shadow: 0 0 0.5rem 0.2rem lightgray;
+}
 
+.writeBtn:hover, .backBtn:hover {
+    transform: translate(0.3rem, 0.3rem);
 }
 
 /* contents */
 .contentsDiv {
-    padding: 1rem;
-    background-color: lavender;
+    /* padding: 1rem; */
+    /* background-color: lavender; */
 }
 
-.contentsDiv > div:not(.backBtnDiv) {
+.contentsName, .contentsDate {
     padding: 1rem;
 }
 
@@ -189,28 +280,35 @@ table > tbody > tr > td:first-child, table > tbody > tr > td:nth-child(3), table
 }
 
 .contentsTitle {
+    margin-bottom: 1rem;
+    padding: 2rem;
     font-size: 2rem;
     font-weight: bold;
-    background-color: aqua;
+    color: tomato;
+    background-color: white;
+    box-shadow: 0 0 0.5rem 0.2rem lightgray;
 }
 
 .contentsName {
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
 .contentsDate {
     font-size: 1.2rem;
-    background-color: lightblue;
+    color: gray;
+    /* background-color: lightblue; */
 }
 
 .contents {
+    margin-top: 1rem;
+    padding: 2rem;
     white-space: pre-wrap;
-    background-color: lightgreen;
+    background-color: white;
+    box-shadow: 0 0 0.5rem 0.2rem lightgray;
 }
 
 @media all and (max-width: 40rem) {
     .board {
-        padding: 1rem;
         width: 95%;
     }
 
