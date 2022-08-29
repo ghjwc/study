@@ -345,6 +345,20 @@ table > tbody > tr > td:last-child {
     text-align: end;
 }
 
+.paging {
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: fit-content;
+    text-align: center;
+    font-size: 1.3rem;
+    color: gray;
+    cursor: pointer;
+}
+
+.paging > span {
+    font-weight: bold;
+}
+
 @media all and (max-width: 40rem) {
     .board {
         width: 95%;

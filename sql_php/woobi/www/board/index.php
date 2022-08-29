@@ -53,6 +53,7 @@ $result = $conn->query($sql);
                 <?php } ?>
                 
             </table>
+            <div class="paging"><span>[1]</span> 2 3 4 5 ▶</div>
             <div class="writeBtnDiv">
                 <button class="writeBtn">WRITE</button>
             </div>

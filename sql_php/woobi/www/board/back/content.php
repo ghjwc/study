@@ -95,7 +95,7 @@
                         <textarea name="reply" required></textarea>
                     </div>
                     <div>
-                        <button class="writeBtn">WRITE</button>
+                        <button class="writeBtn">OK</button>
                     </div>
                 </form>
 
