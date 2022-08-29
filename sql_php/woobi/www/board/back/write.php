@@ -40,7 +40,7 @@ include_once('common.php');
                 </div>
             </form>
             <div class="backBtnDiv">
-                <button class="backBtn">LIST</button>
+                <button class="backBtn">BACK</button>
             </div>
         </div>
     </div>

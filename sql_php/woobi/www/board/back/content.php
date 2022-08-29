@@ -11,9 +11,18 @@
                 contents
             FROM Board
             WHERE contentsNo = '$no';
-        ";
+          ";
+
+    $sql2 = "SELECT
+                replyName,
+                replyTime,
+                reply
+            FROM BoardRe
+            WHERE replyNo = '$no';
+            ";
 
     $result = $conn->query($sql);
+    $result2 = $conn->query($sql2);
 
     // die($result);
 
@@ -21,8 +30,9 @@
     //     echo $data['userName'];
     // }
     $data = mysqli_fetch_assoc($result);
+    $row = mysqli_fetch_assoc($result2);
     
-    if ($data) {
+    if ($data || $row) {
 
     } else {
         echo "
@@ -63,8 +73,34 @@
                     <?php echo $data['contents']; ?>
                 </div>
 
+                <?php while ($row) { ?>
+                    <div id="replyDiv">
+                        <div>
+                            <?php echo $row['replyName'] ?>
+                            <?php echo $row['replyTime'] ?>
+                        </div>
+                        <div>
+                            댓글 영역
+                            <?php echo $row['reply'] ?>
+                        </div>
+                    </div>
+                <?php } ?>
+
+                <form id="replyForm" action="reply_ok.php" method="POST">
+                    <div>
+                        <input type="text" name="replyName" maxlength="12" placeholder="NAME" required>
+                        <input type="password" name="replyPwd" maxlength="12" placeholder="PASSWORD" required>
+                    </div>
+                    <div>
+                        <textarea name="reply" required></textarea>
+                    </div>
+                    <div>
+                        <button class="writeBtn">WRITE</button>
+                    </div>
+                </form>
+
                 <div class="backBtnDiv">
-                    <button class="backBtn">LIST</button>
+                    <button class="backBtn">BACK</button>
                 </div>
             </div>
         </div>
