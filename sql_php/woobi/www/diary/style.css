@@ -1,0 +1,610 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.5rem;
+    font-family: '맑은고딕', 'Helvetica';
+}
+
+body::-webkit-scrollbar {
+    width: 0.3rem;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: lightcyan;
+}
+body::-webkit-scrollbar-track {
+    background-color: lightskyblue;
+}
+
+li {
+    list-style: none;
+}
+
+button, input[type='button'] {
+    cursor: pointer;
+}
+
+/* header */
+header {
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    /* background: linear-gradient(0deg, rgba(251,255,137,1) 0%, rgba(195,250,70,1) 57%, rgba(251,255,137,1) 100%); */
+    color: white;
+    background: linear-gradient(0deg, rgba(247,255,219,1) 0%, rgba(136,229,250,1) 63%, rgba(183,249,255,1) 100%);
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem lightgray;
+}
+
+header > div {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: 1.7rem;
+    font-weight: bold;
+    /* color: white; */
+    /* background-color: aqua; */
+}
+
+header > ul {
+    display: flex;
+    /* background-color: blue; */
+}
+
+header > ul > li, .prev, .next {
+    margin-right: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    font-weight: bold;
+    border: 0.1rem solid lightgray;
+    border-radius: 50%;
+    color: gray;
+    /* background-color: white; */
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(238,238,238,1) 100%);
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem lightgray;
+}
+
+header > ul > li:first-child {
+    padding-top: 0;
+}
+
+header > ul > li:last-child {
+    margin-right: 0;
+}
+
+/* nav */
+nav {
+    padding: 1rem;
+    border-top: 0.2rem solid #e0e9eb;
+    border-bottom: 0.2rem solid #e0e9eb;
+    background-color: #f5f5f5;
+}
+
+nav > ul {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0.5rem;
+    width: 20rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 3rem;
+    border: 0.1rem solid lightgray;
+    color: lightskyblue;
+    background-color: lightcyan;
+}
+
+nav > ul > li {
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 3rem;
+    cursor: pointer;
+}
+
+nav > ul > li:first-child {
+    border: 0.1rem solid lightgray;
+    color: white;
+    background: linear-gradient(0deg, rgba(183,249,255,1) 0%, rgba(136,229,250,1) 63%, rgba(183,249,255,1) 100%);
+}
+
+/* main */
+body {
+    /* background-color: lightcyan; */
+    min-height: 100vh;
+    background: linear-gradient(0deg, rgba(243,255,189,1) 0%, rgba(209,246,255,1) 50%, rgba(197,255,243,1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* calendar */
+/* schedule */
+.schedule, .calendar {
+    width: 70rem;
+}
+
+.schedule {
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    padding: 2rem;
+}
+
+.scheduleDiv > input {
+    width: 100%;
+    height: 5rem;
+    border-style: none;
+    border-radius: 3rem;
+}
+
+.scheduleDiv > input[type='date'] {
+    position: relative;
+    text-align: center;
+    font-family: 'Helvetica';
+    font-size: 1.7rem;
+    font-weight: bold;
+    border: 0.1rem solid lightgray;
+    color: white;
+    background: linear-gradient(0deg, rgba(247,255,219,1) 0%, rgba(136,229,250,1) 63%, rgba(183,249,255,1) 100%);
+}
+
+.scheduleDiv > input[type="date"]::-webkit-calendar-picker-indicator {
+    z-index: 1;
+    margin-left: 0;
+    margin-right: 2.5rem;
+    width: 2.5rem;
+    opacity: 0;
+    cursor: pointer;
+    background-color: yellow;
+}
+
+.scheduleDiv > input[type="date"]:after{
+    position: absolute;
+    top: 50%;
+    right: 3rem;
+    content: '';
+    width: 2rem;
+    height: 2rem;
+    background: url('https://i.ibb.co/vPKyzDy/661513.png') center center /contain;
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.scheduleDiv > input[type="date"]::before {
+    content: attr(data-placeholder);
+    width: 100%;
+    color: #c3c3c3;
+}
+
+.scheduleDiv > input[type="date"]:focus:before, input[type="date"]:valid:before {
+    display: none;
+}
+
+.scheduleDiv > input[type='text'] {
+    margin: 1rem 0 1rem 0;
+    padding-left: 1.5rem;
+    border: 0.2rem solid lightgray;
+    background-color: #f5f5f5;
+}
+
+.scheduleDiv:last-child {
+    text-align: end;
+}
+
+.scheduleDiv > button {
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    font-weight: bold;
+    border-radius: 3rem;
+    border: 0.1rem solid lightgray;
+    color: white;
+    background: linear-gradient(0deg, rgba(183,249,255,1) 0%, rgba(136,229,250,1) 50%, rgba(183,249,255,1) 100%);
+}
+
+.scheduleDiv > button:last-child {
+    display: none;
+}
+
+.mobileSchBtn {
+    display: none;
+}
+
+/* calenda-control */
+.calendar-control {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 0.2rem solid #e0e9eb;
+    background-color: lightyellow;
+}
+
+.calendar-control > div:nth-child(2) {
+    margin: 0 1rem 0 1rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-weight: bold;
+    color: lightskyblue;
+}
+
+.prev, .next {
+    transition: transform 0.3s ease;
+    font-size: 1rem;
+    color: lightskyblue;
+    cursor: pointer;
+}
+
+.prev:hover, .next:hover {
+    transform: translate(0.3rem, 0.3rem);
+}
+
+/* calenda table */
+.calendar {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-collapse: collapse;
+}
+
+.oneday {
+    position: relative;
+    height: 10rem;
+    /* border: 0.1rem solid orange; */
+}
+
+.oneday:first-child > div:not(.not-month, .someday, .name), .calendar > tbody > tr > td:last-child > div:not(.not-month, .someday, .name) {
+    color: tomato;
+}
+
+.oneday > div:not(.name) {
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.oneday > div:not(.not-month, .someday, .name) {
+    color: lightskyblue;
+}
+
+.dayTh {
+    padding: 2rem;
+    width: calc(100% / 7);
+    font-size: 1.3rem;
+    color: gray;
+    /* border: 0.1rem solid blue;
+    background-color: yellow; */
+}
+
+.dayTh:first-child, .dayTh:last-child {
+    color: tomato;
+}
+
+.calTodo {
+    position: absolute;
+    top: 3.5rem;
+    width: 100%;
+    height: 6.5rem;
+    overflow: hidden;
+    /* border: 0.1rem solid red; */
+}
+
+.calTodo > li {
+    /* width: 100%; */
+    font-size: 1.1rem;
+    color: gray;
+    background-color: lightcyan;
+}
+
+.not-month {
+    color: lightgray;
+}
+
+.someday {
+    color: white;
+    background-color: tomato;
+}
+
+.name {
+    margin: 0 auto;
+    width: fit-content;
+    font-size: 1.2rem;
+    color: tomato;
+    background-color: transparent;
+}
+
+.today {
+    background-color: lightyellow;
+}
+
+/* todolist */
+.todo {
+    display: none;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem 2rem 1rem 2rem;
+    width: 65rem;
+}
+
+.todo, .calendar, .schedule {
+    border-radius: 3rem;
+    background-color: white;
+    box-shadow: 0 0 0.5rem 0.1rem lightgray;
+}
+
+.todo > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 2rem 0 2rem 0;
+    padding: 1rem;
+    border-radius: 3rem;
+    border: 0.1rem solid lightgray;
+    background-color: lightcyan;
+}
+
+.todoInput {
+    padding-left: 1.5rem;
+    width: 100%;
+    height: 4rem;
+    border-radius: 3rem;
+    border: 0.1rem solid lightgray;
+}
+
+.todoInput::placeholder {
+    font-family: '맑은고딕';
+    font-size: 1.1rem;
+    color: lightskyblue;
+}
+
+.todoInputBtn {
+    width: 4.5rem;
+    height: 4rem;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 50%;
+    border: 0.1rem solid lightgray;
+    color: white;
+    background: linear-gradient(0deg, rgba(183,249,255,1) 0%, rgba(136,229,250,1) 50%, rgba(183,249,255,1) 100%);
+}
+
+.btnDiv {
+    text-align: center;
+    /* background-color: lightgreen; */
+}
+
+.btnDiv > input[type='button'] {
+    margin-right: 0.5rem;
+    width: 12rem;
+    height: 4rem;
+    transition: transform 0.3s ease;
+    border-radius: 3rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    border: 0.1rem solid lightgray;
+    box-shadow: 0 0 0.5rem 0 lightgray;
+}
+
+.btnDiv > input[type='button']:hover {
+    transform: translate(0.2rem, 0.2rem);
+}
+
+.btnAll {
+    background: linear-gradient(0deg, rgba(255,239,248,1) 10%, rgba(255,208,233,1) 55%, rgba(255,239,248,1) 100%);
+}
+
+.btnIng {
+    background: linear-gradient(0deg, rgba(234,255,205,1) 10%, rgba(200,233,154,1) 55%, rgba(234,255,205,1) 100%);
+}
+
+.btnEd {
+    margin-right: 0;
+    background: linear-gradient(0deg, rgba(255,250,223,1) 10%, rgba(255,225,170,1) 55%, rgba(255,250,223,1) 100%);
+}
+
+.labelDiv {
+    margin: 2rem 0 0.5rem 0;
+    padding-right: 3rem;
+    text-align: end;
+    /* background-color: aquamarine; */
+}
+
+.labelDiv > label > span {
+    margin: 0 1rem 0 0.5rem;
+    font-size: 1.2rem;
+    color: gray;
+    /* background-color: skyblue; */
+    cursor: pointer;
+}
+
+.labelDiv > label > span:hover {
+    color: #f5f5f5;
+}
+
+.labelDiv > label > button, .todolist > li > button {
+    font-size: 1.7rem;
+    font-weight: bold;
+    border-style: none;
+    color: lightskyblue;
+    background-color: transparent;
+}
+
+
+.todolist {
+    margin-bottom: 2rem;
+    padding: 1rem 2rem 1rem 2rem;
+    border-radius: 2rem;
+    border: 0.2rem solid lightskyblue;
+    background-color: white;
+    /* box-shadow: 0 0 1rem 0.1rem lightskyblue; */
+}
+
+.todolist > li {
+    position: relative;
+    padding: 2rem 0 2rem 0;
+    border-bottom: 0.1rem solid lightskyblue;
+    /* background-color: w; */
+}
+
+.todolist > li:hover {
+    background-color: lightyellow;
+}
+
+.todolist > li:last-child {
+    border-bottom: 0;
+}
+
+.todolist > li > label {
+    font-size: 1.4rem;
+    color: gray;
+    cursor: pointer;
+}
+
+.yet {
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: lightskyblue;
+}
+
+.listCheck {
+    margin-right: 1rem;
+}
+
+.todolist > li > button {
+    position: absolute;
+    right: 1rem;
+}
+
+.labelDiv > label > button:hover, .todolist > li > button:hover {
+    color: lightcyan;
+}
+
+
+/* footer */
+footer {
+    width: 100%;
+    height: 3rem;
+    background-color: lightgray;
+}
+
+/* media */
+@media all and (max-width: 60rem) {
+    header > div {
+        margin: 0 auto;
+    }
+
+    header > ul {
+        display: none;
+    }
+
+    .cal-schedule {
+        flex-wrap: wrap;
+    }
+
+    .schedule, .calendar {
+        width: 50rem;
+    }
+
+    .todo {
+        width: 50rem;
+    }
+
+    .btnDiv > input[type='button'] {
+        margin: 0;
+        width: 10rem;
+    }
+
+}
+
+@media all and (max-width: 30rem) {
+
+    .mobileSch {
+        padding: 2rem;
+        text-align: center;
+        border-top: 0.2rem solid #e0e9eb;
+        background-color: lightyellow;
+    }
+
+    .mobileSchBtn {
+        display: block;
+        margin: 0 auto;
+        width: 4rem;
+        height: 4rem;
+        font-size: 2rem;
+        font-weight: bold;
+        border-radius: 50%;
+        border: 0.1rem solid lightgray;
+        color: white;
+        background: linear-gradient(0deg, rgba(183,249,255,1) 0%, rgba(136,229,250,1) 50%, rgba(183,249,255,1) 100%);
+    }
+
+    .cal-schedule {
+        height: 100%;
+        background-color: white;
+    }
+
+    .calendar {
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .schedule {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        /* margin-top: 0.5rem; */
+        margin-bottom: 0;
+        width: 90%;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+        transform: translateX(-50%);
+        border-radius: 3rem 3rem 0 0;
+        background-color: lightcyan;
+    }
+
+    .scheduleDiv:last-child {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .scheduleDiv > button:last-child {
+        display: block;
+    }
+
+    .calendar > tbody > tr > td > div:not(.name) {
+        font-size: 1.5rem;
+    }
+
+    .todo {
+        width: 90%;
+    }
+
+    .btnDiv > input[type='button'] {
+        width: 30%;
+    }
+}
+
+/* 그라디언트 https://cssgradient.io/ 
+    컬러 차트 https://color.adobe.com/create/color-wheel */

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="EUC-KR">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lr으i ㉰OiΦㅓ㉣i</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+
+    <header>
+        <div>*+*+Lr으i ㉰OiΦㅓ㉣i+*+*</div>
+        <ul>
+            <li>_</li>
+            <li>□</li>
+            <li>&times;</li>
+        </ul>
+    </header>
+    <nav>
+       <ul>
+           <li>달력</li>
+           <li>할 일</li>
+       </ul>
+    </nav>
+    
+    <main>
+        <div id="container">
+            <div class="cal-schedule">
+                <div class="cal"></div>
+                <div>
+                    <div class="mobileSch">
+                        <button class="mobileSchBtn">+</button>
+                    </div>
+                    <div class="schedule">
+                        <div class="scheduleDiv"><input type="date" min="2010-01-01" max="2030-12-31" required></div>
+                        <div class="scheduleDiv"><input type="text" maxlength="10"></div>
+                        <div class="scheduleDiv">
+                            <button>입력</button>
+                            <button>닫기</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="todo">
+                <div>
+                    <input type="text" class="todoInput" placeholder="오늘의 할 일은?">
+                    <button class="todoInputBtn">+</button>
+                </div>
+
+                <div>
+                    <div class="btnDiv">
+                        <input type="button" value="전체 (0)" class="btnAll">
+                        <input type="button" value="진행 중 (0)" class="btnIng">
+                        <input type="button" value="완료 (0)" class="btnEd">
+                    </div>
+
+                    <div class="labelDiv">
+                        <label for="selectAll">
+                            <input type="checkbox" id="selectAll">
+                            <span>전체 선택</span>
+                            <button class="delAll">&times;</button>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <ul class="todolist">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- <footer>footer</footer> -->
+    
+    <script src="calendar.js"></script>
+    <script src="todo.js"></script>
+</body>
+</html>
