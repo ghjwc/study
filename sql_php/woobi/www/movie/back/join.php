@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>join</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../view/css/style.css">
 </head>
 <body>
     <form action="join_ok.php" method="post">
@@ -105,6 +105,6 @@
         </div>
     </form>
 
-    <script src="script.js"></script>
+    <script src="../view/js/main.js"></script>
 </body>
 </html>

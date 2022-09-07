@@ -31,7 +31,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>main</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../view/css/style.css">
 </head>
 <body>
 
@@ -47,9 +47,16 @@
                 환영합니다 !
             </div>
 
-            <form action="logout.php" method="post">
-                <input type="submit" value="LOGOUT">
-            </form>
+            <div class="indexBtnDiv">
+                <form action="board.php" method="post">
+                    <input type="submit" value="GO TO THE BOARD">
+                </form>
+
+                <form action="logout.php" method="post">
+                    <input type="submit" value="LOGOUT">
+                </form>
+            </div>
+
         </div>
     </div>
     

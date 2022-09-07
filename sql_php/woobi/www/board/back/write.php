@@ -33,10 +33,10 @@ include_once('common.php');
                 <div>
                     <input placeholder="FILE" id="fileName" readonly>
                     <label for="file">CLICK</label>
-                    <input type="file" name="file" id="file">
+                    <input type="file" name="fileToUpload" id="file">
                 </div>
                 <div>
-                    <input type="submit" value="WRITE">
+                    <input type="submit" name="submit" value="WRITE">
                 </div>
             </form>
             <div class="backBtnDiv">

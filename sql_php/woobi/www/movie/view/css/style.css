@@ -23,6 +23,17 @@ body::-webkit-scrollbar-track {
     background-color: lightgray;
 }
 
+::-moz-selection {
+    color: transparent;
+    text-shadow: 0 0 0.3rem gray;
+    transition: all 250ms ease-in;
+ }
+ ::selection {
+    color: transparent;
+    text-shadow: 0 0 0.3rem gray;
+    transition: all 250ms ease-in;
+ }
+
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -52,6 +63,14 @@ body::-webkit-scrollbar-track {
     background-image: url(https://images2.alphacoders.com/760/thumb-1920-760735.jpg);
 }
 
+.board {
+    background-image: url(https://images2.alphacoders.com/870/thumb-1920-870886.jpg);
+}
+
+.wcn {
+    background-image: url(https://i.pinimg.com/originals/60/91/85/6091855d71585e0bb99afb959f7ee8bd.jpg);
+}
+
 .container {
     margin: 3rem;
     padding: 3rem;
@@ -75,6 +94,14 @@ body::-webkit-scrollbar-track {
 
 .cc {
     border: 0.3rem solid lightpink;
+}
+
+.cb {
+    border: 0.3rem solid sandybrown;
+}
+
+.ccn {
+    border: 0.3rem solid gray;
 }
 
 .double {
@@ -173,7 +200,7 @@ input[type='checkbox'] + label {
 }
 
 
-input[type='submit'] {
+.cj > input[type='submit'] {
     width: 50%;
     height: 5rem;
     border-style: none;
@@ -185,7 +212,12 @@ input[type='submit'] {
 
 .login > input[type='submit'] {
     width: 100%;
+    height: 5rem;
+    border-style: none;
+    border-radius: 3rem;
+    color: white;
     background-color: plum;
+    cursor: pointer;
 }
 
 .ci > input[type='submit'] {
@@ -197,7 +229,16 @@ input[type='submit'] {
     background-color: lightpink;
 }
 
+.writeTitle {
+    padding-left: 2rem;
+    width: 100%;
+    height: 5rem;
+    border-radius: 3rem;
+    border: 0.3rem solid lightpink;
+}
+
 textarea {
+    margin: 1rem 0 1rem 0;
     padding: 2rem;
     width: 100%;
     height: 50rem;
@@ -208,20 +249,66 @@ textarea {
     resize: none;
 }
 
-.ci > div {
+.wBtn {
+    text-align: center;
+}
+
+.wBtn > input {
+    width: 50%;
+    height: 5rem;
+    border-radius: 3rem;
+    border-style: none;
+    color: white;
+    background-color: lightpink;
+}
+
+.backBtnDiv {
+    margin-top: 1rem;
+}
+
+.backBtnDiv > button {
+    border-style: none;
+    font-weight: bold;
+    color: lightpink;
+    background-color: transparent;
+}
+
+.backBtnDiv > button:hover {
+    color: lightgray;
+}
+
+.wBtn > input, .backBtnDiv > button {
+    cursor: pointer;
+}
+
+.ci > div:not(.indexBtnDiv) {
     padding: 0 3rem 3rem 3rem;
     font-size: 3rem;
     font-weight: bold;
     color: lightseagreen;
 }
 
-.ci > form > input {
-    width: 50%;
+.indexBtnDiv > form > input {
+    width: 100%;
+    height: 5rem;
+    border-style: none;
+    color: white;
+    border-radius: 3rem;
     background-color: lightseagreen;
+    cursor: pointer;
+}
+
+.indexBtnDiv > form:last-child > input {
+    margin-top: 1rem;
+    background-color: gray;
+}
+
+.indexBtnDiv > form:last-child > input:hover {
+    background-color: lightgray;
 }
 
 input[type='submit']:hover {
-    background-color: gray;
+    background-color: lightgray;
 }
 
 .ci > div > p {
@@ -248,6 +335,136 @@ input[type='submit']:hover {
     color: green;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table > tbody > tr {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0 2rem 0;
+    border-bottom: 0.2rem dashed lightgray;
+}
+
+table > tbody > tr:last-child {
+    border-bottom: 0;
+}
+
+.boardTitle {
+    width: 25rem;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.boardTitle > a {
+    position: relative;
+    color: gray;
+    text-decoration: none;
+}
+
+.boardTitle > a:hover {
+    filter: blur(0.1rem);
+}
+
+.boardID {
+    width: 12rem;
+    /* background-color: bisque; */
+}
+
+.boardID > span {
+    padding: 1rem;
+    border-radius: 3rem;
+    color: white;
+    background-color: lightgray;
+}
+
+.boardTime {
+    width: calc(100% - 37rem);
+    text-align: end;
+    color: gray;
+    /* background-color: lightpink; */
+}
+
+.boardID, .boardTime {
+    font-size: 1.1rem;
+}
+
+
+.cb > .writeBtnDiv {
+    margin-top: 1rem;
+    text-align: end;
+}
+
+.cb > .writeBtnDiv > button {
+    width: 7rem;
+    height: 4rem;
+    color: white;
+    border-radius: 3rem;
+    border-style: none;
+    background-color: sandybrown;
+    cursor: pointer;
+}
+
+.cb > .writeBtnDiv > button:hover {
+    background-color: lightgray;
+}
+
+.contentsDiv {
+    /* background-color: yellow; */
+}
+
+.contentsTitle {
+    margin: 0 auto;
+    padding: 1rem 2rem 1rem 2rem;
+    width: fit-content;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 3rem;
+    background-color: gray;
+}
+
+.contentsName {
+    margin-top: 1rem;
+    padding: 1rem;
+    font-weight: bold;
+    /* background-color: salmon; */
+}
+
+.contentsDate {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    /* background-color: lightgreen; */
+}
+
+.contentsName, .contentsDate {
+    color: gray;
+}
+
+.contents {
+    padding: 2rem;
+    text-align: left;
+    white-space: pre-wrap;
+    border-radius: 3rem;
+    border: 0.3rem solid gray;
+    background-color: white;
+}
+
+.contentsDiv > .backBtnDiv {
+    margin-top: 2rem;
+}
+
+.contentsDiv > .backBtnDiv > button {
+    color: gray;
+}
+
+.contentsDiv > .backBtnDiv > button:hover {
+    color: lightgray;
+}
+
 @media screen and (max-width: 45rem) {
 
     .container {
@@ -269,5 +486,17 @@ input[type='submit']:hover {
 
     .login > input[type='text'] {
         margin-bottom: 1rem;
+    }
+
+    .boardTitle {
+        width: 55%;
+    }
+    
+    .boardID {
+        width: 25%;
+    }
+    
+    .boardTime {
+        width: 20%;
     }
 }
