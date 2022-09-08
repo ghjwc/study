@@ -10,7 +10,7 @@ html {
 
 body {
     font-size: 1.5rem;
-    font-family: '¸¼Àº°íµñ', 'Helvetica';
+    font-family: 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'Helvetica';
 }
 
 body::-webkit-scrollbar {
@@ -256,8 +256,8 @@ body {
 .oneday {
     position: relative;
     height: 10rem;
-    /* border: 0.1rem solid orange; */
 }
+
 
 .oneday:first-child > div:not(.not-month, .someday, .name), .calendar > tbody > tr > td:last-child > div:not(.not-month, .someday, .name) {
     color: tomato;
@@ -292,6 +292,15 @@ body {
 
 .dayTh:first-child, .dayTh:last-child {
     color: tomato;
+}
+
+
+.oneday > div {
+    cursor: pointer;
+}
+
+.oneday > div:hover {
+    color: lightpink;
 }
 
 .calTodo {
@@ -367,7 +376,7 @@ body {
 }
 
 .todoInput::placeholder {
-    font-family: '¸¼Àº°íµñ';
+    font-family: 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
     font-size: 1.1rem;
     color: lightskyblue;
 }
@@ -606,5 +615,5 @@ footer {
     }
 }
 
-/* ±×¶óµð¾ðÆ® https://cssgradient.io/ 
-    ÄÃ·¯ Â÷Æ® https://color.adobe.com/create/color-wheel */
+/* ï¿½×¶ï¿½ï¿½ï¿½Æ® https://cssgradient.io/ 
+    ï¿½Ã·ï¿½ ï¿½ï¿½Æ® https://color.adobe.com/create/color-wheel */

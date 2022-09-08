@@ -39,7 +39,7 @@ let calYear = date.getFullYear(),
     calMonth = date.getMonth() + 1,
     calDate = date.getDate();
 
-function CreateCalender(elem) {
+function CreateCalendar(elem) {
 
     let now = new Date(),
         toYear = year = now.getFullYear(),
@@ -185,7 +185,7 @@ function CreateCalender(elem) {
 
 
     let addEvent = () => {
-        const todayDate = document.querySelector('.scheduleDiv > input[type="date"]');
+        let todayDate = document.querySelector('.scheduleDiv > input[type="date"]');
 
         // let month1 = month;
     
@@ -209,6 +209,7 @@ function CreateCalender(elem) {
             }
             
             todayDate.value = `${year}-${strMonth}-01`;
+            todayNumber();
             // console.log('prev: ' + strMonth);
         }
 
@@ -235,6 +236,7 @@ function CreateCalender(elem) {
             }
             todayDate.value = `${year}-${strMonth}-01`;
             // console.log('strMonth: ' + strMonth);
+            todayNumber();
         }
     }
 
@@ -248,13 +250,13 @@ function CreateCalender(elem) {
         return name;
     };
 
-    this.showCalender = () => {
+    this.showCalendar = () => {
         init();
     };
 }
 
-let cc = new CreateCalender(document.querySelector('.cal'));
-cc.showCalender();
+let cc = new CreateCalendar(document.querySelector('.cal'));
+cc.showCalendar();
 
 
 // 달력 아래 스케줄
@@ -276,7 +278,7 @@ mobileScheduleClose.addEventListener('click', () => {
 
 
 // input[type='date']에 오늘 날짜 입력
-const todayDate = document.querySelector('.scheduleDiv > input[type="date"]'),
+let todayDate = document.querySelector('.scheduleDiv > input[type="date"]'),
         scheduleInput = document.querySelector('.scheduleDiv > input[type="text"]'),
         scheduleBtn = document.querySelector('.scheduleDiv > button');
 let oneday = document.querySelectorAll('.oneday');
@@ -330,9 +332,35 @@ function addSchedule() {
     scheduleInput.value = '';
 }
 
-// 날짜 연동
+// 날짜
 
 todayDate.addEventListener('change', () => {
-    const splitDate = todayDate.value.split('-');
+    console.log('change');
+    let splitDate = todayDate.value.split('-');
     console.log('change-splitDateMonth: ' + splitDate[1]);
-})
+});
+
+
+// 날짜 클릭 => input
+let todayNum = document.querySelectorAll('.oneday > div');
+
+function todayNumber() {
+    todayNum.forEach((day) => {
+        day.addEventListener('click', () => {
+    
+            console.log('test');
+    
+            let dayInner = day.innerHTML;
+            if (day.innerHTML < 10) {
+                dayInner = '0' + day.innerHTML;
+            }
+    
+            let splitDate = todayDate.value.split('-');
+            splitDate[2] = dayInner;
+    
+            let joinDate = splitDate.join('-');
+            todayDate.value = joinDate;
+        });
+    });
+}
+todayNumber();
