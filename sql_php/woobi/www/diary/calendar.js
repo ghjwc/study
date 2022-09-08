@@ -186,12 +186,9 @@ function CreateCalendar(elem) {
 
     let addEvent = () => {
         let todayDate = document.querySelector('.scheduleDiv > input[type="date"]');
-
-        // let month1 = month;
     
         let prev = document.querySelector('.prev');
         prev.onclick = () => {
-            // month1 = month;
             let strMonth = 0;
 
             month--;
@@ -201,8 +198,6 @@ function CreateCalendar(elem) {
             }
             display(year, month);
             
-
-            // month = month + 1;
             strMonth = month + 1;
             if (strMonth < 10) {
                 strMonth = '0' + strMonth;
@@ -215,7 +210,7 @@ function CreateCalendar(elem) {
 
         let next = document.querySelector('.next');
         next.onclick = () => {
-            // month = month;
+    
             let strMonth = 0;
             
 
@@ -225,14 +220,11 @@ function CreateCalendar(elem) {
                 month = 0;
             }
             display(year, month);
-            // console.log('month: ' + month);
-
-            // month1 = month + 1;
+            
             strMonth = month + 1;
             
             if (strMonth < 10) {
                 strMonth = '0' + strMonth;
-                // console.log(strMonth);
             }
             todayDate.value = `${year}-${strMonth}-01`;
             // console.log('strMonth: ' + strMonth);
@@ -331,15 +323,6 @@ function addSchedule() {
     }
     scheduleInput.value = '';
 }
-
-// 날짜
-
-todayDate.addEventListener('change', () => {
-    console.log('change');
-    let splitDate = todayDate.value.split('-');
-    console.log('change-splitDateMonth: ' + splitDate[1]);
-});
-
 
 // 날짜 클릭 => input
 let todayNum = document.querySelectorAll('.oneday > div');
