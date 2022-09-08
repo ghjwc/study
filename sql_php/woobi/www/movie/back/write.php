@@ -2,6 +2,11 @@
 
 include_once('common.php');
 
+if ($_SESSION['userID'] == "") {
+    echo "<script>
+            history.back();
+        </script>";
+}
 ?>
 
 <!DOCTYPE html>

@@ -12,6 +12,14 @@
             ";
 
 $result = $conn->query($sql);
+
+if ($_SESSION['userID'] == "") {
+    echo "test";
+    echo "<script>
+            history.back();
+        </script>";
+}
+
 ?>
 
 <!DOCTYPE html>

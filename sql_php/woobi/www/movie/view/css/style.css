@@ -24,14 +24,12 @@ body::-webkit-scrollbar-track {
 }
 
 ::-moz-selection {
-    color: transparent;
-    text-shadow: 0 0 0.3rem gray;
-    transition: all 250ms ease-in;
+    color: white;
+    background-color: lightgray;
  }
  ::selection {
-    color: transparent;
-    text-shadow: 0 0 0.3rem gray;
-    transition: all 250ms ease-in;
+    color: white;
+    background-color: lightgray;
  }
 
 .wrapper {
@@ -249,6 +247,10 @@ textarea {
     resize: none;
 }
 
+textarea::placeholder {
+    font-family: Helvetica;
+}
+
 .wBtn {
     text-align: center;
 }
@@ -412,10 +414,6 @@ table > tbody > tr:last-child {
     background-color: lightgray;
 }
 
-.contentsDiv {
-    /* background-color: yellow; */
-}
-
 .contentsTitle {
     margin: 0 auto;
     padding: 1rem 2rem 1rem 2rem;
@@ -447,6 +445,7 @@ table > tbody > tr:last-child {
 .contents {
     padding: 2rem;
     text-align: left;
+    line-height: 2.2rem;
     white-space: pre-wrap;
     border-radius: 3rem;
     border: 0.3rem solid gray;

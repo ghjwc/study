@@ -23,15 +23,19 @@
     // }
     $data = mysqli_fetch_assoc($result);
     
-    if ($data) {
-
-    } else {
+    if (!$data) {
         echo "
             <script>
-                alert('fail-contents');
                 location.href = '../index.php';
             </script>
         ";
+    }
+    
+    if ($_SESSION['userID'] == "") {
+        echo "test";
+        echo "<script>
+                history.back();
+            </script>";
     }
 ?>
 
@@ -58,7 +62,12 @@
                     </span>
                 </div>
                 <div class="contentsDate">
-                    <?php echo $data['insertTime']; ?>
+                    <?php
+                        $day = $data['insertTime'];
+                        $everyday = array("일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일");
+                        echo $data['insertTime'] . '&nbsp;' . ($everyday[date('w', strtotime($day))]);
+                        // echo $data['insertTime'];
+                    ?>
                 </div>
                 <div class="contents">
                     <?php echo $data['contents']; ?>

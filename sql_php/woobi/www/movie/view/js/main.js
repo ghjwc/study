@@ -61,7 +61,6 @@ const writeBtn = document.querySelector('.writeBtn'),
 
 if (writeBtn) {
     writeBtn.onclick = () => {
-        console.log('hello')
         location.href = './write.php';
     }
 }
@@ -102,4 +101,12 @@ let indexDate = document.querySelectorAll('table > tbody > tr > td:last-child');
 for (let i = 0; i < indexDate.length; i++) {
     date = indexDate[i].innerHTML;
     indexDate[i].innerHTML = elapsedTime(date);
+}
+
+//trim
+let txtDiv = document.querySelector('.contents');
+
+if (txtDiv) {
+    let txtHTML = document.querySelector('.contents').innerHTML;
+    txtDiv.innerHTML = txtHTML.trim();
 }

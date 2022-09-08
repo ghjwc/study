@@ -92,8 +92,11 @@ getJSON('https://api.openweathermap.org/data/2.5/weather?q=busan&appid=922e829ff
 
 
 // 뉴스
+
+let newsDiv = document.getElementById('news');
+
 function showNews(category = 'general', question = '') {
-    news.innerHTML = '';
+    newsDiv.innerHTML = '';
     let url = `https://newsapi.org/v2/top-headlines?` 
             + `country=kr&`
             + `q=${question}&`
@@ -104,22 +107,18 @@ function showNews(category = 'general', question = '') {
   
     fetch(req)
         .then((response) => {
-            // console.log(response);
             return response.json();
         })
         .then(data => {
-        //   console.log(data.articles[0]);
-        console.log(data);
   
           for (article of data.articles) {
 
-            // console.log(article);
   
             let divTitle = document.createElement('div');
   
             divTitle.innerHTML = `<a href="${article.url}" target="_blank"><span class="categoryColor">${category}</span> ${article.title}</a>`;
   
-            news.append(divTitle);
+            newsDiv.append(divTitle);
           }
 
           let categoryColor = document.querySelectorAll('.categoryColor'),
