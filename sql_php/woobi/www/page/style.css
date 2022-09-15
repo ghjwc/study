@@ -9,12 +9,33 @@ html {
 }
 
 body {
-    font-family: Helvetica, '¸¼Àº°íµñ';
+    font-family: Helvetica, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
     font-size: 1.5rem;
 }
 
 li {
     list-style: none;
+}
+
+@font-face {
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GongGothicMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* header */
@@ -32,14 +53,22 @@ header {
     display: flex;
     justify-content: space-between;
     height: 6rem;
-    line-height: 6rem;
+    /* line-height: 6rem; */
+}
+
+#logo, .headerList > li {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: fit-content;
+    font-weight: bold;
+    color: white;
 }
 
 #logo {
     margin-left: 2rem;
     font-size: 2.5rem;
-    font-weight: bold;
-    color: white;
+    /* background-color: aqua; */
 }
 
 .headerList {
@@ -50,14 +79,36 @@ header {
 
 .headerList > li {
     margin-right: 2rem;
-    color: white;
-    font-weight: bold;
     /* background-color: lightgreen; */
     cursor: pointer;
 }
 
 .headerList > li:last-child {
     margin-right: 0;
+}
+
+.headerList > li:hover {
+    color: lightgray;
+    transition: all 0.3s ease-in-out;
+}
+
+.headerList > li::after {
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    content: '';
+    margin: 0.5rem 0 0;
+    width: 0;
+    height: 0.4rem;
+    transition: all 0.3s ease-in-out;
+    transition-duration: 0.3s;
+    opacity: 0;
+    background-color: lightgray;
+}
+
+.headerList > li:hover::after {
+    width: 100%;
+    opacity: 1;
 }
 
 /* hambugger */
@@ -88,22 +139,69 @@ nav > ul > li {
 /* main */
 main {
     width: 100%;
-    height: 100vh;
     background-color: antiquewhite;
 }
 
 .container {
     margin: 0 auto;
     width: 80rem;
-    height: 100vh;
     background-color: lightyellow;
 }
 
 /* about */
 .about {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 80%;
-    background-color: yellow;
+    height: calc(100vh - 6rem);
+    background-color: black;
+}
+
+#typeit {
+    width: 60rem;
+    font-size: 6rem;
+    text-align: center;
+    font-family: 'GmarketSansMedium';
+    color: white;
+    /* background-color: lightgreen; */
+}
+
+.myName {
+    border-bottom: 1rem solid white;
+}
+
+.aboutImg {
+    position: absolute;
+    bottom: 2rem;
+}
+
+.aboutImg > img {
+    width: 5rem;
+    cursor: pointer;
+}
+
+/* skills */
+.skills {
+    width: 100%;
+    height: 60rem;
+    background-color: lavender;
+}
+
+/* project */
+.project {
+    width: 100%;
+    height: 60rem;
+    background-color: lightgreen;
+}
+
+/* contact */
+.contact {
+    width: 100%;
+    height: 60rem;
+    background-color: lightpink;
 }
 
 /* top */
@@ -120,9 +218,20 @@ main {
     cursor: pointer;
 }
 
+/* footer */
+footer {
+    height: 20rem;
+    background-color: gray;
+}
+
 @media (max-width: 60rem) {
     .container {
         width: 60rem;
+    }
+
+    #typeit {
+        width: 50rem;
+        font-size: 5rem;
     }
 }
 
@@ -136,6 +245,7 @@ main {
     .headerList {
         position: absolute;
         top: 6rem;
+        z-index: 100;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -145,11 +255,31 @@ main {
         height: 0;
         opacity: 0;
         visibility: hidden;
-        background-color: salmon;
+        background-color: black;
     }
 
     .headerList > li {
+        top: auto;
+        transform: none;
         margin-right: 0;
+        padding: 2rem;
+        height: fit-content;
+    }
+
+    .headerList > li::after {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        content: '';
+        margin: 0;
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    
+    .headerList > li:hover::after {
+        width: 0;
+        opacity: 0;
     }
 
     #hambugger {
@@ -198,5 +328,14 @@ main {
 
     .container {
         width: 90%;
+    }
+
+    #typeit {
+        width: 90%;
+        font-size: 5rem;
+    }
+
+    .myName {
+        border-bottom: 0.5rem solid white;
     }
 }
