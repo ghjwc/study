@@ -18,20 +18,6 @@ li {
 }
 
 @font-face {
-    font-family: 'Cafe24SsurroundAir';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'GongGothicMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'GmarketSansMedium';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
     font-weight: normal;
@@ -120,20 +106,36 @@ header {
 nav {
     position: fixed;
     top: 50%;
-    left: 2rem;
-    transform: translateY(-50%);
-    padding: 2rem;
+    right: 2rem;
+    transform: translateY(-50%);    
     width: fit-content;
-    background-color: aquamarine;
+    text-align: center;
+    font-size: 1.2rem;
+    /* background-color: skyblue; */
 }
 
 nav > ul {
-    text-align: center;
-    background-color: skyblue;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 2rem;
+    background-color: white;
 }
 
 nav > ul > li {
-    padding: 1rem;
+    padding: 2rem 3rem;
+}
+
+nav > ul > li:first-child {
+    border-radius: 1rem 1rem 0 0;
+}
+
+nav > ul > li:last-child {
+    border-radius: 0 0 1rem 1rem;
+}
+
+.topBtn > img, .bottomBtn > img {
+    width: 3rem;
+    cursor: pointer;
 }
 
 /* main */
@@ -148,8 +150,8 @@ main {
     background-color: lightyellow;
 }
 
-/* about */
-.about {
+/* first */
+.first {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -173,14 +175,21 @@ main {
     border-bottom: 1rem solid white;
 }
 
-.aboutImg {
+.firstImg {
     position: absolute;
     bottom: 2rem;
 }
 
-.aboutImg > img {
+.firstImg > img {
     width: 5rem;
     cursor: pointer;
+}
+
+/* about */
+.about {
+    width: 100%;
+    height: 60rem;
+    background-color: lightskyblue;
 }
 
 /* skills */
@@ -202,20 +211,6 @@ main {
     width: 100%;
     height: 60rem;
     background-color: lightpink;
-}
-
-/* top */
-#topBtn {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 8rem;
-    height: 8rem;
-    line-height: 8rem;
-    text-align: center;
-    border-radius: 50%;
-    background-color: red;
-    cursor: pointer;
 }
 
 /* footer */
@@ -242,10 +237,13 @@ footer {
         font-size: 2rem;
     }
 
+    header {
+        z-index: 100;
+    }
+
     .headerList {
         position: absolute;
         top: 6rem;
-        z-index: 100;
         display: flex;
         flex-direction: column;
         justify-content: center;
