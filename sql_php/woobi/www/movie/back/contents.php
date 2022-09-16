@@ -22,6 +22,20 @@
     //     echo $data['userName'];
     // }
     $data = mysqli_fetch_assoc($result);
+
+    $sql = "SELECT
+                reNo,
+                userID,
+                contentsNo,
+                insertTime,
+                userRe
+            FROM MovieRe
+            WHERE contentsNo = '$no'
+            ORDER BY insertTime ASC
+            ";
+    // die($sql);
+    $result = $conn->query($sql);
+    // die($result);
     
     if (!$data) {
         echo "
@@ -64,7 +78,7 @@
                 <div class="contentsDate">
                     <?php
                         $day = $data['insertTime'];
-                        $everyday = array("일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일");
+                        $everyday = array("SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY");
                         echo $data['insertTime'] . '&nbsp;' . ($everyday[date('w', strtotime($day))]);
                         // echo $data['insertTime'];
                     ?>
@@ -73,6 +87,33 @@
                     <?php echo $data['contents']; ?>
                 </div>
 
+                <form action="reply_ok.php" method="POST">
+
+                    <div class="contentsRe">
+                        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                            <div class="reBox">
+                                <div class="nametime">
+                                    <div class="reName">
+                                        <?php echo $row['userID'] ?>
+                                    </div>
+                                    <div class="reTime">
+                                        <?php echo $row['insertTime'] ?>
+                                    </div>
+                                </div>
+                                <div class="reply">
+                                    <?php echo $row['userRe'] ?>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    
+
+                    <textarea class="reTxt" placeholder="What's on your mind?" name="userRe" required></textarea>
+                    <div class="okBtn">
+                        <input type="hidden" name="no" value="<?php echo $no ?>">
+                        <input type="submit" value="WRITE">
+                    </div>
+                </form>
                 
                 <div class="backBtnDiv">
                     <button class="backBtn">BACK</button>

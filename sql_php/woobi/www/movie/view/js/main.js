@@ -65,13 +65,13 @@ if (writeBtn) {
     }
 }
 
-for (i = 0; i < backBtn.length; i++) {
-    if (backBtn[i]) {
-        backBtn[i].onclick = () => {
-            history.back();
+backBtn.forEach((btn) => {
+    if (backBtn) {
+        btn.onclick = () => {
+            location.href = './board.php';
         }
     }
-}
+});
 
 function elapsedTime(date) {
     const start = new Date(date),
@@ -79,34 +79,49 @@ function elapsedTime(date) {
             diff = (end - start);
     
     const times = [
-        {time: '분', milliSeconds: 1000 * 60}, //minutes
-        {time: '시간', milliSeconds: 1000 * 60 * 60}, //hours
-        {time: '일', milliSeconds: 1000 * 60 * 60 * 24}, //days
-        {time: '개월', milliSeconds: 1000 * 60 * 60 * 24 * 30}, //months
-        {time: '년', milliSeconds: 1000 * 60 * 60 * 24 * 365}, //years
+        {time: '분', milliSeconds: 1000 * 60},
+        {time: '시간', milliSeconds: 1000 * 60 * 60},
+        {time: '일', milliSeconds: 1000 * 60 * 60 * 24},
+        {time: '월', milliSeconds: 1000 * 60 * 60 * 24 * 30},
+        {time: '년', milliSeconds: 1000 * 60 * 60 * 24 * 365},
     ].reverse();
 
     for (const value of times) {
         const betweenTime = Math.floor(diff / value.milliSeconds);
         
         if (betweenTime > 0) {
-            return `${betweenTime}${value.time} 전`; //ago
+            return `${betweenTime}${value.time} 전`;
         }
     }
-    return '방금 전'; //now
+    return '방금 전';
 }
 
-let indexDate = document.querySelectorAll('table > tbody > tr > td:last-child');
+let indexDate = document.querySelectorAll('table > tbody > tr > td:last-child'),
+    reTime = document.querySelectorAll('.reTime');
 
 for (let i = 0; i < indexDate.length; i++) {
     date = indexDate[i].innerHTML;
     indexDate[i].innerHTML = elapsedTime(date);
 }
 
+for (let i = 0; i < reTime.length; i++) {
+    date = reTime[i].innerHTML;
+    reTime[i].innerHTML = elapsedTime(date);
+}
+
 //trim
 let txtDiv = document.querySelector('.contents');
-
 if (txtDiv) {
     let txtHTML = document.querySelector('.contents').innerHTML;
     txtDiv.innerHTML = txtHTML.trim();
+}
+
+const contentsRe = document.querySelector('.contentsRe'),
+    reName = document.querySelector('.reName'),
+    reply = document.querySelector('.reply');
+
+if (contentsRe) {
+    if (reName == null || reply == null) {
+        contentsRe.style.display = 'none';
+    }
 }

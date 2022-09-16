@@ -235,7 +235,7 @@ input[type='checkbox'] + label {
     border: 0.3rem solid lightpink;
 }
 
-textarea {
+.writeTxt {
     margin: 1rem 0 1rem 0;
     padding: 2rem;
     width: 100%;
@@ -394,10 +394,23 @@ table > tbody > tr:last-child {
     font-size: 1.1rem;
 }
 
-
 .cb > .writeBtnDiv {
+    display: flex;
+    justify-content: space-between;
     margin-top: 1rem;
-    text-align: end;
+}
+
+.writeBtnDiv > div {
+    color: gray;
+}
+
+.writeBtnDiv > div > a {
+    color: gray;
+    text-decoration: none;
+}
+
+.writeBtnDiv > div > a:hover {
+    color: sandybrown;
 }
 
 .cb > .writeBtnDiv > button {
@@ -462,6 +475,96 @@ table > tbody > tr:last-child {
 
 .contentsDiv > .backBtnDiv > button:hover {
     color: lightgray;
+}
+
+/* RE */
+.contentsRe {
+    margin-top: 2rem;
+    padding: 2rem;
+    width: 100%;
+    border: 0.3rem solid gray;
+    border-radius: 3rem;
+    /* background-color: yellow; */
+}
+
+.nametime {
+    display: flex;
+    /* background-color: salmon; */
+}
+
+.reBox {
+    padding: 2rem 0;
+    border-bottom: 0.2rem dashed gray;
+    /* background-color: aqua; */
+}
+
+.reBox:first-child {
+    padding-top: 0;
+}
+
+.reBox:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.reBox:last-child {
+    margin-bottom: 0;
+}
+
+.reName {
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 3rem;
+    background-color: gray;
+}
+
+.reTime {
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    color: gray;
+    /* background-color: yellow; */
+}
+
+.reply {
+    margin-top: 1rem;
+    text-align: start;
+    color: gray;
+    /* background-color: lightskyblue; */
+}
+
+.reTxt {
+    margin-top: 2rem;
+    padding: 2rem;
+    width: 100%;
+    height: 10rem;
+    resize: none;
+    white-space: pre;
+    border-radius: 3rem;
+    border: 0.3rem solid gray;
+    color: gray;
+    font-family: '맑은고딕';
+    background-color: white;
+}
+
+.okBtn {
+    margin-top: 0.5rem;
+    width: 100%;
+    text-align: end;
+    /* background-color: lightgreen; */
+}
+
+.okBtn > input[type='submit'] {
+    width: 7rem;
+    height: 4rem;
+    border-radius: 3rem;
+    border-style: none;
+    color: white;
+    background-color: gray;
+    cursor: pointer;
+}
+
+.okBtn > input[type='submit']:hover {
+    background-color: lightgray;
 }
 
 @media screen and (max-width: 45rem) {

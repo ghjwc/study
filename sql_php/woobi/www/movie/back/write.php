@@ -32,7 +32,7 @@ if ($_SESSION['userID'] == "") {
                 </div>
 
                 <div>
-                    <textarea name="contents" placeholder="What's on your mind?" required></textarea>
+                    <textarea class="writeTxt" name="contents" placeholder="What's on your mind?" required></textarea>
                 </div>
 
                 <div class="wBtn">

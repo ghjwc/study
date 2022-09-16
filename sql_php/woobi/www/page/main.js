@@ -66,7 +66,8 @@ new TypeIt("#typeit", {
     speed: 70,
     startDelay: 900,
   })
-    .type("개발자", { delay: 100 })
+    .type("안녕하세요? <br>", { delay: 100 })
+    .type(" 개발자를", { delay: 100 })
     // .move(null, { to: "START", instant: true, delay: 300 })
     // .move(1, { delay: 200 })
     // .delete(1)
@@ -78,17 +79,17 @@ new TypeIt("#typeit", {
     // .move(5, { delay: 200 })
     // .type("a", { delay: 350 })
     .move(null, { to: "END" })
-    .type("를")
-    // .move(-4, { delay: 150 })
     .type(" 꿈꾸는")
+    // .move(-4, { delay: 150 })
+    // .type(" 占쌨꾸댐옙")
     // .move(null, { to: "END" })
     .type(' <span class="myName">최지원</span>', { delay: 400 })
     // .delete(".place", { delay: 800, instant: true })
     .type('입니다', {
         speed: 100,
     })
-    .move(null, { to: "START" }, { delay: 100 })
-    .type("<strong>프론트엔드</strong> ", { delay: 500 })
+    .move(-16, { delay: 100 })
+    .type(" <strong>프론트엔드</strong> ", { delay: 500 })
     .move(null, { to: "END" })
     .type(".", { delay: 100 })
     .go();
@@ -96,35 +97,33 @@ new TypeIt("#typeit", {
 
 
 // button
-const downBtn = document.querySelector('.firstImg > img'),
-        topBtn = document.querySelector('.topBtn > img'),
-        bottomBtn = document.querySelector('.bottomBtn > img');
-        
-downBtn.addEventListener('click', () => {
-    window.scrollTo({top:(headerBack.scrollHeight + document.querySelector('.first').scrollHeight), behavior:"smooth"});
-});
+const btn = document.querySelectorAll('.btn');
 
-topBtn.addEventListener('click', () => {
+btn[0].addEventListener('click', () => {
     window.scrollTo({top:0, left:0, behavior:'smooth'});
 });
 
-bottomBtn.addEventListener('click', () => {
+btn[1].addEventListener('click', () => {
     window.scrollTo({top:document.body.scrollHeight, left:0, behavior:'smooth'});
+});
+
+btn[2].addEventListener('click', () => {
+    window.scrollTo({top:(headerBack.scrollHeight + document.querySelector('.first').scrollHeight), behavior:"smooth"});
 });
 
 ScrollOut({
     targets: ".title",
     threshold: 0.5,
-    once: false
+    once: false,
+    onShown(el) {
+        el.classList.add("animated");
+    }
 });
 
 // menu click
 const headerList = document.querySelectorAll('.headerList > li');
-headerList.forEach((li) => {
+headerList.forEach((li, index) => {
     li.addEventListener('click', () => {
-        for (let i = 0; i < secs.length; i++) {
-            console.log(secs[i]);
-            window.scrollTo({top:secs[i].scrollHeight});
-        }
+            window.scrollTo({top:(secs[index].offsetTop - headerBack.scrollHeight), behavior:'smooth'});
     });
 });

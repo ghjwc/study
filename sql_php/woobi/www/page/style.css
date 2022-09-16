@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    font-family: Helvetica, '��������';
+    font-family: Helvetica, '맑은고딕';
     font-size: 1.5rem;
 }
 
@@ -107,6 +107,7 @@ nav {
     position: fixed;
     top: 50%;
     right: 2rem;
+    z-index: 10;
     transform: translateY(-50%);    
     width: fit-content;
     text-align: center;
@@ -140,19 +141,22 @@ nav > ul > li:last-child {
 
 /* main */
 main {
+    padding-bottom: 6rem;
     width: 100%;
-    background-color: antiquewhite;
+    background-color: black;
 }
 
 .container {
     margin: 0 auto;
     width: 80rem;
-    background-color: lightyellow;
+    background-color: red;
 }
+
 
 /* first */
 .first {
     position: relative;
+    z-index: 50;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -185,11 +189,42 @@ main {
     cursor: pointer;
 }
 
+/* title */
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    background-color: yellow;
+}
+
+[data-scroll] {
+    transition: opacity 1s;
+}
+[data-scroll="in"] {
+    opacity: 1;
+}
+[data-scroll="out"] {
+    opacity: 0;
+}
+
+/* section */
+.section {
+    margin-top: 6rem;
+}
+
+/* sectionBox */
+.sectionBox {
+    padding: 1rem;
+    height: 100%;
+    background-color: lightskyblue;
+}
+
+
+
 /* about */
 .about {
     width: 100%;
     height: 60rem;
-    background-color: lightskyblue;
+    background-color: lightcyan;
 }
 
 /* skills */
@@ -211,6 +246,15 @@ main {
     width: 100%;
     height: 60rem;
     background-color: lightpink;
+}
+
+/* inner */
+.inner {
+    margin: 1rem 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    background-color: white;
 }
 
 /* footer */
@@ -324,13 +368,17 @@ footer {
         transform: rotate(-45deg) translate(0.7rem, -0.6rem);
     }
 
+    nav {
+        display: none;
+    }
+
     .container {
         width: 90%;
     }
 
     #typeit {
-        width: 90%;
-        font-size: 5rem;
+        width: 85%;
+        font-size: 4.5rem;
     }
 
     .myName {
