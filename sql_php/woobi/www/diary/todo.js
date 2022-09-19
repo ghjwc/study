@@ -56,6 +56,7 @@ function addTodo() {
     delBtn.onclick = (e) => {
         let pnode = e.target.parentNode;
         todolist.removeChild(pnode);
+        startTodo();
         listCount();
     }
     checkList();

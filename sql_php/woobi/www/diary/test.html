@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="item">
+    <button>add</button>
+
+    <ul id="todolist"></ul>
+
+    <script>
+
+        const inputTxt = document.getElementById('item'),
+            addBtn = document.querySelector('button');
+
+        inputTxt.addEventListener('keyup', (e) => {
+            if(e.keyCode == 13) {
+                e.preventDefault();
+                if (inputTxt.value != '') { 
+                    addItem();
+                }
+            }
+        });
+
+        addBtn.addEventListener('click', () => {
+            addItem();
+        });
+
+        let increase = 0;
+
+        let todo = document.getElementById('item').value,
+            list = document.getElementById('todolist'),
+            listItem = document.createElement('li');
+
+        function addItem() {
+            todo = document.getElementById('item').value,
+            list = document.getElementById('todolist'),
+            listItem = document.createElement('li');
+
+            listItem.innerHTML = todo;
+            list.appendChild(listItem);
+            document.getElementById('item').value = '';
+
+            localStorage.setItem('todolist' + increase, todo);
+            increase++;
+        }
+        
+        // console.log(localStorage.getItem('todolist'));
+
+        // const tl = window.localStorage.getItem('todolist');
+
+        // console.log(`tl: ${tl}`);
+
+        for (const key in window.localStorage) {
+            if (window.localStorage.hasOwnProperty(key)) {
+                const value = window.localStorage.getItem(key);
+                console.log(`${key} : ${value}`);
+                
+            }
+        }
+
+
+    </script>
+</body>
+</html>

@@ -204,6 +204,8 @@ function CreateCalendar(elem) {
             }
             
             todayDate.value = `${year}-${strMonth}-01`;
+
+            todayNum = document.querySelectorAll('.oneday > div');
             todayNumber();
             // console.log('prev: ' + strMonth);
         }
@@ -228,6 +230,8 @@ function CreateCalendar(elem) {
             }
             todayDate.value = `${year}-${strMonth}-01`;
             // console.log('strMonth: ' + strMonth);
+
+            todayNum = document.querySelectorAll('.oneday > div');
             todayNumber();
         }
     }
@@ -322,6 +326,18 @@ function addSchedule() {
         }
     }
     scheduleInput.value = '';
+
+    let increase = 0;
+    localStorage.setItem('daySchedule' + increase, scheduleInput.value);
+    increase++;
+}
+
+for (const key in window.localStorage) {
+    if (window.localStorage.hasOwnProperty(key)) {
+        const value = window.localStorage.getItem(key);
+        console.log(`${key} : ${value}`);
+        
+    }
 }
 
 // 날짜 클릭 => input
@@ -330,9 +346,7 @@ let todayNum = document.querySelectorAll('.oneday > div');
 function todayNumber() {
     todayNum.forEach((day) => {
         day.addEventListener('click', () => {
-    
-            console.log('test');
-    
+            
             let dayInner = day.innerHTML;
             if (day.innerHTML < 10) {
                 dayInner = '0' + day.innerHTML;
