@@ -108,8 +108,14 @@ ScrollOut({
 });
 
 // menu click
-const headerList = document.querySelectorAll('.headerList > li');
+const headerList = document.querySelectorAll('.headerList > li'),
+        navList = document.querySelectorAll('nav > ul > li');
 headerList.forEach((li, index) => {
+    li.addEventListener('click', () => {
+        window.scrollTo({top:(secs[index].offsetTop - headerBack.scrollHeight), behavior:'smooth'});
+    });
+});
+navList.forEach((li, index) => {
     li.addEventListener('click', () => {
         window.scrollTo({top:(secs[index].offsetTop - headerBack.scrollHeight), behavior:'smooth'});
     });
@@ -136,21 +142,3 @@ window.addEventListener('scroll', () => {
         skillsColor[4].style.width = '70%';
     }
 });
-
-let myIndex = 0;
-function carousel() {
-    let slide = document.querySelectorAll('.slide > img');
-    
-    for (let i = 0; i < slide.length; i++) {
-        slide[i].style.display = 'none';
-    }
-    myIndex++;
-
-    if (myIndex > slide.length) {
-        myIndex = 1;
-    }
-
-    slide[myIndex - 1].style.display = 'block';
-    setTimeout(carousel, 2000);
-}
-carousel();

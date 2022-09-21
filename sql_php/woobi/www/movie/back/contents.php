@@ -109,6 +109,13 @@
                                     <div class="reTime">
                                         <?php echo $row['insertTime'] ?>
                                     </div>
+                                    <div class="reDel">
+                                        <?php if($row['userID'] == $_SESSION['userID']) { ?>
+                                            <button>
+                                                <a href="del_reply.php?no=<?php echo $no ?>">DEL</a>
+                                            </button>
+                                        <?php } ?>
+                                    </div>
                                 </div>
                                 <div class="reply">
                                     <?php echo $row['userRe'] ?>

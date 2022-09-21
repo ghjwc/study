@@ -55,6 +55,7 @@
                 </div>
 
                 <div class="wBtn">
+                    <input type="hidden" name="no" value="<?php echo $no ?>">
                     <input type="submit" value="WRITE">
                 </div>
             </form>
