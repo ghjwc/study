@@ -49,12 +49,6 @@
             localStorage.setItem('todolist' + increase, todo);
             increase++;
         }
-        
-        // console.log(localStorage.getItem('todolist'));
-
-        // const tl = window.localStorage.getItem('todolist');
-
-        // console.log(`tl: ${tl}`);
 
         for (const key in window.localStorage) {
             if (window.localStorage.hasOwnProperty(key)) {

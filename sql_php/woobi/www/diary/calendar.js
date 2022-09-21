@@ -1,6 +1,6 @@
 // 달력/할일 버튼
 const calBtn = document.querySelector('nav > ul > li:first-child'),
-        todoBtn = document.querySelector('nav > ul > li:last-child');
+    todoBtn = document.querySelector('nav > ul > li:last-child');
 let cal = document.querySelector('.cal'),
     schedule = document.querySelector('.schedule'),
     todo = document.querySelector('.todo');
@@ -45,7 +45,7 @@ function CreateCalendar(elem) {
         toYear = year = now.getFullYear(),
         toMonth = month = now.getMonth(),
         toDate = now.getDate();
-    
+
     let holidays = [
         {
             month: 1,
@@ -132,8 +132,8 @@ function CreateCalendar(elem) {
             }
 
             calYear = date.getFullYear(),
-            calMonth = date.getMonth() + 1,
-            calDate = date.getDate();
+                calMonth = date.getMonth() + 1,
+                calDate = date.getDate();
 
             if (calMonth < 10) {
                 calMonth = '0' + calMonth;
@@ -155,7 +155,7 @@ function CreateCalendar(elem) {
                     <ul class="calTodo"></ul>
                 </td>
                 `;
-            
+
             if (date.getDay() === 6) {
                 table += '</tr><tr>';
             }
@@ -164,8 +164,8 @@ function CreateCalendar(elem) {
 
         if (date.getDay()) {
             calYear = date.getFullYear(),
-            calMonth = date.getMonth() + 1,
-            calDate = date.getDate();
+                calMonth = date.getMonth() + 1,
+                calDate = date.getDate();
 
             for (let i = date.getDay(), day = 1; i < 7; i++, day++) {
                 table += `
@@ -186,7 +186,7 @@ function CreateCalendar(elem) {
 
     let addEvent = () => {
         let todayDate = document.querySelector('.scheduleDiv > input[type="date"]');
-    
+
         let prev = document.querySelector('.prev');
         prev.onclick = () => {
             let strMonth = 0;
@@ -197,12 +197,12 @@ function CreateCalendar(elem) {
                 month = 11;
             }
             display(year, month);
-            
+
             strMonth = month + 1;
             if (strMonth < 10) {
                 strMonth = '0' + strMonth;
             }
-            
+
             todayDate.value = `${year}-${strMonth}-01`;
 
             todayNum = document.querySelectorAll('.oneday > div');
@@ -212,9 +212,8 @@ function CreateCalendar(elem) {
 
         let next = document.querySelector('.next');
         next.onclick = () => {
-    
+
             let strMonth = 0;
-            
 
             month++;
             if (month >= 12) {
@@ -222,9 +221,9 @@ function CreateCalendar(elem) {
                 month = 0;
             }
             display(year, month);
-            
+
             strMonth = month + 1;
-            
+
             if (strMonth < 10) {
                 strMonth = '0' + strMonth;
             }
@@ -257,9 +256,9 @@ cc.showCalendar();
 
 // 달력 아래 스케줄
 const mobileSch = document.querySelector('.mobileSch'),
-        mobileSchBtn = document.querySelector('.mobileSchBtn'),
-        mobileSchedule = document.querySelector('.schedule'),
-        mobileScheduleClose = document.querySelector('.scheduleDiv > button:last-child');
+    mobileSchBtn = document.querySelector('.mobileSchBtn'),
+    mobileSchedule = document.querySelector('.schedule'),
+    mobileScheduleClose = document.querySelector('.scheduleDiv > button:last-child');
 
 mobileSchBtn.addEventListener('click', () => {
     mobileSchedule.style.position = 'fixed';
@@ -275,8 +274,8 @@ mobileScheduleClose.addEventListener('click', () => {
 
 // input[type='date']에 오늘 날짜 입력
 let todayDate = document.querySelector('.scheduleDiv > input[type="date"]'),
-        scheduleInput = document.querySelector('.scheduleDiv > input[type="text"]'),
-        scheduleBtn = document.querySelector('.scheduleDiv > button');
+    scheduleInput = document.querySelector('.scheduleDiv > input[type="text"]'),
+    scheduleBtn = document.querySelector('.scheduleDiv > button');
 let oneday = document.querySelectorAll('.oneday');
 
 todayDate.value = new Date().toISOString().substring(0, 10);
@@ -294,6 +293,7 @@ scheduleInput.addEventListener('keyup', (e) => {
 
 scheduleBtn.addEventListener('click', addSchedule);
 
+let increase = 0;
 
 function addSchedule() {
     oneday = document.querySelectorAll('.oneday');
@@ -324,21 +324,41 @@ function addSchedule() {
                 }
             }
         }
+        localStorage.setItem(todayDate.value, scheduleInput.value);
+        increase++;
+
+        // console.log('increase : ' + increase);
+        // console.log('value : ' + scheduleInput.value);
+        
     }
     scheduleInput.value = '';
-
-    let increase = 0;
-    localStorage.setItem('daySchedule' + increase, scheduleInput.value);
-    increase++;
 }
 
 for (const key in window.localStorage) {
     if (window.localStorage.hasOwnProperty(key)) {
         const value = window.localStorage.getItem(key);
         console.log(`${key} : ${value}`);
-        
+
+
+        for (let i = 0; i < oneday.length; i++) {
+            if (key == oneday[i].dataset.date) {
+                // console.log(todayDate.value);
+
+                if (!oneday[i].querySelector('.name')) {
+                    localStorage.getItem(todayDate.value);
+                    oneday[i].querySelector('.calTodo').innerHTML += `
+                    <li>
+                        ㆍ${value}
+                    </li>
+                    `;
+                    break;
+                }
+            }
+        }
     }
 }
+
+// window.localStorage.clear(); //전체 삭제
 
 // 날짜 클릭 => input
 let todayNum = document.querySelectorAll('.oneday > div');
@@ -346,15 +366,15 @@ let todayNum = document.querySelectorAll('.oneday > div');
 function todayNumber() {
     todayNum.forEach((day) => {
         day.addEventListener('click', () => {
-            
+
             let dayInner = day.innerHTML;
             if (day.innerHTML < 10) {
                 dayInner = '0' + day.innerHTML;
             }
-    
+
             let splitDate = todayDate.value.split('-');
             splitDate[2] = dayInner;
-    
+
             let joinDate = splitDate.join('-');
             todayDate.value = joinDate;
         });

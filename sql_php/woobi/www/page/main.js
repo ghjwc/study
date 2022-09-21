@@ -68,23 +68,10 @@ new TypeIt("#typeit", {
   })
     .type("¾È³çÇÏ¼¼¿ä? <br>", { delay: 100 })
     .type(" °³¹ßÀÚ¸¦", { delay: 100 })
-    // .move(null, { to: "START", instant: true, delay: 300 })
-    // .move(1, { delay: 200 })
-    // .delete(1)
-    // .type("T", { delay: 225 })
     .pause(200)
-    // .move(2, { instant: true })
-    // .pause(200)
-    // .move(5, { instant: true })
-    // .move(5, { delay: 200 })
-    // .type("a", { delay: 350 })
     .move(null, { to: "END" })
     .type(" ²Þ²Ù´Â")
-    // .move(-4, { delay: 150 })
-    // .type(" ï¿½Þ²Ù´ï¿½")
-    // .move(null, { to: "END" })
     .type(' <span class="myName">ÃÖÁö¿ø</span>', { delay: 400 })
-    // .delete(".place", { delay: 800, instant: true })
     .type('ÀÔ´Ï´Ù', {
         speed: 100,
     })
@@ -112,9 +99,9 @@ btn[2].addEventListener('click', () => {
 });
 
 ScrollOut({
-    targets: ".title",
+    targets: ".title, .skillsDiv, .prjPage, .contactUl",
     threshold: 0.5,
-    once: false,
+    once: true,
     onShown(el) {
         el.classList.add("animated");
     }
@@ -124,6 +111,46 @@ ScrollOut({
 const headerList = document.querySelectorAll('.headerList > li');
 headerList.forEach((li, index) => {
     li.addEventListener('click', () => {
-            window.scrollTo({top:(secs[index].offsetTop - headerBack.scrollHeight), behavior:'smooth'});
+        window.scrollTo({top:(secs[index].offsetTop - headerBack.scrollHeight), behavior:'smooth'});
     });
 });
+
+// mobileTop
+const mobileTop = document.getElementById('mobileTop');
+mobileTop.onclick = () => {
+    window.scrollTo({top:0, left:0, behavior:'smooth'});
+}
+
+// skills
+let skillsColor = document.querySelectorAll('.skillsColor');
+
+window.addEventListener('scroll', () => {
+    if (secs[1].offsetTop - headerBack.scrollHeight) {
+        skillsColor.forEach((color) => {
+            color.style.transition = '3s';
+        });
+        skillsColor[0].style.width = '90%';
+        skillsColor[1].style.width = '90%';
+        skillsColor[2].style.width = '80%';
+        skillsColor[3].style.width = '50%';
+        skillsColor[4].style.width = '70%';
+    }
+});
+
+let myIndex = 0;
+function carousel() {
+    let slide = document.querySelectorAll('.slide > img');
+    
+    for (let i = 0; i < slide.length; i++) {
+        slide[i].style.display = 'none';
+    }
+    myIndex++;
+
+    if (myIndex > slide.length) {
+        myIndex = 1;
+    }
+
+    slide[myIndex - 1].style.display = 'block';
+    setTimeout(carousel, 2000);
+}
+carousel();

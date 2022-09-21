@@ -12,7 +12,7 @@ let list = [],
     listLb = document.querySelectorAll('.listLb');
 
 function startTodo() {
-    if (listAll.length == 0) {
+    if (listAll.length === 0) {
         todolist.innerHTML = `<div class="yet">아직 일정이 없습니다.</div>`
     } else {
         document.querySelector('.yet').style.display = 'none';
@@ -34,6 +34,7 @@ todoInput.addEventListener('keyup', (e) => {
 
 todoInputBtn.addEventListener('click', addTodo);
 
+let todoIncrease = 0;
 
 function addTodo() {
     whatToDo = document.querySelector('.todoInput').value;
@@ -45,6 +46,7 @@ function addTodo() {
         list = document.createElement('li');
         list.innerHTML = `<label class="listLb"><input type="checkbox" class="listCheck">${whatToDo}</label>`;
         todolist.appendChild(list);
+
         todoInput.value = '';
         todoInput.focus();
     }

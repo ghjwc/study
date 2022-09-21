@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" placeholder="성명">
+    <input type="number" placeholder="등급">
+    <button>입력</button>
+
+    <div></div>
+
+    <script>
+        let name = document.querySelector('input[type="text"]'),
+            grade = document.querySelector('input[type="number"]'),
+            btn = document.querySelector('button'),
+            div = document.querySelector('div');
+
+        btn.addEventListener('click', () => {
+            if (grade.value >= 90) {
+                div.innerHTML = `${name.value} 님의 등급은 A입니다.`;
+            } else if (grade.value >= 80) {
+                div.innerHTML = `${name.value} 님의 등급은 B입니다.`;
+            } else {
+                div.innerHTML = `${name.value} 님의 등급은 C입니다.`;
+            }
+        });
+
+    </script>
+    
+</body>
+</html>

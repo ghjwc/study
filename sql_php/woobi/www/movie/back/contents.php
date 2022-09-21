@@ -83,6 +83,16 @@
                         // echo $data['insertTime'];
                     ?>
                 </div>
+                <div class="updel">
+                    <?php if($data['userID'] == $_SESSION['userID']) { ?>
+                        <button>
+                            <a href="update_content.php?no=<?php echo $no ?>">EDIT</a>    
+                        </button>
+                        <button>
+                            <a href="del_content.php?no=<?php echo $no ?>">DEL</a>
+                        </button>
+                    <?php } ?>
+                </div>
                 <div class="contents">
                     <?php echo $data['contents']; ?>
                 </div>
