@@ -387,11 +387,16 @@ main {
     line-height: 3rem;
 }
 
+.prjUl>li:not(.prjUl>li:first-child, .prjUl>li:nth-child(2), .prjUl>li:last-child) {
+    margin-left: 2rem;
+    list-style: disc;
+}
+
 .prjUl>li:last-child {
     margin-bottom: 0;
 }
 
-.prjUl>li>span {
+.prjUl>li>span:not(.idpw) {
     padding: 0.5rem 1rem;
     border-radius: 3rem;
     font-size: 1.2rem;
@@ -445,6 +450,11 @@ main {
     transition: 0.3s ease;
     color: white;
     background-color: black;
+}
+
+.idpw {
+    padding: 0.3rem 0.7rem;
+    background-color: yellow;
 }
 
 .jsSpan {

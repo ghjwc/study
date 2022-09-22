@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'UhBeeJJIBBABBA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeJJIBBABBA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.5rem;
+    font-family: '¸¼Àº°íµñ', Helvetica;
+    background-color: #f5f5f5;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    padding: 3rem;
+    text-align: center;
+}
+
+header > p {
+    margin: 0 auto;
+    width: fit-content;
+    font-size: 5rem;
+    font-family: 'UhBeeJJIBBABBA';
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container > p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#container > p:first-child {
+    margin-bottom: 1rem;
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 3rem;
+    background-color: black;
+}
+
+#container > p:nth-child(2) {
+    border-bottom: 0.5rem solid tomato;
+}
+
+.lotto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem 0;
+    /* background-color: lavender; */
+}
+
+.lotto > div {
+    margin: 0 1.5rem 0 1.5rem ;
+    font-size: 5rem;
+    font-weight: bold;
+    color: lightgray;
+}
+
+.lotto > ul {
+    padding: 1rem;
+    border-radius: 2rem;
+    background-color: white;
+}
+
+
+.lotto > ul:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    width: 35rem;
+    /* background-color: aquamarine; */
+}
+
+.number {
+    margin: 0.5rem;
+    width: 10rem;
+    height: 10rem;
+    line-height: 10rem;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 5rem;
+    font-weight: bold;
+    color: white;
+    background-color: gray;
+}
+
+.txt {
+    display: flex;
+    margin: 3rem;
+    width: 54rem;
+    text-align: center;
+}
+
+.txt > p:first-child {
+    width: 65%;
+}
+
+.txt > p:last-child {
+    margin-left: 10%;
+    width: 25%;
+}
+
+.custom {
+    margin: 3rem 0;
+}
+
+.custom > p {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    width: fit-content;
+    font-size: 2rem;
+    font-weight: bold;
+    color: gray;
+}
+
+.customNumber {
+    width: 2rem;
+    height: 3rem;
+    text-align: center;
+}
+
+.btn {
+    display: flex;
+    gap: 1rem;
+}
+
+input {
+    margin-right: 1rem;
+    font-weight: bold;
+    color: tomato;
+    border-style: none;
+    border-bottom: 0.3rem dashed tomato;
+    background-color: transparent;
+}
+
+input:last-child {
+    margin-right: 0;
+}
+
+button {
+    padding: 1rem 2.5rem 1rem 2.5rem;
+    transition: transform 0.3s ease;
+    border-style: none;
+    border-radius: 3rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: gray;
+    background-color: white;
+    box-shadow: 0 0 0.5rem 0.1rem lightgray;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: translate(0.3rem, 0.3rem);
+}
+
+#showResult {
+    margin: 2rem 0 3rem 0;
+    width: 40rem;
+    height: 10rem;
+    line-height: 10rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2rem;
+    color: gray;
+    background-color: white;
+}
+
+.resultColor {
+    color: tomato;
+}
+
+@media screen and (max-width: 40rem) {
+    .lotto {
+        flex-direction: column;
+    }
+
+    .lotto > ul:first-child {
+        width: 24rem;
+        text-align: center;
+    }
+
+    .btn {
+        flex-direction: column;
+    }
+
+    #showResult {
+        width: 90%;
+    }
+}
