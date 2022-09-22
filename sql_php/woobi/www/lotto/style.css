@@ -104,22 +104,6 @@ header > p {
     background-color: gray;
 }
 
-.txt {
-    display: flex;
-    margin: 3rem;
-    width: 54rem;
-    text-align: center;
-}
-
-.txt > p:first-child {
-    width: 65%;
-}
-
-.txt > p:last-child {
-    margin-left: 10%;
-    width: 25%;
-}
-
 .custom {
     margin: 3rem 0;
 }
@@ -137,11 +121,6 @@ header > p {
     width: 2rem;
     height: 3rem;
     text-align: center;
-}
-
-.btn {
-    display: flex;
-    gap: 1rem;
 }
 
 input {
@@ -199,10 +178,6 @@ button:hover {
     .lotto > ul:first-child {
         width: 24rem;
         text-align: center;
-    }
-
-    .btn {
-        flex-direction: column;
     }
 
     #showResult {

@@ -1,178 +1,61 @@
-let numberList = [],
-    lottoNumber = [],
-    bonus;
-
-const btn = document.querySelectorAll('button'),
-        showResult = document.querySelector('.showResult'),
-        num = document.querySelectorAll('.number'),
-        today = document.querySelector('#container > p:first-child');
-
-let todayDate = new Date(),
-    year = todayDate.getFullYear(),
-    month = todayDate.getMonth() + 1,
-    date = todayDate.getDay();
-
-today.innerHTML = `${year}년 ${month}월 ${date}일`;
-
-today.valueAsDate = new Date;
-
-function autoMakeNumner() {
-    buycnt = 0;
-
-    while (buycnt < 1000) {
-        numberList = [];
-        buycnt++;
-
-        for (let i = 1; i < 46; i++) {
-            numberList.push[i];
+var finish = 0;
+window.onload = function (e) {
+    var li = document.querySelectorAll('.circles>li');
+    setInterval(function () {
+        for (var i = 0; i < li.length; i++) {
+            li[i].style.left = Math.floor(Math.random() * 101) + "%";
         }
-        numberList.sort(() => Math.random() - 0.5);
+    }, 25000);
 
-        let autoLottoNumber = numberList.slice(0, 6);
-
-        autoLottoNumber.sort((a, b) => a - b);
-
-        let sameCnt = 0;
-
-        for (let j = 0; j < 6; j++) {
-            autoLottoNumber.find((value) => {
-                if (lottoNumber[j] == value) {
-                    sameCnt++;
-                }
-            });
+    document.body.onclick = function (e) {
+        finish = 0;
+        this.style.pointerEvents = "none";
+        document.getElementById("lucky").innerHTML = "Please wait ...";
+        var listLotto = document.querySelectorAll('.lotto>li');
+        var lotto = getLotto();
+        for (var i = 0; i < listLotto.length; i++) {
+            animateValue(listLotto[i], 0, lotto[i], 5000, 6);
         }
-
-        if (sameCnt == 3) break;
     }
 }
 
-function chkResult() {
-    let customNumberList = [];
-    const customNumber = document.querySelectorAll('.customNumber');
-    
-    for (let i = 0; i < 6; i++) {
-        customNumberList.push(customNumber[i].value);
-    }
+function getLotto() {
+    var max = 6;
+    var lotto = new Array(max);
+    var count = 0;
+    var mFlag = true;
 
-    let sameCnt = 0;
-
-    for (let j = 0; j < 6; j++) {
-        customNumberList.find((value) => {
-            if (numberList[j] == value) {
-                sameCnt++;
-            }
-        });
-    }
-
-    let bonusChk = false;
-    customNumberList.find((value) => {
-        if (bonus == value) {
-            bonusChk = true;
+    while (count < max) {
+        var number;
+        number = Math.floor(Math.random() * 45) + 1;
+        for (var i = 0; i < count; i++) {
+            if (lotto[i] == number) mFlag = false;
         }
-    });
-
-    switch (sameCnt) {
-        case '3':
-            showResult.innerText = '5등';
-            break;
-        case '4':
-            showResult.innerText = '4등';
-            break;
-        case '5':
-            if (bonusChk) {
-                showResult.innerText = '2등';
-            } else {
-                showResult.innerText = '3등';
-            }
-            break;
-        case '6':
-            showResult.innerText = '1등';
-            break;
-        default:
-            showResult.innerText = '꽝';
-            break;
+        if (mFlag) {
+            lotto[count] = number;
+            count++;
+        }
+        mFlag = true;
     }
+    return lotto;
 }
 
-function makeNumber2() {
-    numberList2 = [];
-
-    for (let i = 0; i < 7; i++) {
-        let number2 = Math.floor(Math.random() * 44) + 1;
-
-        for (let j in numberList2) {
-            while (true) {
-                if (numberList2[j] == number2) {
-                    number2 = Math.floor(Math.random() * 44) + 1;
-                } else {
-                    break;
-                }
+function animateValue(id, start, end, duration, counter) {
+    var range = end - start;
+    var current = start;
+    var increment = end > start ? 1 : -1;
+    var stepTime = Math.abs(Math.floor(duration / range));
+    // var obj = document.getElementById(id);
+    var timer = setInterval(function () {
+        current += increment;
+        id.innerHTML = current;
+        if (current == end) {
+            clearInterval(timer);
+            finish++;
+            if (finish == counter) {
+                document.body.style.pointerEvents = "auto";
+                document.getElementById("lucky").innerHTML = "Your lucky number is";
             }
         }
-        numberList2.push(number2);
-    }
-    let bonus = numberList2.pop();
-    numberList2.sort((a, b) => a - b);
-
-    for (let k = 0; k < 7; k++) {
-        if (k == 6) {
-            num[k].innerText = bonus;
-        } else {
-            num[k].innerText = numberList2[k];
-        }
-
-        if (num[k].innerText < 10) {
-            num[k].style.backgroundColor = 'lightpink';
-        } else if (num[k].innerText < 20) {
-            num[k].style.backgroundColor = 'lightskyblue';
-        } else if (num[k].innerText < 30) {
-            num[k].style.backgroundColor = 'tomato';
-        } else if (num[k].innerText < 40) {
-            num[k].style.backgroundColor = 'plum';
-        } else {
-            num[k].style.backgroundColor = 'lightseagreen';
-        }
-    }
+    }, stepTime);
 }
-
-function makeNumber() {
-    numberList = [];
-
-    for (i = 0; i < 46; i++) {
-        numberList.push(i);
-    }
-
-    numberList.sort(() => Math.random() - 0.5);
-
-    lottoNumber = numberList.slice(0, 7);
-
-    bonus = lottoNumber.pop();
-
-    lottoNumber.sort((a, b) => a - b);
-
-    for (j = 0; j < 7; j++) {
-        if (j == 6) {
-            num[j].innerText = bonus;
-        } else {
-            num[j].innerText = numberList[j];
-        }
-
-        if (num[j].innerText < 10) {
-            num[j].style.backgroundColor = 'lightpink';
-        } else if (num[j].innerText < 20) {
-            num[j].style.backgroundColor = 'lightskyblue';
-        } else if (num[j].innerText < 30) {
-            num[j].style.backgroundColor = 'tomato';
-        } else if (num[j].innerText < 40) {
-            num[j].style.backgroundColor = 'plum';
-        } else {
-            num[j].style.backgroundColor = 'lightseagreen';
-        }
-    }
-}
-
-btn[0].addEventListener('click', makeNumber);
-btn[1].addEventListener('click', makeNumber2);
-
-btn[2].addEventListener('click', autoMakeNumner);
-btn[3].addEventListener('click', chkResult);

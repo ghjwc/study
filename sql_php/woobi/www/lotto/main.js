@@ -94,13 +94,13 @@ function chkResult() {
     }
     else if (sameCnt == 6) {            
         showResult.innerHTML = "<span class='resultColor'>1등</span> 당첨!";
-    } else {            
-        showResult.innerHTML = "<span class='resultColor'>꽝!!</span> 안타깝지만, 다음 기회에~";
+    } else {
+        showResult.innerHTML = "<span class='resultColor'>꽝!!</span> 다음 기회에~";
     }
 }
 
 function makeNumber2() {
-    numberList2 = [];
+    let numberList2 = [];
 
     for (let i = 0; i < 7; i++) {
         let number2 = Math.floor(Math.random() * 44) + 1;
@@ -177,5 +177,4 @@ function makeNumber() {
 }
 
 btn[0].addEventListener('click', makeNumber);
-btn[1].addEventListener('click', makeNumber2);
-btn[2].addEventListener('click', chkResult);
+btn[1].addEventListener('click', chkResult);
