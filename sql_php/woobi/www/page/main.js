@@ -53,7 +53,7 @@ window.addEventListener('scroll', () => {
     });
 
     secs.forEach((sec) => {
-        if (sec.offsetTop <= window.scrollY && (sec.offsetTop + sec.clientHeight) >= window.scrollY) {
+        if ((sec.offsetTop - headerBack.scrollHeight) <= window.scrollY && ((sec.offsetTop - headerBack.scrollHeight) + sec.clientHeight) >= window.scrollY) {
             lis[index].style.background = 'black';
             lis[index].style.color = 'white';
         }
@@ -129,17 +129,11 @@ mobileTop.onclick = () => {
 
 // skills
 let skillsColor = document.querySelectorAll('.skillsColor'),
-    skillsPer = document.querySelectorAll('.skillsPer');
-
-// window.addEventListener('scroll', () => {
-//     if ((secs[1].offsetTop - headerBack.scrollHeight) <= window.scrollY) {
-//         console.log('test');
-//     }
-// });
+    skillsPer = document.querySelectorAll('.skillsPer'),
+    pause = 0;
 
 window.addEventListener('scroll', () => {
-
-    if ((secs[1].offsetTop - headerBack.scrollHeight) <= window.scrollY) {
+    if ((secs[0].offsetTop - headerBack.scrollHeight) <= window.scrollY && pause == 0) {
 
         let t = [50, 50, 50, 50, 50],
         s = [90, 90, 80, 50, 70],
@@ -153,7 +147,7 @@ window.addEventListener('scroll', () => {
                     num[i] += 1;
                     skillsColor[i].dataset.value = num[i];
                     skillsColor[i].style.width = num[i] + '%';
-                    // console.log(num[i]);
+                    
                     if (num[i] == s[i]) {
                         clearInterval(timer[i]);
                     }
@@ -162,16 +156,6 @@ window.addEventListener('scroll', () => {
                 }, t[i]);
             })(i);
         }
+        pause++;
     }
 });
-
-    // if (secs[1].offsetTop - headerBack.scrollHeight) {
-    //     skillsColor.forEach((color) => {
-    //         color.style.transition = '3s';
-    //     });
-    //     skillsColor[0].style.width = '90%';
-    //     skillsColor[1].style.width = '90%';
-    //     skillsColor[2].style.width = '80%';
-    //     skillsColor[3].style.width = '50%';
-    //     skillsColor[4].style.width = '70%';
-    // }
