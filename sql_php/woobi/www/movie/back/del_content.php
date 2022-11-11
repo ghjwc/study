@@ -4,7 +4,12 @@
     $no = $_GET['no'];
 
     $sql = "DELETE FROM MovieBoard
-            WHERE contentsNo = $no";
+            WHERE contentsNo = $no,
+                userID = '$userID',
+                insertTime = '$insertTime',
+                userRe = '$userRe',
+                reNo = '$reNo'
+            ";
 
     $result = $conn->query($sql);
 

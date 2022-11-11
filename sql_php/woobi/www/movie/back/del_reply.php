@@ -4,7 +4,8 @@
     $no = $_GET['no'];
 
     $sql = "DELETE FROM MovieRe
-            WHERE contentsNo = $no";
+            WHERE contentsNo = $no
+            ";
 
     $result = $conn->query($sql);
 
